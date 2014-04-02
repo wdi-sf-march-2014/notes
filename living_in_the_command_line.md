@@ -1,8 +1,47 @@
+
 # Living in the Command Line
 Web programmers have to live on the command line.  It gives us fast, reliable, and automatable control over computers.  Web servers usually don't have graphical interfaces, so we need to interact with them through command line and programmatic interfaces.  Once you become comfortable using the command line, staying on the keyboard will also help you keep an uninterrupted flow of work going without the disruption of shifting to the mouse.
 
-## Notes before we start
+Regarding scripts which you may find on the web while searching for solutions, assume they are going to do something bad
+
+Important Note:
+***	You should not copy / paste scripts from web pages and run them in your terminal until you have read them and understand what they do, bad things can happen, particularly with sudo and su commands ***
+
+## Overview
+* Current Directory
+* Home Directory
+* Root Directory
+* `ls`, `cd`, `pwd`, commands
+* File Permissions
+* Tab Completion
+* `mv`, `cp` and `rm` commands
+* `which ruby`
+
+###[Bonus Topics](#bonus)
+* Terminal Cheat Sheet
+* `cat ~/.bash_profile`
+* `echo "$PATH"`
+* `export EDITOR='subl -w'`
+* Different Types of shell
+* Custom Git Prompt
+
+
+## Getting Help
 For any command we discuss here, the command `man`, short for __manual__, will give a (hopefully) detailed explanation of that command.  Sometimes that explanation will be too detailed for you.  When you get lost in a man page and you want to understand it, start again from the beginning of of the __man page__ and keep repeating.  Hopefully you will get further into the page each time you read it.
+
+Many advanced commands also accept the --help option, but not all, but if you get stuck it can be worth a try. Most of the commands covered in this simple overview do not support this feature
+
+	$ git --help
+	
+	usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+__Note:__ In documentation we often see a `#` or a `$` prefix before code examples, these characters are used to indicate that the example is a something which is executed in the terminal (as opposed to being a code sample) and usually these are not supposed to be entered when you execute a command. 
+
+
 
 ## Metaphors
 The command line is my home.  I literally think of using the command line as walking around a building.
@@ -158,7 +197,43 @@ Sometimes it's important to know how the shell finds the commands that you run. 
 
 The shell finds these commands by looking at the PATH variable in the shell.  `echo $PATH` will show you the contents of PATH.  It should be a list of directories separated by `:`.  When you run any command, the shell looks in the directories for files that match the name of the command you're trying to run, and executes the first one it finds.  Most of you should have a line changing PATH in your `~/.bash_profile` file, which is run every time you open a new terminal session (tab or window).
 
-#### Further Reading
+
+
+##<a name="bonus"></a>Bonus Topics
+
+###Terminal Cheat Sheet
+Bookmark this:
+
+* [bit.ly/terminalcheats](bit.ly/terminalcheats)
+
+###Customize your shell
+When a bash shell starts, some (usually hidden) files are automatically read to set up it's environment variables and aliases. Try this:
+
+*	`cat ~/.bash_profile`
+
+### Take control of your PATH
+When you type in a command, the shell looks in all the folders in the `PATH` variable to find which one to execute. What's in your path?
+
+* `echo "$PATH"`
+
+### Set your default editor
+Just made a git commit without a comment? You may find yourself in `vi` hell. You can avoid this by setting your default editor in your `~/.bash_profile`
+
+* `export EDITOR='subl -w'`
+
+### Different Types of Shell
+You'll mostly be using `bash` as your shell, but there are other similiar programs which you may see at work
+
+* [http://unixhelp.ed.ac.uk/shell/oview2.html](http://unixhelp.ed.ac.uk/shell/oview2.html)
+
+
+###Custom Git Prompt
+* Add tab completion for git commands and branch names, try these instructions:
+	[http://bit.ly/gitprompt](http://bit.ly/gitprompt)
+	
+
+
+## Further Reading
 Linux is almost the same as OSX, and this is a great manual about the Linux command line:
 
 [The GNU Guide to the Command Line](http://en.flossmanuals.net/command-line/)
@@ -171,23 +246,3 @@ Here's an interesting anecdote about why Standard Output and Standard Error are 
 
 [The Birth of Standard Error](http://spinellis.gr/blog/20131211/)
 
-## Everything is Text (Almost)
-
-Programs and code are basically all text.  We can edit them with any text editor.   We want an editor that's easy to use but has a programmer's features.  Some document editors are not text editors.  For example, Microsoft Word saves files by default in the Microsoft Word Document format which is not text, and we can't view it using `cat` and `grep`, and can't manipulate it using a text editor.
-
-We use Sublime Text because it's easy, has been extended to be good for editing a lot of programming languages, and it's made for programmers.  
-
-You also might see Vim or other terminal editors, which are good because they don't require a graphical (non-command line) interface to use, so we can use them over the internet to edit files on remote servers, and to edit files in the context of terminal commands.
-
-Files are files, names are just names, file extensions are just a convenience so programs like Sublime Text can be smart about showing the files to you, it doesn't make a difference when it comes to running them.
-
-Programmer's editors have many features that editors like Word do not have, like:
-  
-  - Auto-reindentation.  Edit -> Line -> Reindent in Sublime Text will reindent code to make it more readable.
-  - Syntax highlighting.  Sublime Text will show code in helpful colors to make it more readable.
-  - Parenthesis matching. Sublime text will show you the matching close parenthesis when you highlight an open parenthesis, and vice versa.
-  
-Sublime Text's settings can be adjusted.  Be proactive in making your environment comfortable and you will become more productive.
-
-
- 
