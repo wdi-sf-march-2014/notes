@@ -151,9 +151,11 @@ Now try `ls` again.  Do you see the `books.txt` file?  Look at the contents with
 
 Using the closing angle bracket `>` in this way is called redirection.  Every command that we run in the shell has an input, an output, an error output, and arguments/operands.  We are saying:  "Run `echo` with this string as an operand, and take the output and put it in a new file called bookshelf."  Try running `ls` again, and `cat` our new file.  
 
-	echo " but it does not break, and does it's job admirably" >> bookshelf.txt
+Two angle brackets `>>` appends the string to the end of the file:
 
-Two angle brackets `>>` appends the string to the end of the file, try `cat bookshelf.txt` to see the result
+	echo "It does not break, it does its job admirably" >> bookshelf.txt
+
+Try `cat bookshelf.txt` to see the result
 
 
 Adapted from [http://en.flossmanuals.net/command-line/piping/](http://en.flossmanuals.net/command-line/piping/)
