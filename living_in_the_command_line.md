@@ -123,7 +123,7 @@ Operands are what comes after a command, so we write `mkdir living_room` to make
 Let's `cd` into our new `living_room`  Look around with `ls`, and `ls -a`.  What do you see?
 
 
-I want my living room to have a bookshelf full of books.  Let's make a file that lists all of our books.  Type `subl books` to open Sublime Text editing a new file called `books`.  Add a few books, copy and paste the section below so we all have some books in common, and save the file.  Make sure the books you add are in the same format:  `<author_given_name>, <author_last_name>:<title>`.
+I want my living room to have a bookshelf full of books.  Let's make a file that lists all of our books.  Type `subl books.txt` to open Sublime Text editing a new file called `books.txt`.  Add a few books, copy and paste the section below so we all have some books in common, and save the file.  Make sure the books you add are in the same format:  `<author_given_name>, <author_last_name>:<title>`.
 
 ```
 Carroll, Lewis:Through the Looking-Glass
@@ -141,13 +141,13 @@ Mill, John Stuart:On Liberty
 Bunyan, John:Saved by Grace
 ```
 
-Now try `ls` again.  Do you see the `books` file?  Look at the contents with `cat`.  Let's make another, smaller file, which will be our bookshelf.  Describe the bookshelf, and just say the description to ourselves.
+Now try `ls` again.  Do you see the `books.txt` file?  Look at the contents with `cat`.  Let's make another, smaller file, which will be our bookshelf.  Describe the bookshelf, and just say the description to ourselves.
 
 	echo "The particle board of this bookshelf flexes under the weight of the books it holds, but it serves its purpose and does it cheaply."
 	
-`echo` is a command that just echoes (outputs) what we give to it as arguments (same as operands).  Now we want to put that line in a file called `bookshelf`.
+`echo` is a command that just echoes (outputs) what we give to it as arguments (same as operands).  Now we want to put that line in a file called `bookshelf.txt`.
 	
-	echo "The particle board of this bookshelf flexes under the weight of the books it holds, but it serves its purpose and does it cheaply." > bookshelf
+	echo "The particle board of this bookshelf flexes under the weight of the books it holds, but it serves its purpose and does it cheaply." > bookshelf.txt
 
 Using the closing angle bracket `>` in this way is called redirection.  Every command that we run in the shell has an input, an output, an error output, and arguments/operands.  We are saying:  "Run `echo` with this string as an operand, and take the output and put it in a new file called bookshelf."  Try running `ls` again, and `cat` our new file.  
 
@@ -157,15 +157,15 @@ Adapted from [http://en.flossmanuals.net/command-line/piping/](http://en.flossma
 
 Let's look back at our books.  Read out the file.  Notice that the list of books is unsorted!  We need to organize this using the `sort` command.
 
-Try `cat books`, and `cat books | sort`.  The character `|` is called the pipe.  We take the output from `cat books` and send it through a pipe to `sort`.  The output of `cat books` becomes the input of `sort`.  Now send the output of `sort` to a file:
+Try `cat books.txt`, and `cat books.txt | sort`.  The character `|` is called the pipe.  We take the output from `cat books.txt` and send it through a pipe to `sort`.  The output of `cat books.txt` becomes the input of `sort`.  Now send the output of `sort` to a file:
 
-	cat books | sort > sorted_books
+	cat books.txt | sort > sorted_books.txt
 
 Look around again to see how the room has changed.
 
 There are dozens of powerful tools we can leverage using pipes.  One of the ones you'll be using the most is `grep`.
 
-	cat books | grep Mil
+	cat books.txt | grep Mil
 	
 See how we filtered out just the lines that contain Mil?  Try grepping for something else.
 
@@ -173,15 +173,15 @@ See how we filtered out just the lines that contain Mil?  Try grepping for somet
 
 Now that we have our books sorted, we really don't need our unsorted list of books.  `mv` stands for move, and that's how we move files and folders from place to place.
 
-	mv sorted_books books
+	mv sorted_books.txt books.txt
 	
 Look around and see how the room has changed.
 
 #### Copying 
-To copy files, we use the `cp` command.  Extrapolate from the way we used `mv` to copy the file `bookshelf` to add a file `second_bookshelf`.
+To copy files, we use the `cp` command.  Extrapolate from the way we used `mv` to copy the file `bookshelf.txt` to add a file `second_bookshelf.txt`.
 
 #### Removing
-`rm` is short for remove.  Use `rm` to remove the `second_bookshelf` file we just created with `cp`.
+`rm` is short for remove.  Use `rm` to remove the `second_bookshelf.txt` file we just created with `cp`.
 
 #### The Shell is Programming
 
