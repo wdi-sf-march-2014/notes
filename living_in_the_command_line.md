@@ -143,11 +143,11 @@ Bunyan, John:Saved by Grace
 
 Now try `ls` again.  Do you see the `books.txt` file?  Look at the contents with `cat`.  Let's make another, smaller file, which will be our bookshelf.  Describe the bookshelf, and just say the description to ourselves.
 
-`echo "The particle board of this bookshelf flexes under the weight of the books it holds, but it serves its purpose and does it cheaply."`
+	echo "This bookshelf flexes under the weight of the books it holds."
 	
 `echo` is a command that just echoes (outputs) what we give to it as arguments (same as operands).  Now we want to put that line in a file called `bookshelf.txt`.
 	
-`echo "The particle board of this bookshelf flexes under the weight of the books it holds, but it serves its purpose and does it cheaply." > bookshelf.txt`
+	echo "This bookshelf flexes under the weight of the books it holds" > bookshelf.txt
 
 Using the closing angle bracket `>` in this way is called redirection.  Every command that we run in the shell has an input, an output, an error output, and arguments/operands.  We are saying:  "Run `echo` with this string as an operand, and take the output and put it in a new file called bookshelf."  Try running `ls` again, and `cat` our new file.  
 
