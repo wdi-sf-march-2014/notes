@@ -4,6 +4,7 @@
 
 * ** Everything in Ruby is an Object **
 * ** Every Object is an Instance of a Class **
+* ** Classes are Objects Too **
 
 ##Lesson Objectives
 In Ruby, you will be able to:
@@ -11,11 +12,9 @@ In Ruby, you will be able to:
 * Find an Object's class
 * Define a new Class
 * Create instances of your Class
-* Use inheritance
-* Override a inherited method
 * Use `attr_reader`, `attr_accessor`
 
-##Classes Demo
+##Objects and Classes Demo
 
 	hello = 'Hello World!'
 	p hello.class
@@ -28,38 +27,33 @@ In Ruby, you will be able to:
 	p attendees[0].class
 	
 	nothing = nil
-  	p nothing.class
+	p nothing.class
+  	
 
 ##Describing a Potential Class
 
-We're thikning about `Rectangles`
+We're thinking about the `Customers` at our `DonutShoppe`
 
 Pair Up and come up with at least two answers to each of the following:
 
-	* What attributes does every rectangle have?
-	* What questions can we ask any rectangle?
-	* What operations can we perform on any rectangle?
+	* What information do we know about a customer?
+	* What actions can a customer perform?
+	* What questions can we ask any customer?
 	
-##Using Hashes
-	myRectangle = {
+##Hashes are Flexible
+How can we represent these information, actions and questions in a Hash?
+
+	aCustomer = {
 	   ...
 	}
-	
+
 
 ##Defining a New Class
 
-	class Rectangle
+	class Customer
 	
 	end
 
-
-
-##Inheritance
-
-* Triangle
-	* What attributes does every triangle have?
-	* What questions can we ask any triangle?
-	* What operations can we perform on any triangle?
 	
 ##Hashes
 
