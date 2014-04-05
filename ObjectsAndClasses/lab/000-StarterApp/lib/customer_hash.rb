@@ -29,8 +29,10 @@ def attempt_credit_purchase (customer, amount, description)
     else
       customer['purchases'] = [description]
     end
+    true
   else
     puts "DECLINED: #{description} Purchase! Only $#{'%.2f' % available_credit(customer)} credit available"
+    false
   end
 end
 
