@@ -7,100 +7,260 @@ Regarding scripts which you may find on the web while searching for solutions, a
 Important Note:
 ***	You should not copy / paste scripts from web pages and run them in your terminal until you have read them and understand what they do, bad things can happen, particularly with sudo and su commands ***
 
-## Overview
-* Current Directory
-* Home Directory
-* Root Directory
-* `ls`, `cd`, `pwd`, commands
-* File Permissions
-* Tab Completion
-* `mv`, `cp` and `rm` commands
-* `which ruby`
+#Topics
+* [Introduction](#intro)
+  * What is the Terminal
+  * Opening the Terminal Application
+* [Current Working Directory](#current)
+  * Current Directory
+  * Home Directory
+  * `ls`,`pwd`, commands
+* [Navigating Around](#navigating)
+  * Root Directory
+  * `cd`  
+  * Absolute and Relative Paths
+  * Tab Completion
+* [File Manipulation](#files)
+  * `mkdir`
+  * Editing Files   
+  * echo, Redirection and Piping
+  * Moving, Copying and Removing
+* [Command Execution](#execution)  
+  * `$PATH`
+  * `which ruby`
+* [Review](#review)
+  * Getting Help
+  * Bonus Topics
+  Further Reading
 
-###[Bonus Topics](#bonus)
-* Terminal Cheat Sheet
-* `cat ~/.bash_profile`
-* `echo "$PATH"`
-* `export EDITOR='subl -w'`
-* Different Types of shell
-* Custom Git Prompt
+
+#<a name="intro"></a>Introduction
+## What is the Terminal?
+Terminal is a modern version of an 'original' `User Interface` for unix based computers. At that time a [Text Terminal](http://en.wikipedia.org/wiki/Computer_terminal#Text_terminals) is all you would have seen, no windows, no mouse. Because of this history, it's very powerful but sometimes a little cryptic. 
+
+Don't worry though, with a bit of practice you'll be flying around like a pro!
+
+Although they technically mean slightly different things, the following terms are synonyous with the Terminal Environment
+
+  *  Shell
+  *  bash ('Bourne-Again shell', although I've haven't heard that used recently)
+  *  Command Line
+  *  Text Terminal
+  *  DOS Prompt (on windows machines)
+  *  SSH (on remote machines)
+  *  Bourne Shell
+  *  csh
+  *  ksh
+  *  sh
+  *  [UNIX Shell](http://en.wikipedia.org/wiki/Unix_shell)
+
+## Opening the Terminal
+__Follow Along:__
+
+1.  In the top right of the screen click the Magnifing Glass icon to bring up 'Spotlight' and type 'Terminal'
+2.  Once Terminal starts locatte the icon in the doc and select `Options->Keep In Dock` so that it's always handy
 
 
-## Getting Help
-For any command we discuss here, the command `man`, short for __manual__, will give a (hopefully) detailed explanation of that command.  Sometimes that explanation will be too detailed for you.  When you get lost in a man page and you want to understand it, start again from the beginning of of the __man page__ and keep repeating.  Hopefully you will get further into the page each time you read it.
+#<a name="current"></a>Current Working Directory
+The file structure you see in the Terminal is the same as the one you see in the `Finder` application. Finder tends to hide some of the folders from you to keep things simple for most users, but everywhere that you go in Finder is accessible through 'Terminal'. 
 
-Many advanced commands also accept the --help option, but not all, but if you get stuck it can be worth a try. Most of the commands covered in this simple overview do not support this feature
 
-	$ git --help
+## Where am I?
+Typically the shell will start in your `HOME` directory, each user has their own `HOME` directory, but on your computer it is common for you to be the only real user. At any given time a terminal shell process has one __current working directory__
+
+__Follow Along:__
+
+	[stuart:~]$ pwd
+	/Users/stuart
 	
-	usage: git [--version] [--help] [-C <path>] [-c name=value]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
+For me this is `Users/stuart`, what is the __current working directory__ of your shell process? 
 
-__Note:__ In documentation we often see a `#` or a `$` prefix before code examples, these characters are used to indicate that the example is a something which is executed in the terminal (as opposed to being a code sample) and usually these are not supposed to be entered when you execute a command. 
+Wherever we are, `pwd`, short for __print working directory__, will show us what directory we are in.
 
+__Follow Along:__
 
+	[stuart:~]$ open .
+Wherever we are, `open .`, opens a `Finder` window in the current, this can be handy sometimes
 
-## Metaphors
-The command line is my home.  I literally think of using the command line as walking around a building.
-
-#### Where am I?
-`/` is the entrance - the __root directory__ - but I usually start out in `/Users/raphael`, which is my room, my __home directory__.  My home directory can also be called `~`. 
-
-The room I'm currently in is called the __working directory__.  When I open a new terminal, my home directory is the working directory.  Wherever we are, `pwd`, short for __print working directory__, will show us what directory we are in.
    
-#### Look around:
-I look around the room I'm in  - the working directory - with `ls`.  `ls` stands for list directory contents. Try typing `open .` to open the current directory in Finder, then type `ls`.  You should see something like the result below:
+## Looking Around
+What can we find out about the  __current working directory__ ?
 
-    Applications      Library           Pictures          downloads.txt     output.pdf        workspace
-    Desktop           Movies            Public            dump.rdb          sizereport
-
-  
-I can see everything, including hidden files and folders, with `ls -a` for List All:  
-
-  - In every room (folder) you'll see `.`, which I think of as being the floor.
-  - You'll also see `..`, the door you came in through, which is the folder above the current folder.
-  - Any other files which begin with `.` are considered hidden files.
-		
-		.                                                   .netrc
-		..                                                  .pip
-		.ghc                                                Applications
-		.gitconfig                                          Desktop
-		.gnupg                                              Documents
-		.gnuplot_history                                    Downloads
+One of the most useful commands is:
 
 
-I can look at everything in a more detailed list with `ls -l`.  List in a long format.  I've put in a header line so you can see what some of the columns are.  
+	[stuart:~]$ ls 
 
-		Permissions     Owner    Group    Size   Last Modified Filename
-		drwxr-xr-x   45 raphael  staff      1530 Nov 21 23:30  Applications
-		drwx------+  11 raphael  staff       374 Dec  4 09:09  Desktop
-		-rw-r--r--    1 raphael  staff      8872 Nov 13  2012  downloads.txt
-		-rw-r--r--    1 raphael  staff    191858 Nov 16 14:45  dump.rdb
-		lrwxr-xr-x    1 root     staff         4 May 10  2011  usr -> /usr
+Which **l**i**s**ts the files and directories in the current working directory:
 
-Here's a tutorial on file permissions, if you're interested in unpacking that column: [http://en.flossmanuals.net/command-line/permissions/](http://en.flossmanuals.net/command-line/permissions/)
 
-These can be combined into `ls -la`. List all in a long format.
+	[stuart:~]$ ls 
+	Applications	Justinmind	Pictures	gitshell.sh rorshell.sh
+	Desktop		Library		Public		hashes	rorshellws.sh
+	Documents	Movies		bin		helloroom	work
+	Downloads	Music		git_profile.sh	phpshell.sh
 
-Some of the entries I see are other rooms, which we call directories or folders.  List the contents of another room with `ls [dirname]`.  Try `ls Downloads`.  We can go further down into the house, into a sub-directory.
+Personally I find this a little difficult to read so I use the long form:
 
-#### Move around:
-I can change the room I'm in with `cd`.  `cd` stands for change directory.
+	[stuart:~]$ ls -l
+	total 48
+	drwxr-xr-x    2 stuart  staff    68 Dec  4 15:13 Applications
+	drwx------+   6 stuart  staff   204 Mar 23 18:20 Desktop
+	drwx------+  11 stuart  staff   374 Feb 27 10:57 Documents
+	drwx------+ 141 stuart  staff  4794 Apr  5 08:04 Downloads
+	drwxr-xr-x    3 stuart  staff   102 Nov 12 13:56 Justinmind
+	drwx------@  56 stuart  staff  1904 Apr  4 21:58 Library
+	drwx------+   3 stuart  staff   102 Nov  4 10:49 Movies
+	drwx------+   8 stuart  staff   272 Mar  5 15:48 Music
+	drwx------+  20 stuart  staff   680 Mar 23 12:53 Pictures
+	drwxr-xr-x+   5 stuart  staff   170 Nov  4 10:49 Public
+	drwxr-xr-x    3 stuart  staff   102 Jan 31 13:21 bin
+	-rwxr-xr-x    1 stuart  staff   184 Nov  8 16:41 git_profile.sh
+	-rw-r--r--    1 stuart  staff   327 Mar 27 09:22 gitshell.sh
+	drwxr-xr-x   22 stuart  staff   748 Feb  3 15:15 hashes
+	drwxr-xr-x    3 stuart  staff   102 Apr  1 10:34 helloroom
+	-rwxr-xr-x    1 stuart  staff   409 Nov 15 12:13 phpshell.sh
+	-rwxr-xr-x    1 stuart  staff   299 Jan 31 13:27 rorshell.sh
+	-rwxr-xr-x    1 stuart  staff   316 Feb  2 10:35 rorshellws.sh
+	lrwxr-xr-x    1 stuart  staff     5 Nov  7 18:22 work -> /work
 
-We can move back to the root directory: `cd /`.  A path which starts from the entrance, the root directory, is called an __absolute path__.  Now look around.  What do you see?
+Now I can see a lot more clearly what files are in my current working directory. Some of these items are files, some are directories and in my case also have a `link` which we'll deal with on another day :)
 
-We can move back home: `cd ~`.  What do you see?
+The ls command can take a directory as an argument
 
-I can move into my workspace directory: `cd workspace`.  A path which is relative to the current directory is called a __relative path__.
+	[stuart:~]$ ls -al Documents/
+	total 40360
+	drwx------+ 11 stuart  staff      374 Feb 27 10:57 .
+	drwxr-xr-x+ 76 stuart  staff     2584 Apr  6 10:30 ..
+	-rw-r--r--@  1 stuart  staff    12292 Mar  5 15:48 .DS_Store
+	drwxr-xr-x   4 stuart  staff      136 Feb 22 20:01 Rails
+	-rw-r--r--@  1 stuart  staff  8154896 Feb 27 10:57 Profile.png
+	-rw-r--r--@  1 stuart  staff  6258658 Feb 27 10:57 Profile2.png
 
+The ls command can also take a wildcard as an argument
+
+	[stuart:~]$ ls -la Documents/*.png
+	-rw-r--r--@ 1 stuart  staff  8154896 Feb 27 10:57 Documents/Profile.png
+	-rw-r--r--@ 1 stuart  staff  6258658 Feb 27 10:57 Documents/Profile2.png
+
+##Hidden Files
+Have you ever heard of `hidden files`? Well it's true, they are real! and we can see them:
+
+	[stuart:~]$ ls -la
+	total 368
+	drwxr-xr-x+  76 stuart  staff   2584 Apr  6 10:30 .
+	drwxr-xr-x    6 root    admin    204 Nov  4 10:47 ..
+	-rw-r--r--@   1 stuart  staff  15364 Apr  2 16:00 .DS_Store
+	-rw-------    1 stuart  staff   8949 Apr  1 17:21 .bash_history
+	-rw-r--r--    1 stuart  staff    285 Mar 17 14:50 .bash_profile
+	-rw-r--r--    1 stuart  staff     59 Feb  2 13:47 .bashrc
+	drwxr-xr-x    5 stuart  staff    170 Dec  5 13:21 .bundler
+	-rw-r--r--    1 stuart  staff    379 Mar  3 17:36 .gitconfig
+	drwxr-xr-x   30 stuart  staff   1020 Feb  2 13:47 .rvm
+	drwxr-xr-x    2 stuart  staff     68 Dec  4 15:13 Applications
+	drwx------+   6 stuart  staff    204 Mar 23 18:20 Desktop
+	drwx------+  11 stuart  staff    374 Feb 27 10:57 Documents
+	drwx------+ 141 stuart  staff   4794 Apr  5 08:04 Downloads
+	drwxr-xr-x    3 stuart  staff    102 Nov 12 13:56 Justinmind
+	drwx------@  56 stuart  staff   1904 Apr  4 21:58 Library
+	drwx------+   3 stuart  staff    102 Nov  4 10:49 Movies
+	drwx------+   8 stuart  staff    272 Mar  5 15:48 Music
+	drwx------+  20 stuart  staff    680 Mar 23 12:53 Pictures
+	drwxr-xr-x+   5 stuart  staff    170 Nov  4 10:49 Public
+	drwxr-xr-x    3 stuart  staff    102 Jan 31 13:21 bin	....
+	-rwxr-xr-x    1 stuart  staff    184 Nov  8 16:41 git_profile.sh
+	-rw-r--r--    1 stuart  staff    327 Mar 27 09:22 gitshell.sh
+	drwxr-xr-x   22 stuart  staff    748 Feb  3 15:15 hashes
+	drwxr-xr-x    3 stuart  staff    102 Apr  1 10:34 helloroom
+	-rwxr-xr-x    1 stuart  staff    409 Nov 15 12:13 phpshell.sh
+	-rwxr-xr-x    1 stuart  staff    299 Jan 31 13:27 rorshell.sh
+	-rwxr-xr-x    1 stuart  staff    316 Feb  2 10:35 rorshellws.sh
+	lrwxr-xr-x    1 stuart  staff      5 Nov  7 18:22 work -> /work
+
+Hidden Files are typically used by applications to store configurations and there will be a many of them in your home directory. Most users don't want to be editing these files so they don't show up in `Finder`, but you as a software developer will be editing some these for yourself later on in the course.
+
+Hidden files are hidden because their names begin with `.`
+
+##Mini Review - Current Working Directory
+
+* pwd
+* Home Directory
+* open .
+* ls -la
+
+#<a name="navigating"></a>Navigating Around
+
+##Root Directory
+Another important directory is the root directory `/`
+
+	[stuart:~]$ cd /
+	[stuart:/]$ pwd
+	/
+
+As we discovered the files on your computer are structured in a tree. The 'top' of the file system is know as the `root` directory (That may sound upside down, but in our case the root is at the top :) )
+
+We can move to the __root directory__ with the command `cd /`.  
+We can move back to your __home directory__ with the command `cd ~`.  
+
+	[stuart:/]$ cd ~
+	[stuart:~]$ pwd
+	/Users/stuart
+
+You might have noticed that the prompt changed from `[stuart:/]$` to `[stuart:~]$`. The default prompt includes the current username and the current directory
+
+	[stuart:~]$ cd /Users/stuart/
+	[stuart:~]$ 
+
+The `~` always refers to the current user's home directory, this is handy for scripts and for you, but you can use the full path just as well if you know it, `pwd` will give you the full path
+
+##Absolute and Relative Paths
+Go to you home directory with `cd ~` and __Try this now__
+
+	cd ./
+
+What happened? Which directory are you in?
+
+Try this
+
+	cd ../
+	pwd
+
+What happened? Which directory are you in?
+
+
+* `./` prefixes paths relative to the current directory
+* `../` prefixes paths relative to the parent directory
+
+These  (`./` and `../`) are __relative paths__ and you can use them anywhere you would use a path
+
+	[stuart:~]$ ls -al ../Guest
+	total 0
+	drwxr-xr-x+ 11 Guest  _guest  374 Nov  4 10:47 .
+	drwxr-xr-x   6 root   admin   204 Nov  4 10:47 ..
+	drwx------+  3 Guest  _guest  102 Nov  4 10:47 Desktop
+	drwx------+  3 Guest  _guest  102 Nov  4 10:47 Documents
+	drwx------+  4 Guest  _guest  136 Nov  4 10:47 Downloads
+	drwx------+ 26 Guest  _guest  884 Nov  4 10:47 Library
+	drwx------+  3 Guest  _guest  102 Nov  4 10:47 Movies
+	drwx------+  3 Guest  _guest  102 Nov  4 10:47 Music
+	drwx------+  3 Guest  _guest  102 Nov  4 10:47 Pictures
+	drwxr-xr-x+  4 Guest  _guest  136 Nov  4 10:47 Public
+
+
+## Tab Completion
 Hitting `<TAB>` autocompletes.  Hit `<TAB>` constantly.
 
 It's important to remember that being in one room is much like being in another room.  The difference is in the contents and the relative position of other folders.
 
-#### Build new rooms (making directories with mkdir)
+##Mini Review - Navigating Around
+* root directory `/`
+* `./` and `../`
+* Absolute and Relative Paths
+* Tab Completion
+
+#<a name="files"></a>File Maniuplation
+
+##mkdir
 
 Now that we know how to move around, it's time to make some changes. We can make directories with the `mkdir` command.  Look at `man mkdir`.  What's the format of the command for making a directory?
 
@@ -116,13 +276,20 @@ Now that we know how to move around, it's time to make some changes. We can make
 		     The mkdir utility creates the directories named as operands, in the order specified, using
 		     mode rwxrwxrwx (0777) as modified by the current umask(2).
 
-Operands are what comes after a command, so we write `mkdir living_room` to make a new room, where we will keep our couches.  Keep your directory names lowercase in almost every case.  Separating words with underscores is called snake_case.
+__Operands__ (or arguments or parameters) are what comes after a command, so we write `mkdir living_room` to make a new room, where we will keep our couches.  Keep your directory names lowercase in almost every case.  Separating words with underscores is called snake_case.
 
-#### Furnishing the Room (editing files)
+__Try This__
 
-Let's `cd` into our new `living_room`  Look around with `ls`, and `ls -a`.  What do you see?
+	[stuart:~]$ cd ~
+	[stuart:~]$ mkdir living_room
 
+What command can you use to see the results of you handywork? 
 
+##Adding and Editing Files
+
+Let's `cd` into our new `living_room`  Look around with `ls`, and `ls -la`.  What do you see?
+
+__Exercise__
 I want my living room to have a bookshelf full of books.  Let's make a file that lists all of our books.  Type `subl books.txt` to open Sublime Text editing a new file called `books.txt`.  Add a few books, copy and paste the section below so we all have some books in common, and save the file.  Make sure the books you add are in the same format:  `<author_given_name>, <author_last_name>:<title>`.
 
 ```
@@ -141,17 +308,30 @@ Mill, John Stuart:On Liberty
 Bunyan, John:Saved by Grace
 ```
 
-Now try `ls` again.  Do you see the `books.txt` file?  Look at the contents with `cat`.  Let's make another, smaller file, which will be our bookshelf.  Describe the bookshelf, and just say the description to ourselves.
+Now try `ls -la` again.  Do you see the `books.txt` file?  Look at the contents with `cat`.  Let's make another, smaller file, which will be our bookshelf.  Describe the bookshelf, and just say the description to ourselves.
+
+## File Permissions
+The column on the left e.g.: `-rwxr-xr-x` displays the files' permissions. That is whether or not you can read, write or execute the file
+The display also includesthe type of file `d` for directory, `l` for link, `-` for files
+
+Here's a tutorial on file permissions, if you're interested in unpacking that column: [http://en.flossmanuals.net/command-line/permissions/](http://en.flossmanuals.net/command-line/permissions/)
+
+##echo and Redirection
+__Try This__
 
 	echo "This bookshelf flexes under the weight of the books it holds."
 	
 `echo` is a command that just echoes (outputs) what we give to it as arguments (same as operands).  Now we want to put that line in a file called `bookshelf.txt`.
+
+__Try This__
 	
 	echo "This bookshelf flexes under the weight of the books it holds" > bookshelf.txt
 
 Using the closing angle bracket `>` in this way is called redirection.  Every command that we run in the shell has an input, an output, an error output, and arguments/operands.  We are saying:  "Run `echo` with this string as an operand, and take the output and put it in a new file called bookshelf."  Try running `ls` again, and `cat` our new file.  
 
 Two angle brackets `>>` appends the string to the end of the file:
+
+__Try This__
 
 	echo "It does not break, it does its job admirably" >> bookshelf.txt
 
@@ -160,11 +340,17 @@ Try `cat bookshelf.txt` to see the result
 
 Adapted from [http://en.flossmanuals.net/command-line/piping/](http://en.flossmanuals.net/command-line/piping/)
 
-#### Piping
+## Piping
 
 Let's look back at our books.  Read out the file.  Notice that the list of books is unsorted!  We need to organize this using the `sort` command.
 
 Try `cat books.txt`, and `cat books.txt | sort`.  The character `|` is called the pipe.  We take the output from `cat books.txt` and send it through a pipe to `sort`.  The output of `cat books.txt` becomes the input of `sort`.  Now send the output of `sort` to a file:
+
+__Try This__
+
+	cat books.txt | sort
+	
+__Try This__
 
 	cat books.txt | sort > sorted_books.txt
 
@@ -172,31 +358,65 @@ Look around again to see how the room has changed.
 
 There are dozens of powerful tools we can leverage using pipes.  One of the ones you'll be using the most is `grep`.
 
+__Try This__
+
 	cat books.txt | grep Mil
 	
 See how we filtered out just the lines that contain Mil?  Try grepping for something else.
 
-#### Moving 
+## Moving 
 
 Now that we have our books sorted, we really don't need our unsorted list of books.  `mv` stands for move, and that's how we move files and folders from place to place.
+
+__Try This__
 
 	mv sorted_books.txt books.txt
 	
 Look around and see how the room has changed.
 
-#### Copying 
+## Copying 
 To copy files, we use the `cp` command.  Extrapolate from the way we used `mv` to copy the file `bookshelf.txt` to add a file `second_bookshelf.txt`.
 
-#### Removing
+__Try This__
+
+	cp bookshelf.txt second_bookshelf.txt
+
+## Removing
 `rm` is short for remove.  Use `rm` to remove the `second_bookshelf.txt` file we just created with `cp`.
 
-#### The Shell is Programming
+__Try This__
+
+	rm second_bookshelf.txt
+
+##Filename Wildcards
+
+Sometimes we want to refer to a bunch of similar files, to do this we can use wildcards. The most common wildcard to use is `*` usually along with a file extension:
+__Try This__
+
+	ls -la *.txt
+
+For more ideas go here: [How to Use Wildcards](http://www.linfo.org/wildcard.html)
+
+## Mini Review - File Maniuplation
+
+* `mkdir`
+* editing files
+* echo
+* redirection `>` and `>>`
+* piping
+* moving, copying and removing
+
+
+
+#<a name="execution"></a>Command Execution
+
+### The Shell is Programming
 
 In interacting with the terminal like we did today, we've been using a programming language called __bash__, which stands for _Bourne-again shell_.  There are many different shell languages, but the commands we went over today will work in almost any.  Another common shell is __zsh__.  
 
 The fact that we interact with the computer by programming empowers us. Instead of struggling to talk about the difference between two menus in a graphical program, we can communicate precisely about shell commands that have a predictable effect.
 
-#### What happens when you run a command?
+### What happens when you run a command?
 
 Sometimes it's important to know how the shell finds the commands that you run.  The command `which [command-name]` will tell you the location of the file which will be run when you execute that command.  For example, `which rm` on my computer gives `/bin/rm`.
 
@@ -204,9 +424,60 @@ Sometimes it's important to know how the shell finds the commands that you run. 
 
 The shell finds these commands by looking at the PATH variable in the shell.  `echo $PATH` will show you the contents of PATH.  It should be a list of directories separated by `:`.  When you run any command, the shell looks in the directories for files that match the name of the command you're trying to run, and executes the first one it finds.  Most of you should have a line changing PATH in your `~/.bash_profile` file, which is run every time you open a new terminal session (tab or window).
 
+__Try This__
+
+	[stuart:~]$ echo $PATH
+	/Uers/stuart/.rvm/gems/ruby-2.1.0/bin:/Users/stuart/.rvm/gems/ruby-2.1.0@global/bin:/Users/stuart/.rvm/rubies/ruby-2.1.0/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/stuart/.rvm/bin
 
 
-##<a name="bonus"></a>Bonus Topics
+#<a name="review"></a>Review
+##History
+What have we been up to?
+
+	[stuart:~]$	<UP ARROW>
+	[stuart:~]$	<UP ARROW>
+	[stuart:~]$	<DOWN ARROW>
+	[stuart:~]$	<DOWN ARROW>
+	[stuart:~]$	history
+##Topics	
+  * Current Directory
+  * Home Directory
+  * `ls`,`pwd`, commands
+  * Root Directory
+  * `cd`  
+  * Absolute and Relative Paths
+  * Tab Completion
+  * `mkdir`
+  * echo, Redirection and Piping
+  * Moving, Copying and Removing
+  * `$PATH`
+  * `which ruby`
+
+
+## Getting Help
+For any command we discuss here, the command `man`, short for __manual__, will give a (hopefully) detailed explanation of that command.  Sometimes that explanation will be too detailed for you.  When you get lost in a man page and you want to understand it, start again from the beginning of of the __man page__ and keep repeating.  Hopefully you will get further into the page each time you read it.
+
+Many advanced commands also accept the --help option, but not all, but if you get stuck it can be worth a try. Most of the commands covered in this simple overview do not support this feature
+
+	$ git --help
+	
+	usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+__Note:__ In documentation we often see a `#` or a `$` prefix before code examples, these characters are used to indicate that the example is a something which is executed in the terminal (as opposed to being a code sample) and usually these are not supposed to be entered when you execute a command. 
+
+
+##Bonus Topics
+* Terminal Cheat Sheet
+* `cat ~/.bash_profile`
+* `echo "$PATH"`
+* `export EDITOR='subl -w'`
+* Different Types of shell
+* Custom Git Prompt
+
 
 ###Terminal Cheat Sheet
 Bookmark this:
@@ -214,14 +485,9 @@ Bookmark this:
 * [bit.ly/terminalcheats](bit.ly/terminalcheats)
 
 ###Customize your shell
-When a bash shell starts, some (usually hidden) files are automatically read to set up it's environment variables and aliases. Try this:
+When a bash shell starts, some (usually hidden) files are automatically read to set up it's `export`ed environment variables and `alias`es. Try this:
 
 *	`cat ~/.bash_profile`
-
-### Take control of your PATH
-When you type in a command, the shell looks in all the folders in the `PATH` variable to find which one to execute. What's in your path?
-
-* `echo "$PATH"`
 
 ### Set your default editor
 Just made a git commit without a comment? You may find yourself in `vi` hell. You can avoid this by setting your default editor in your `~/.bash_profile`
