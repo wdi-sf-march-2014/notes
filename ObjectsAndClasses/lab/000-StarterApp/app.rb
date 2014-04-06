@@ -19,7 +19,8 @@ items = [
     }
 ]
 
+#Get the Receipt
 receipt = processOrder customer, items
 
-
+#Print it out!
 puts receipt

@@ -1,12 +1,8 @@
 require 'spec_helper'
 
-describe "Customer class should exist" do
-  it "should be in lib/customer.rb" do
-    check_class_defined(:Customer).should eq true
-  end
-end
+customerClassExists = check_class_defined(:Customer)
 
-if check_class_defined :Customer
+if customerClassExists
   describe Customer do
     describe "#new should take 4 parameters, first, last, dob and credit" do
       before :all do
@@ -14,6 +10,7 @@ if check_class_defined :Customer
         @customer = Customer.new('Bob','Smith',Date.new(birthyear,9,2),2000)
         @ageToCheck = Time.now.year - @birthyear
       end
+      it { Customer.should respond_to :new }
       it "should have a first_name of Bob" do
         @customer.first_name.should eq 'Bob'
       end
@@ -88,17 +85,3 @@ if check_class_defined :Customer
     end
   end
 end
-
-
-describe "OrderProcessor class should exist" do
-  it "should be in lib/order_processor.rb" do
-    check_class_defined(:OrderProcessor).should eq true
-  end
-end
-
-if check_class_defined :OrderProcessor
-  describe Customer do
-    describe "#process should take 4 parameters, first, last, dob and credit" do
-
-
-    end
