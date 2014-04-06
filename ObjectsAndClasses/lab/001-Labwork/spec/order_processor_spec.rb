@@ -43,7 +43,7 @@ if check_module_defined :OrderProcessor
         it "should take 2 parameters, customer and items array" do
           expect(OrderProcessor.processOrder(@affluentCustomer, @expensiveItems)).to(be_a(String), "Should return a receipt string")
         end
-        
+
         it "should process all the items in the array for the customer" do
           @affluentCustomer.should_receive(:full_name)
           @affluentCustomer.should_receive(:age)
