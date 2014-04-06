@@ -252,6 +252,14 @@ Hitting `<TAB>` autocompletes.  Hit `<TAB>` constantly.
 
 It's important to remember that being in one room is much like being in another room.  The difference is in the contents and the relative position of other folders.
 
+## Pair Practice
+__Exercise: 5 minutes in Pairs__ 
+
+1. Using Finder: Pick a directory somewhere under the /Users directory on your partner's computer
+2. Your Task: Navigate to that directory in a single command from your home directory using a relative or absolute path
+3. Help your partner if they are having trouble and use Tab Completion
+
+
 ##Mini Review - Navigating Around
 * root directory `/`
 * `./` and `../`
