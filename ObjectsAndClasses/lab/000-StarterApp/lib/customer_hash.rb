@@ -23,16 +23,14 @@ end
 
 def attempt_credit_purchase (customer, amount, description)
   if use_credit customer, amount
-    puts "$#{'%.2f' % amount} Purchase of #{description} Approved!"
     if customer['purchases']
       customer['purchases'].push description
     else
       customer['purchases'] = [description]
     end
-    true
+    "$#{'%.2f' % amount} Purchase of #{description} Approved!"
   else
-    puts "DECLINED: #{description} Purchase! Only $#{'%.2f' % available_credit(customer)} credit available"
-    false
+    "DECLINED: #{description} Purchase! Only $#{'%.2f' % available_credit(customer)} credit available"
   end
 end
 

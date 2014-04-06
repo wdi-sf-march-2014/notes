@@ -88,3 +88,17 @@ if check_class_defined :Customer
     end
   end
 end
+
+
+describe "OrderProcessor class should exist" do
+  it "should be in lib/order_processor.rb" do
+    check_class_defined(:OrderProcessor).should eq true
+  end
+end
+
+if check_class_defined :OrderProcessor
+  describe Customer do
+    describe "#process should take 4 parameters, first, last, dob and credit" do
+
+
+    end
