@@ -1,13 +1,8 @@
 require 'date'
-require_relative 'lib/customer_hash'
-require_relative 'lib/process_customer'
+require_relative 'lib/customer.rb'
+require_relative 'lib/orderprocessor.rb'
 
-customer = {
-    first_name: 'Donald',
-    last_name: 'Sumlington',
-    date_of_birth: Date.parse('1970-02-14'),
-    credit_limit: 500.00
-}
+customer = Customer.new('Donald', 'Sumlington', Date.parse('1970-02-14'), 500.00)
 
 items = [
     { price: 800, description: '4K HD FlatScreen'},
@@ -16,8 +11,9 @@ items = [
     { price: 22, description: 'Movie Tickets'}
 ]
 
+
 #Get the Receipt
-receipt = processOrder customer, items
+receipt = OrderProcessor.processOrder customer, items
 
 #Print it out!
 puts receipt

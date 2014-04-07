@@ -5,7 +5,7 @@ def full_name(customer)
 end
 
 def age(customer)
-  "#{Time.now.year - customer[:date_of_birth].year}"
+  Time.now.year - customer[:date_of_birth].year
 end
 
 def available_credit(customer)
@@ -21,20 +21,28 @@ def use_credit(customer, amount)
   end
 end
 
+
+# Attempt the purchase
+# If the customer has enough credit (see: use_credit) This function
+# returns: A string with the appropriate APPROVED or DECLINED
+# message for the receipt
 def attempt_credit_purchase (customer, amount, description)
   if use_credit customer, amount
-    if customer['purchases']
-      customer['purchases'].push description
-    else
-      customer['purchases'] = [description]
-    end
-    "$#{'%.2f' % amount} Purchase of #{description} Approved!"
+
+    # TODO: Ooops I forgot to store the item description in an array for the customer!
+    # You'll need to initialize the purchases array in the initialize method or
+    # check it here, how will I do this once Customer is a Class?
+    #  @purchases.push description
+
+    "APPROVED: $#{'%.2f' % amount} #{description}"
   else
-    "DECLINED: #{description} Purchase! Only $#{'%.2f' % available_credit(customer)} credit available"
+    "DECLINED: $#{'%.2f' % amount} #{description} Purchase! Only $#{'%.2f' % available_credit(customer)} credit available"
   end
 end
 
+# Should return a joined array of purchased item descriptions, each separated by "\n"
 def purchase_history(customer)
-   "Sorry print_purchase_history not implemented yet!"
+  # TODO: I should be looking at @purchases once I've converted Customer to a Class
+   "\nSorry print_purchase_history not implemented yet!"
 end
 
