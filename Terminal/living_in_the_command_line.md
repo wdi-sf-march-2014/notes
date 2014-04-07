@@ -487,7 +487,7 @@ __Note:__ In documentation we often see a `#` or a `$` prefix before code exampl
 ###Terminal Cheat Sheet
 Bookmark this:
 
-* [http://bit.ly/terminalcheats](bit.ly/terminalcheats)
+* [http://bit.ly/terminalcheats](http://bit.ly/terminalcheats)
 
 ###Customize your shell
 When a bash shell starts, some (usually hidden) files are automatically read to set up it's `export`ed environment variables and `alias`es. Try this:
