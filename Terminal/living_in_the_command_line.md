@@ -1,4 +1,3 @@
-
 # Living in the Command Line
 Web programmers have to live on the command line.  It gives us fast, reliable, and automatable control over computers.  Web servers usually don't have graphical interfaces, so we need to interact with them through command line and programmatic interfaces.  Once you become comfortable using the command line, staying on the keyboard will also help you keep an uninterrupted flow of work going without the disruption of shifting to the mouse.
 
@@ -80,7 +79,7 @@ Wherever we are, `pwd`, short for __print working directory__, will show us what
 __Follow Along:__
 
 	[stuart:~]$ open .
-Wherever we are, `open .`, opens a `Finder` window in the current, this can be handy sometimes
+Wherever we are, `open .`, opens a `Finder` window in the current directory, this can be handy sometimes
 
    
 ## Looking Around
@@ -128,18 +127,15 @@ Now I can see a lot more clearly what files are in my current working directory.
 
 The ls command can take a directory as an argument
 
-	[stuart:~]$ ls -al Documents/
+	[stuart:~]$ ls -l Documents/
 	total 40360
-	drwx------+ 11 stuart  staff      374 Feb 27 10:57 .
-	drwxr-xr-x+ 76 stuart  staff     2584 Apr  6 10:30 ..
-	-rw-r--r--@  1 stuart  staff    12292 Mar  5 15:48 .DS_Store
 	drwxr-xr-x   4 stuart  staff      136 Feb 22 20:01 Rails
 	-rw-r--r--@  1 stuart  staff  8154896 Feb 27 10:57 Profile.png
 	-rw-r--r--@  1 stuart  staff  6258658 Feb 27 10:57 Profile2.png
 
 The ls command can also take a wildcard as an argument
 
-	[stuart:~]$ ls -la Documents/*.png
+	[stuart:~]$ ls -l Documents/*.png
 	-rw-r--r--@ 1 stuart  staff  8154896 Feb 27 10:57 Documents/Profile.png
 	-rw-r--r--@ 1 stuart  staff  6258658 Feb 27 10:57 Documents/Profile2.png
 
@@ -167,7 +163,8 @@ Have you ever heard of `hidden files`? Well it's true, they are real! and we can
 	drwx------+   8 stuart  staff    272 Mar  5 15:48 Music
 	drwx------+  20 stuart  staff    680 Mar 23 12:53 Pictures
 	drwxr-xr-x+   5 stuart  staff    170 Nov  4 10:49 Public
-	drwxr-xr-x    3 stuart  staff    102 Jan 31 13:21 bin	....
+	drwxr-xr-x    3 stuart  staff    102 Jan 31 13:21 bin	
+	......More Files.....
 	-rwxr-xr-x    1 stuart  staff    184 Nov  8 16:41 git_profile.sh
 	-rw-r--r--    1 stuart  staff    327 Mar 27 09:22 gitshell.sh
 	drwxr-xr-x   22 stuart  staff    748 Feb  3 15:15 hashes
