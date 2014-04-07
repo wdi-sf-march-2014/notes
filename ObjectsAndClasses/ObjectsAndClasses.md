@@ -48,14 +48,8 @@ How can we represent this information, actions and questions in a Hash?
 	aStudent = {
 	   ...
 	}
-
-
-##Defining a New Class
-
-	class Student
-	  
 	
-	end
+Where could we implement our calculated fields such as `current_age` and `full_name`?	
 
 	
 ##Hashes
@@ -87,6 +81,18 @@ How can we represent this information, actions and questions in a Hash?
 	  }
 	]
 
+##Using Classes
+
+Classes allow us to keep information and behaviour together in one place. We can encapulate the details of our implementation and keep the global namespace clear of naming conflicts
+
+
+##Defining a New Class
+
+	class Student
+	  
+	
+	end
+	
 
 ##Further Reading
 
