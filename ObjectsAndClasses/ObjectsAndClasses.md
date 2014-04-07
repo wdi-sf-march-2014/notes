@@ -78,8 +78,8 @@ How can we represent this information, actions and questions in a Hash?
 	    courses:		['Your Voice as an Instrument','Disco for beginners','Intro to Music']	
 	  },
 	  {
-	    first_name: 	'Skril',
-	    last_name: 		'lex',
+	    first_name: 	'Skrillex',
+	    last_name: 		'',
 	    major: 		'Electronics',
 	    date_of_birth:  	"1988-01-15",
 	    gpa: 		3.9,	    
