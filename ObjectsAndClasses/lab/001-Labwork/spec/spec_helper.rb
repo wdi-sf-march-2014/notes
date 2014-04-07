@@ -67,14 +67,25 @@ class LabTestProgressState
             end
           end
         else
-          puts "Skipping #{labStepNameGroup}"
+          labTestProgress.sendOneOffSkipMessage(labStepNameGroup)
         end
       end
     end
-
   end
 
-  #Require the files the students have written
+  #Puts Once
+  def sendOneOffSkipMessage stepLabel
+    step = findStepIndex(stepLabel)
+    unless step.nil?
+      unless @stepProgress[step][:skipMessaged]
+        puts "Saving #{stepLabel} for later on in Lab"
+        @stepProgress[step][:skipMessaged] = true
+      end
+    end
+  end
+
+
+    #Require the files the students have written
   def load_lab_app_lib_files
     libFiles = File.dirname(__FILE__) + "/../lib/*.rb"
     Dir[libFiles].each do |file|
@@ -84,7 +95,7 @@ class LabTestProgressState
     end
   end
 
-  def findStep label
+  def findStepIndex label
     @stepProgress.each.with_index do |step, index|
       return index if step[:label].eql? label
     end
@@ -94,8 +105,8 @@ class LabTestProgressState
 
   #set current step if open
   def stepOpen stepLabel
-    @currentStep = findStep(stepLabel)
-    if @stepProgress[@currentStep][:open]
+    step = findStepIndex(stepLabel)
+    if @stepProgress[step][:open]
       true
     else
       #skip tests
@@ -104,8 +115,9 @@ class LabTestProgressState
   end
 
   #Open up next step
-  def stepComplete stepName
-    nextStep = @stepProgress[@currentStep + 1]
+  def stepComplete stepLabel
+    step = findStepIndex(stepLabel)
+    nextStep = @stepProgress[step + 1]
     nextStep[:open] = true unless nextStep.nil?
   end
 
