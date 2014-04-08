@@ -130,7 +130,7 @@ arr.each do |item|
 end
 
 arr.each_with_index do |item, index|
-  puts "Item: #{item}, Index: #{index}
+  puts "Item: #{item}, Index: #{index}"
 end
 ```
 
