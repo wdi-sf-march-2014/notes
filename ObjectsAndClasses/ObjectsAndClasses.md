@@ -54,25 +54,27 @@ Pair Up and come up with at least two answers to each of the following:
 How can we represent this information, actions and questions in a Hash?
 
 ```
-aStudent = {
-   first_name:    'Damon',
-   last_name:     'Albarn',
-   major:         'Record Production',
-   date_of_birth: '1968-03-23',
-   enrollments: [
-     { course: 'Beginning Mixing', grade: 4.0 },
-     { course: 'Intro to Music', grade: 3.9 }
+aBand = {
+   name:   		   'Gorillaz',
+   agent:         'Billy Connelly',
+   date_signed:   '2000-03-23',
+   releases: [
+     { title: 'Gorillaz', year: 2001, sales: 1000001 },
+     { title: 'Demon Days', year: 2005, sales: 930430 },
+     { title: 'Plastic Beach', year: 2010, sales: 783211 },
+     { title: 'The Fall', year: 2011, sales: 8761232 }
    ]
 }
+
 ```	
 
 * Our implementation is completely and publically exposed
 * That can limit our ability to make changes later
-* Where could we implement our calculated fields such as `gpa`?
+* Where could we implement our calculated fields such as `total_sales`?
 * What happens if someone makes a typo on their hash keys
 * What happens if someone uses an incorrect format for a value?
 
-##Using Classes
+#Using Classes
 
 Classes allow us to:
 
@@ -87,35 +89,63 @@ Classes allow us to:
 One way to design your classes is to think about how you want to use them, so sometimes it's helpful to pretend that we have our class already and write `pseudocode` (or Tests for __Test Driven Development__ ) to clarify our ideas of the interface our class should have
 
 ```
-student = Student.new('Damon',  'Albarn', 'Record Production', '1968-03-23')
+band = Band.new('Gorillaz', 'Billy Connelly', '2000-03-23')
 	
-student.addEnrollment('Beginning Mixing', 4.0)
-student.addEnrollment('Intro to Music', 3.9)
+band.add_release('Gorillaz', 2001, 1000001 )
+band.add_release('Demon Days', 2005, 930430 )
+band.add_release('Plastic Beach', 2010, 783211 )
+band.add_release('The Fall', 2011, 8761232 )
 
-emailTitle = "Hi #{student.first_name}! Welcome to your new Semester"
+emailTitle = "Hi Fan! #{band} has a new release called #{band.latestRelease.name}"
 	
-puts "#{student.fullName} has a GPA of #{student.gpa}"
+puts "#{band.name} has cumulative sales of of #{band.total_sales} units"
 
-puts "We have a total of #{Student.studentCount} students"
+puts "#{band.name} is managed by #{band.agent} and signed with us on #{band.date_signed}"
+
+puts "Currently we have #{Band.bandCount} bands signed to our label"
 
 ```
 
 ##Defining the Class which Meets our Expectations
-Over the next few pages I'll demonstrate how to build the class, then you can try the workshop
+Over the next few pages I'll demonstrate how to build the class, then you we'll try the workshop
 
 We will introduce:
 
-* Instance variables :       `@first_name`
-* Instance methods  :        `def gpa  ....`
-* initialize method :        `def initialize (first, last ....`
-* attr_accessor method :     `attr_accessor :first_name, :last_name ....`
-* Class variables :          `@@studentCount`
-* Class methods :            `def self.studentCount ...`
+* Where to put your classes: In YOUR_CLASS_NAME`.rb`
+* class              :       `class`
+* initialize method :        `def initialize (name, agent ....`
+* Instance variables :       `@agent`
+* Instance methods  :        `def add_release, total_sales  ....`
+* attr_accessor method :     `attr_accessor :name, :agent ....`
+* Class variables :          `@@band_count`
+* Class methods :            `def self.band_count ...`
+* Loading classes :          `require and require_relative`
 
 
-##Defining a New Class
+#Simple Ruby Class
 
-Start with the easy stuff!
+1. [Step 001](https://github.com/stujo/ruby-classes-demo/blob/step001/lib/band.rb)
+	a. Create a project folder `ruby-classes-demo`
+	b. Create a lib directory
+	c. Create a new file lib/band.rb
+	d. Create our class Band ... end
+	
+2. [Step 002](https://github.com/stujo/ruby-classes-demo/blob/step002/lib/band.rb)
+	a. Add our constructor the initialize method
+	b. Store the parameters in instance variables
+	c. Make our instance variables available with attr_accessor
+
+3. [Step 003](https://github.com/stujo/ruby-classes-demo/blob/step003/lib/band.rb)
+    a. Add our instance method `add_release`
+    b. Add our instance method `total_sales`	  
+    c. Add our instance method `latest_release`
+    d. Realize that another class `BandRelease` makes sense here
+
+4. [Step 004](https://github.com/stujo/ruby-classes-demo/blob/step004/lib/band.rb)
+    a. Add our class variable `@@band_count`   
+    b. Add our class method   `band_count` 	
+
+##Class without attr_accessor
 
 ```
  # filename: 'student.rb'
@@ -163,9 +193,7 @@ end
 ```
 That was very unexciting!
 
-##Defining a New Class (2)
-
-Start with the easy stuff!
+##Class with attr_accessor
 
 ```
  # filename: 'student.rb'
@@ -183,10 +211,10 @@ end
 ```
 Better!
 	
-##Class 	
-
-
 ##Module
+
+Sometimes we don't want to instantiate instances but we do want to group together a number of related methods. For example `Math` which exposes a number of mathematical functions to
+
 
 http://www.ruby-doc.org/core-2.1.1/Module.html
 
@@ -205,6 +233,11 @@ Mod.instance_methods   #=> [:meth]
 
 ##Struct
 
+Sometimes your see `Struct` this works similarly to a `Hash` but with fixed attributes
+
+You can add method definitions too, reproducing what you can do with `class`, without the `class`. I haven't used them though.
+
+
 http://www.ruby-doc.org/core-2.1.1/Struct.html
 
 ```
@@ -218,18 +251,72 @@ dave = Customer.new("Dave", "123 Main")
 dave.name     #=> "Dave"
 dave.greeting #=> "Hello Dave!"
 ```
+
+#Time to Code Along (in Pairs)!
+
+Let's try some pair programming!
+
+1. Go look at this repository:
+
+	[https://github.com/stujo/ruby-classes-workshop](https://github.com/stujo/ruby-classes-workshop)
+	
+1. Read the README.md in the project	
+
+1. FORK IT into your GitHub account
+
+1. In your terminal, go to where you are keeping your ruby projects then CLONE your FORKED repo to your computer
+
+1. ```
+git clone https://github.com/YOURUSERNAME/ruby-classes-workshop
+```
+
+1. Which Should create a `ruby-classes-workshop` folder
+
+1. ```
+cd ruby-classes-workshop
+```
+1. Get started! `ruby students_as_hashes.rb` will show you the existing app
+
+2. Re-Read README.md if you're not sure what to do
+
+
+
+
+
+#The Self Study Lab Instructions
+The Lab is an RSpec Driven Lab
+
+This means that I've written tests already and you need to write the code to make the tests pass
+
+__DO THIS NOW__
+
+* Go to https://github.com/stujo/ruby-classes-lab
+* FORK the Repo to your GitHub
+* CLONE YOUR forked Repo onto your computer
+* __cd ruby-classes-lab directory__
+* READ the README.md in that folder __Let's read the README.md Together__
+
+Because this lab uses RSpec we need to make sure it is installed
+
+	gem install rspec
+
+__Once you've completed the lab__
+
+* Commit your changes
+* Push the changes to your GitHub Repo
+* Create a Pull Request to ruby-classes-workshop master
+
+
 	
 
 ##Further Reading
 
-* [http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html
+* [Inheritance and Overrides - http://ruby.learncodethehardway.org/book/ex44.html](http://ruby.learncodethehardway.org/book/ex44.html)
+
+* [Includes vs Extends - http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
+
+* [Class Example - http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html
 ](http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html)
-
-* [http://ruby.learncodethehardway.org/book/ex40.html](http://ruby.learncodethehardway.org/book/ex40.html)
-
-
-
-
 
 
 
