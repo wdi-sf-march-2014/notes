@@ -2,19 +2,18 @@
 
 ## Objectives
 
-* Get comfortable with using
-    * Arrays
-    * Hashes
+* Create arrays, Modify arrays
+* Create hashes, Modify hashes
 * Understand how arrays and hashes work internally
 
-## What are data structures?
-A data structure is a way to organize the data in your program.  Some data structures organize data better than others for doing particular tasks.  For example, arrays can look up an item quickly, given the index in the array.  Hashes allow the coder to quickly look up a value given a key.
+## What are data structures? Why Do We Use Them?
+A data structure is a way to organize the data in your program. Typically the data that needs to be organized is a related set of items.  For example, all of the students in a class, or all of the test scores for a quiz.  Some data structures organize data better than others for doing particular tasks.  For example, arrays can look up an item quickly, given the index in the array.  Hashes allow the coder to quickly look up a value given a key.  
 
 ## Arrays
 
 __What is an array?__
 
-It is a data structure that holds a set of objects.  The array maintains order.  Read more about arrays in the [ruby docs for arrays](http://www.ruby-doc.org/core-2.1.1/Array.html)
+It is a data structure that holds a set of objects.  The array maintains order.  Read more about arrays in the [ruby docs](http://www.ruby-doc.org/core-2.1.1/Array.html)
 
 __How can I create an array?__
 
@@ -77,6 +76,37 @@ arr = [2,false,"a string", 0]
 arr[0..1] # Returns a new array [2,false]
 ```
 
+__Array Iteration__
+
+Arrays can be iterated over with standard loops:
+
+```
+arr = [4,3,8,9]
+for i in arr
+  puts i
+end
+
+j = 0
+len = arr.length
+while j < len
+  puts arr[j]
+  j += 1
+end
+```
+
+There are also methods on arrays that can do iteration:
+
+```
+arr = [4,3,8,9]
+arr.each { |item| puts item }
+
+# Another way of doing the same thing
+arr.each do |item|
+  puts item
+end
+```
+
+
 #### Exercise
 
 Write a program that prints out the average number in an array.  Do not use the array average method.  Implement the logic yourself.  Make sure to think about the problem first before you start coding.
@@ -106,6 +136,10 @@ Here is an example of creating hashes:
 h = Hash.new
 h = {}
 h = {"Tim" => "instructor"}
+
+# Similar to the previous example but uses symbols
+h = { :Tim => :instructor }
+h = { Tim: :instructor }
 ```
 __Accessing the Hash__
 
@@ -113,10 +147,6 @@ __Accessing the Hash__
 students = {14593 => "Tim Garcia", 57849 => "Alex Notov"}
 students[14593] # Returns the value "Tim Garcia"
 
-last_names = {:Tim => :Garcia }
-
-# This is the same as the previous hash example
-last_names = { Tim : :Garcia }
 ```
 
 __Adding Key, Value Pairs to the Hash__
@@ -125,7 +155,83 @@ __Adding Key, Value Pairs to the Hash__
 students = {14593 => "Tim Garcia", 57849 => "Alex Notov"}
 students[89329] = "Delmer Reed"  # Adds 89329 => "Delmer Reed"
 students[89329]                  # Returns "Delmer Reed"
+
+last_name = { Garcia: 14593 }
+last_name[:Garcia]               # Returns 14593
 ```
+
+#### Exercise
+
+Given the following complex object:
+
+```
+complex_hash = {"Animals"=>
+                [{"name"=>"Fluffy", "age"=>5, "species"=>"dog"},
+                 {"name"=>"Buster", "age"=>10, "species"=>"cat"},
+                 {"name"=>"Mochi", "age"=>4, "species"=>"dog"},
+                 {"name"=>"Russel", "age"=>5, "species"=>"dog"}],
+                "Clients"=>
+                  [{"name"=>"Tim", "num_children"=>0},
+                   {"name"=>"Angelina", "num_children"=>6}]}
+```
+
+Copy and paste the code into pry.  Do the following tasks in pry:
+
+1. Print Angelina's number of children
+2. Print all of Mochi's information (name, age, species).
+3. Access the array of clients
+4. (BONUS) Print out all the animal names that are dogs.
+
+
+__Key Exists?__
+
+Sometimes it is useful to see if a key exists in your hash.  For example, you may want to check if a student id exists before using it.
+
+```
+students = {14593 => "Tim Garcia", 57849 => "Alex Notov"}
+
+id = 88888
+
+if students.has_key? id
+  puts "ID: #{id}, Name: #{students[id]}"
+else
+  puts "Student not found"
+end
+
+```
+
+__Iterating over Hashes__
+
+```
+my_hash = {true: 20, false: 50}
+
+my_hash.each do |key, value|
+  if key
+	puts "#{key} => #{value}"
+  end
+end
+```
+
+#### Exercise
+
+Given a phrase from the user, print out the count of occurences of each letter.  The sample input and output is below.
+
+```
+Enter a phrase:
+This is an exercise
+T => 1
+h => 1
+i => 3
+s => 3
+a => 1
+n => 1
+e => 3
+x => 1
+r => 1
+c => 1
+```
+
+
 
 
 
