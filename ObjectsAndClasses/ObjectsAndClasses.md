@@ -61,8 +61,8 @@ def allStudents
           first_name: 'Barry',
           last_name: 'White',
           major: 'Musicology',
-          date_of_birth: "1994-11-12",
-          grades: [3.4, 3.6, 3.2, 3.4],
+          date_of_birth: "1944-11-12",
+          grades: [3.4, 3.6, 4.0, 4.0],
           courses: [
               'Piano Accompaniment ', 'Mathematics 101',
               'Operatic Voice 403', 'Intro to Music'
@@ -84,13 +84,17 @@ def allStudents
           last_name: '',
           major: 'Electronics',
           date_of_birth: "1988-01-15",
-          grades: [4.0, 3.9, 3.8, 3.8],
+          grades: [4.0, 3.9, 3.8, 3.9],
           courses: [
               'Beginning Mixing', 'basic soldering',
               'advanced arduino', 'Intro to Music'
           ]
       }
   ]
+end
+
+def fullName student
+  "#{student[:first_name]} #{student[:last_name]}"
 end
 
 def calculateGPA student
@@ -103,32 +107,146 @@ def calculateGPA student
   end
 end
 
-
-p calculateGPA allStudents[0]
-p calculateGPA allStudents[1]
-p calculateGPA allStudents[2]
+def printStudentSummary
+  puts "#{fullName allStudents[0]} : #{calculateGPA allStudents[0]}"
+  puts "#{fullName allStudents[1]} : #{calculateGPA allStudents[1]}"
+  puts "#{fullName allStudents[2]} : #{calculateGPA allStudents[2]}"
+end
 ```
-
 
 
 ##Using Classes
 
 Classes allow us to keep information and behaviour together in one place. We can encapulate the details of our implementation and keep the global namespace clear of naming conflicts
 
+##Start as the User of the Class
+One way to design your classes is to think about how you want to use them, so let's rewrite our student application a bit assuming we've already written our `Student` class
+
+```
+def allStudents
+
+  barry = Student.new 'Barry', 'White', 'Musicology', "1944-11-12"
+  donna = Student.new 'Donna', 'Summer', 'Singing', "1948-12-31"
+  skrillex = Student.new 'Skrillex', nil, 'Electronics', "1988-01-15"
+
+  [barry, donna, skrillex]
+end
+
+allStudents.each { |student| puts "#{student.fullName} : #{student.calculateGPA}" }
+```
+
 
 ##Defining a New Class
 
-	# filename: 'student.rb'
+Start with the easy stuff!
+
+```
+ # filename: 'student.rb'
 	
-	class Student
-	  
-	
+class Student
+	def initialize (first,last,major,date_of_birth)
+	   @first_name = first
+	   @last_name = last
+	   @major = major
+	   @date_of_birth = date_of_birth
 	end
+
+	def first_name
+	  @first_name
+	end
+
+	def first_name=(first)
+	  @first_name= first 
+	end
+			
+	def last_name
+	  @last_name
+	end
+
+	def last_name=(last)
+	  @last_name= last 
+	end
+
+	def major
+	  @major
+	end
+
+	def major=(maj)
+	  @major= maj 
+	end
+
+	def date_of_birth
+	  @date_of_birth
+	end
+
+	def date_of_birth=(dob)
+	  @date_of_birth= dob 
+	end
+end
+```
+That was very unexciting!
+
+##Defining a New Class (2)
+
+Start with the easy stuff!
+
+```
+ # filename: 'student.rb'
+	
+class Student
+	attr_accessor :first_name, :last_name, :major, :date_of_birth
+	
+	def initialize (first,last,major,date_of_birth)
+	   @first_name = first
+	   @last_name = last
+	   @major = major
+	   @date_of_birth = date_of_birth
+	end
+end
+```
+Better!
 	
 ##Class 	
+
+
+##Module
+
+http://www.ruby-doc.org/core-2.1.1/Module.html
+
+```
+module Mod
+  include Math
+  CONST = 1
+  def meth
+    #  ...
+  end
+end
+Mod.class              #=> Module
+Mod.constants          #=> [:CONST, :PI, :E]
+Mod.instance_methods   #=> [:meth]
+```
+
+##Struct
+
+http://www.ruby-doc.org/core-2.1.1/Struct.html
+
+```
+Customer = Struct.new(:name, :address) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+dave = Customer.new("Dave", "123 Main")
+dave.name     #=> "Dave"
+dave.greeting #=> "Hello Dave!"
+```
 	
 
 ##Further Reading
+
+* [http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html
+](http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html)
 
 * [http://ruby.learncodethehardway.org/book/ex40.html](http://ruby.learncodethehardway.org/book/ex40.html)
 
