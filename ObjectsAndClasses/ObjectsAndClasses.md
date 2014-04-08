@@ -17,6 +17,9 @@ In Ruby, you will be able to:
 * Use `attr_reader`, `attr_accessor`
 
 ##Objects and Classes Demo
+You've already been experiencing the joys of classes
+
+__Try This:__
 
 	hello = 'Hello World!'
 	p hello.class
@@ -30,110 +33,84 @@ In Ruby, you will be able to:
 	
 	nothing = nil
 	p nothing.class
+
+**Classes are a way to group functionality and data into objects and you as a human are already exceptionally good at using objects!**
+
+__Example:__
+If you know how to drive a car, when you get into any car, you can drive it, regardless of which model / manufacturer the car comes from. That's because you have an internal idea of the `Class` called `Car` and you understand the `Interface` that `Instances` of the class `Car` present to their users
   	
 
 ##Describing a Potential Class
 
-We're thinking about the `Students` at our `College`
+We're thinking about the `Bands` at our `Record Label`
 
 Pair Up and come up with at least two answers to each of the following:
 
-	* What information do we know about a student?
-	* What actions can a student perform?
-	* What questions can we ask any student?
+	* What information do we know about a band?
+	* What actions can a band perform?
+	* What questions can we ask any band?
 	
-##Hashes are Flexible
+##Hashes are Flexible but have Limitations
 How can we represent this information, actions and questions in a Hash?
 
-	aStudent = {
-	   ...
-	}
-	
-Where could we implement our calculated fields such as `gpa`?
-
-	
-##Hashes
-
 ```
-def allStudents
-  [
-      {
-          first_name: 'Barry',
-          last_name: 'White',
-          major: 'Musicology',
-          date_of_birth: "1944-11-12",
-          grades: [3.4, 3.6, 4.0, 4.0],
-          courses: [
-              'Piano Accompaniment ', 'Mathematics 101',
-              'Operatic Voice 403', 'Intro to Music'
-          ]
-      },
-      {
-          first_name: 'Donna',
-          last_name: 'Summer',
-          major: 'Singing',
-          date_of_birth: "1948-12-31",
-          grades: [4.0, 4.0, 4.0],
-          courses: [
-              'Your Voice as an Instrument', 'Disco for beginners',
-              'Intro to Music'
-          ]
-      },
-      {
-          first_name: 'Skrillex',
-          last_name: '',
-          major: 'Electronics',
-          date_of_birth: "1988-01-15",
-          grades: [4.0, 3.9, 3.8, 3.9],
-          courses: [
-              'Beginning Mixing', 'basic soldering',
-              'advanced arduino', 'Intro to Music'
-          ]
-      }
-  ]
-end
+aStudent = {
+   first_name:    'Damon',
+   last_name:     'Albarn',
+   major:         'Record Production',
+   date_of_birth: '1968-03-23',
+   enrollments: [
+     { course: 'Beginning Mixing', grade: 4.0 },
+     { course: 'Intro to Music', grade: 3.9 }
+   ]
+}
+```	
 
-def fullName student
-  "#{student[:first_name]} #{student[:last_name]}"
-end
-
-def calculateGPA student
-  if student[:grades] && !student[:grades].empty?
-    student[:grades].inject(0.0){
-        |sum,grade| sum + grade
-    } / student[:grades].length.to_f
-  else
-    0.to_f
-  end
-end
-
-def printStudentSummary
-  puts "#{fullName allStudents[0]} : #{calculateGPA allStudents[0]}"
-  puts "#{fullName allStudents[1]} : #{calculateGPA allStudents[1]}"
-  puts "#{fullName allStudents[2]} : #{calculateGPA allStudents[2]}"
-end
-```
-
+* Our implementation is completely and publically exposed
+* That can limit our ability to make changes later
+* Where could we implement our calculated fields such as `gpa`?
+* What happens if someone makes a typo on their hash keys
+* What happens if someone uses an incorrect format for a value?
 
 ##Using Classes
 
-Classes allow us to keep information and behaviour together in one place. We can encapulate the details of our implementation and keep the global namespace clear of naming conflicts
+Classes allow us to:
 
-##Start as the User of the Class
-One way to design your classes is to think about how you want to use them, so let's rewrite our student application a bit assuming we've already written our `Student` class
+* Keep information and behaviour together in one place
+* Encapsulate the details of our implementation 
+* Keep the global namespace clear of naming conflicts
+* Define a clear interface to our implementation
+* Classes give us cleaner code (see next topic)
+
+##Starting to Design a Class
+
+One way to design your classes is to think about how you want to use them, so sometimes it's helpful to pretend that we have our class already and write `pseudocode` (or Tests for __Test Driven Development__ ) to clarify our ideas of the interface our class should have
 
 ```
-def allStudents
+student = Student.new('Damon',  'Albarn', 'Record Production', '1968-03-23')
+	
+student.addEnrollment('Beginning Mixing', 4.0)
+student.addEnrollment('Intro to Music', 3.9)
 
-  barry = Student.new 'Barry', 'White', 'Musicology', "1944-11-12"
-  donna = Student.new 'Donna', 'Summer', 'Singing', "1948-12-31"
-  skrillex = Student.new 'Skrillex', nil, 'Electronics', "1988-01-15"
+emailTitle = "Hi #{student.first_name}! Welcome to your new Semester"
+	
+puts "#{student.fullName} has a GPA of #{student.gpa}"
 
-  [barry, donna, skrillex]
-end
+puts "We have a total of #{Student.studentCount} students"
 
-allStudents.each { |student| puts "#{student.fullName} : #{student.calculateGPA}" }
 ```
+
+##Defining the Class which Meets our Expectations
+Over the next few pages I'll demonstrate how to build the class, then you can try the workshop
+
+We will introduce:
+
+* Instance variables :       `@first_name`
+* Instance methods  :        `def gpa  ....`
+* initialize method :        `def initialize (first, last ....`
+* attr_accessor method :     `attr_accessor :first_name, :last_name ....`
+* Class variables :          `@@studentCount`
+* Class methods :            `def self.studentCount ...`
 
 
 ##Defining a New Class
