@@ -12,12 +12,15 @@ class Student
   attr_accessor :first_name, :last_name, :major, :date_of_birth
   attr_reader :enrollments
 
+  @@student_count = 0
+
   def initialize (first,last,major,dob)
     @enrollments = []
     @first_name = first
     @last_name = last
     @major = major
     @date_of_birth = Date.parse dob
+    @@student_count = @@student_count + 1
   end
 
   def calculateGPA
@@ -32,6 +35,14 @@ class Student
 
   def addEnrollment(course, grade)
     @enrollments << Enrollment.new(course, grade)
+  end
+
+  def summary
+    "#{fullName} : #{calculateGPA}"
+  end
+
+  def self.studentCount
+    @@student_count
   end
 end
 
@@ -54,7 +65,15 @@ def allStudents
   skrillex.addEnrollment 'advanced arduino', 3.8
   skrillex.addEnrollment 'Intro to Music', 3.9
 
+  #return the array
   [barry, donna, skrillex]
 end
 
-allStudents.each { |student| puts "#{student.fullName} : #{student.calculateGPA}" }
+def printStudentSummary
+  allStudents.each { |student| puts student.summary }
+end
+
+
+printStudentSummary
+
+

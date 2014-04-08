@@ -5,10 +5,11 @@ def allStudents
           last_name: 'White',
           major: 'Musicology',
           date_of_birth: "1944-11-12",
-          grades: [3.4, 3.6, 4.0, 4.0],
-          courses: [
-              'Piano Accompaniment ', 'Mathematics 101',
-              'Operatic Voice 403', 'Intro to Music'
+          enrollments: [
+              { course: 'Piano Accompaniment', grade: 3.4 },
+              { course: 'Mathematics 101', grade: 3.6 },
+              { course: 'Operatic Voice 403', grade: 4.0 },
+              { course: 'Intro to Music', grade: 4.0 }
           ]
       },
       {
@@ -16,10 +17,10 @@ def allStudents
           last_name: 'Summer',
           major: 'Singing',
           date_of_birth: "1948-12-31",
-          grades: [4.0, 4.0, 4.0],
-          courses: [
-              'Your Voice as an Instrument', 'Disco for beginners',
-              'Intro to Music'
+          enrollments: [
+              { course: 'Your Voice as an Instrument', grade: 4.0 },
+              { course: 'Disco for beginners', grade: 4.0 },
+              { course: 'Intro to Music', grade: 4.0 }
           ]
       },
       {
@@ -27,10 +28,11 @@ def allStudents
           last_name: '',
           major: 'Electronics',
           date_of_birth: "1988-01-15",
-          grades: [4.0, 3.9, 3.8, 3.9],
-          courses: [
-              'Beginning Mixing', 'basic soldering',
-              'advanced arduino', 'Intro to Music'
+          enrollments: [
+              { course: 'Beginning Mixing', grade: 4.0 },
+              { course: 'Basic Soldering', grade: 3.9 },
+              { course: 'Advanced Arduino', grade: 3.8 },
+              { course: 'Intro to Music', grade: 3.9 }
           ]
       }
   ]
@@ -41,16 +43,21 @@ def fullName student
 end
 
 def calculateGPA student
-  if student[:grades] && !student[:grades].empty?
-    student[:grades].inject(0.0){
-        |sum,grade| sum + grade
-    } / student[:grades].length.to_f
+  if student[:enrollments] && !student[:enrollments].empty?
+    student[:enrollments].inject(0.0){
+        |sum,enrollment| sum + enrollment[:grade]
+    } / student[:enrollments].length.to_f
   else
     0.to_f
   end
 end
 
 
-puts "#{fullName allStudents[0]} : #{calculateGPA allStudents[0]}"
-puts "#{fullName allStudents[1]} : #{calculateGPA allStudents[1]}"
-puts "#{fullName allStudents[2]} : #{calculateGPA allStudents[2]}"
+def printStudentSummary
+  puts "#{fullName allStudents[0]} : #{calculateGPA allStudents[0]}"
+  puts "#{fullName allStudents[1]} : #{calculateGPA allStudents[1]}"
+  puts "#{fullName allStudents[2]} : #{calculateGPA allStudents[2]}"
+end
+
+
+printStudentSummary
