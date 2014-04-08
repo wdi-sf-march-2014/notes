@@ -10,12 +10,13 @@
 A data structure is a way to organize the data in your program. Typically the data that needs to be organized is a related set of items.  For example, all of the students in a class, or all of the test scores for a quiz.  Some data structures organize data better than others for doing particular tasks.  For example, arrays can look up an item quickly, given the index in the array.  Hashes allow the coder to quickly look up a value given a key.  
 
 ## Arrays
+________________________________
 
-__What is an array?__
+### What is an array?
 
 It is a data structure that holds a set of objects.  The array maintains order.  Read more about arrays in the [ruby docs](http://www.ruby-doc.org/core-2.1.1/Array.html)
 
-__How can I create an array?__
+### How can I create an array?
 
 To create a new array, do one of the following:
 
@@ -37,7 +38,7 @@ arr = [2,4,21,3]
 ```
 Now the array has the values 2, 4, 21, and 3 in that order.
 
-__How do I put data in and take data out of an array?__
+### How do I put data in and take data out of an array?
 
 The ```push``` method adds an object to the end of an array and the ```unshift``` method adds data to the front of the array.
 
@@ -54,7 +55,7 @@ puts arr # My array is now ["a string", "another string"]
 Look at the ```pop```, ```shift```, ```insert``` and ```delete_at``` methods in the [array docs](http://www.ruby-doc.org/core-2.1.1/Array.html).  Try them out in pry.  What do they do?
 
 
-__Accessing Arrays__
+### Accessing Arrays
 
 To access values in the array, you can use the ```[]``` method.  The bracket method gets a value from the array at a given index.  Arrays are indexed by integers, starting with 0. To get the first value in the array, you would pass 0 in to the bracket method.  See the examples below:
 
@@ -76,7 +77,30 @@ arr = [2,false,"a string", 0]
 arr[0..1] # Returns a new array [2,false]
 ```
 
-__Array Iteration__
+### Finding Values In Arrays
+
+The  ```index``` method can help find values in an array.
+
+```
+arr = [3,6,2,11,106,23,8]
+arr.index(11)		       # Returns 3, the index of the value 11
+arr.index(0)			   # Returns nil, no index was found
+
+arr.index { |x| x > 10 }  # Returns 3, the index of the first match
+```
+
+#### Exercise
+
+Add the following arrays to pry:
+
+```
+arr1 = [7,11,32,98,0,-1]
+arr2 = [98,50,-12,4,7]
+```
+
+What does the ```&``` method do on an array?
+
+### Array Iteration
 
 Arrays can be iterated over with standard loops:
 
@@ -104,6 +128,8 @@ arr.each { |item| puts item }
 arr.each do |item|
   puts item
 end
+
+arr.each_with_index |
 ```
 
 
@@ -125,10 +151,11 @@ The previous example creates an empty array that reserves some number of spaces 
 When you use the ```push``` method and add values to the end of the array, at some point, the array will have to manage growing larger intnerally.
 
 ## Hashes
+_____________________________
 
 A hash is another data structure that associates a key to a value.  It is good at doing lookup operations quickly.
 
-__Creating a hash__
+### Creating a hash
 
 Here is an example of creating hashes:
 
@@ -141,7 +168,8 @@ h = {"Tim" => "instructor"}
 h = { :Tim => :instructor }
 h = { Tim: :instructor }
 ```
-__Accessing the Hash__
+
+### Accessing the Hash
 
 ```
 students = {14593 => "Tim Garcia", 57849 => "Alex Notov"}
@@ -149,15 +177,15 @@ students[14593] # Returns the value "Tim Garcia"
 
 ```
 
-__Adding Key, Value Pairs to the Hash__
+### Adding Key, Value Pairs to the Hash
 
 ```
 students = {14593 => "Tim Garcia", 57849 => "Alex Notov"}
 students[89329] = "Delmer Reed"  # Adds 89329 => "Delmer Reed"
-students[89329]                  # Returns "Delmer Reed"
+students[89329]				  # Returns "Delmer Reed"
 
 last_name = { Garcia: 14593 }
-last_name[:Garcia]               # Returns 14593
+last_name[:Garcia]			   # Returns 14593
 ```
 
 #### Exercise
@@ -166,13 +194,13 @@ Given the following complex object:
 
 ```
 complex_hash = {"Animals"=>
-                [{"name"=>"Fluffy", "age"=>5, "species"=>"dog"},
-                 {"name"=>"Buster", "age"=>10, "species"=>"cat"},
-                 {"name"=>"Mochi", "age"=>4, "species"=>"dog"},
-                 {"name"=>"Russel", "age"=>5, "species"=>"dog"}],
-                "Clients"=>
-                  [{"name"=>"Tim", "num_children"=>0},
-                   {"name"=>"Angelina", "num_children"=>6}]}
+				[{"name"=>"Fluffy", "age"=>5, "species"=>"dog"},
+				 {"name"=>"Buster", "age"=>10, "species"=>"cat"},
+				 {"name"=>"Mochi", "age"=>4, "species"=>"dog"},
+				 {"name"=>"Russel", "age"=>5, "species"=>"dog"}],
+				"Clients"=>
+				  [{"name"=>"Tim", "num_children"=>0},
+				   {"name"=>"Angelina", "num_children"=>6}]}
 ```
 
 Copy and paste the code into pry.  Do the following tasks in pry:
@@ -183,7 +211,7 @@ Copy and paste the code into pry.  Do the following tasks in pry:
 4. (BONUS) Print out all the animal names that are dogs.
 
 
-__Key Exists?__
+### Key Exists?
 
 Sometimes it is useful to see if a key exists in your hash.  For example, you may want to check if a student id exists before using it.
 
@@ -200,7 +228,7 @@ end
 
 ```
 
-__Iterating over Hashes__
+### Iterating over Hashes
 
 ```
 my_hash = {true: 20, false: 50}
