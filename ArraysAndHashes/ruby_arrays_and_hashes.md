@@ -211,7 +211,7 @@ Copy and paste the code into pry.  Do the following tasks in pry:
 4. (BONUS) Print out all the animal names that are dogs.
 
 
-### Key Exists?
+### has_key?
 
 Sometimes it is useful to see if a key exists in your hash.  For example, you may want to check if a student id exists before using it.
 
