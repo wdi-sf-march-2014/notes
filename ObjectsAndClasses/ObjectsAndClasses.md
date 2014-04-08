@@ -113,6 +113,15 @@ We will introduce:
 * Class methods :            `def self.studentCount ...`
 
 
+
+#The Code Along
+https://github.com/stujo/ruby-classes-workshop
+
+
+#The LAB!
+https://github.com/stujo/ruby-classes-lab
+
+
 ##Defining a New Class
 
 Start with the easy stuff!
