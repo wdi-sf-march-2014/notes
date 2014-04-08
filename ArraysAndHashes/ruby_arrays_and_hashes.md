@@ -6,7 +6,7 @@
 * Create hashes, Modify hashes
 * Understand how arrays and hashes work internally
 
-## What are data structures? Why Do We Use Them?
+## What are data structures? Why do we use them?
 A data structure is a way to organize the data in your program. Typically the data that needs to be organized is a related set of items.  For example, all of the students in a class, or all of the test scores for a quiz.  Some data structures organize data better than others for doing particular tasks.  For example, arrays can look up an item quickly, given the index in the array.  Hashes allow the coder to quickly look up a value given a key.  
 
 ## Arrays
