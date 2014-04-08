@@ -49,37 +49,67 @@ How can we represent this information, actions and questions in a Hash?
 	   ...
 	}
 	
-Where could we implement our calculated fields such as `current_age` and `full_name`?	
+Where could we implement our calculated fields such as `gpa`?
 
 	
 ##Hashes
 
-	students = [
-	  {
-	    first_name: 	'Barry',
-	    last_name: 		'White',
-	    major: 		'Musicology',
-	    date_of_birth:  	"1994-11-12",
-	    gpa: 		3.4,	    
-	    courses:		['Piano Accompaniment ','Mathematics 101','Operatic Voice 403','Intro to Music']	
-	  },
-	  {
-	    first_name: 	'Donna',
-	    last_name: 		'Summer',
-	    major: 		'Singing',
-	    date_of_birth:  	"1948-12-31",
-	    gpa: 		4.0,	    
-	    courses:		['Your Voice as an Instrument','Disco for beginners','Intro to Music']	
-	  },
-	  {
-	    first_name: 	'Skrillex',
-	    last_name: 		'',
-	    major: 		'Electronics',
-	    date_of_birth:  	"1988-01-15",
-	    gpa: 		3.9,	    
-	    courses:		['Beginning Mixing','basic soldering','advanced arduino','Intro to Music']	
-	  }
-	]
+```
+def allStudents
+  [
+      {
+          first_name: 'Barry',
+          last_name: 'White',
+          major: 'Musicology',
+          date_of_birth: "1994-11-12",
+          grades: [3.4, 3.6, 3.2, 3.4],
+          courses: [
+              'Piano Accompaniment ', 'Mathematics 101',
+              'Operatic Voice 403', 'Intro to Music'
+          ]
+      },
+      {
+          first_name: 'Donna',
+          last_name: 'Summer',
+          major: 'Singing',
+          date_of_birth: "1948-12-31",
+          grades: [4.0, 4.0, 4.0],
+          courses: [
+              'Your Voice as an Instrument', 'Disco for beginners',
+              'Intro to Music'
+          ]
+      },
+      {
+          first_name: 'Skrillex',
+          last_name: '',
+          major: 'Electronics',
+          date_of_birth: "1988-01-15",
+          grades: [4.0, 3.9, 3.8, 3.8],
+          courses: [
+              'Beginning Mixing', 'basic soldering',
+              'advanced arduino', 'Intro to Music'
+          ]
+      }
+  ]
+end
+
+def calculateGPA student
+  if student[:grades] && !student[:grades].empty?
+    student[:grades].inject(0.0){
+        |sum,grade| sum + grade
+    } / student[:grades].length.to_f
+  else
+    0.to_f
+  end
+end
+
+
+p calculateGPA allStudents[0]
+p calculateGPA allStudents[1]
+p calculateGPA allStudents[2]
+```
+
+
 
 ##Using Classes
 
@@ -88,10 +118,14 @@ Classes allow us to keep information and behaviour together in one place. We can
 
 ##Defining a New Class
 
+	# filename: 'student.rb'
+	
 	class Student
 	  
 	
 	end
+	
+##Class 	
 	
 
 ##Further Reading
