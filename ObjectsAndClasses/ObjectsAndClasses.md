@@ -48,7 +48,7 @@ If you know how to drive a car, when you get into any car, you can drive it, reg
 
 And We're thinking about the `Bands` at our `Record Label`
 
-![image](http://upload.wikimedia.org/wikipedia/commons/6/6f/Intermediapost_Recording_Studio.jpg =640x)
+![image](http://upload.wikimedia.org/wikipedia/commons/6/6f/Intermediapost_Recording_Studio.jpg)
 
 ================
 
