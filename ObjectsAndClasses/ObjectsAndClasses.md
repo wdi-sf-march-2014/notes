@@ -147,9 +147,9 @@ puts "Currently we have #{Band.bandCount} bands signed to our label"
 	
 * [Step 002](https://github.com/stujo/ruby-classes-demo/blob/step002/lib/band.rb)
     
-	a. Add our constructor the initialize method
-	b. Store the parameters in instance variables
-	c. Make our instance variables available with attr_accessor
+1. Add our constructor the initialize method
+2. Store the parameters in instance variables
+3. Make our instance variables available with attr_accessor
 
 
 ================
@@ -229,10 +229,10 @@ That's Better!
 
 * [Step 003](https://github.com/stujo/ruby-classes-demo/blob/step003/lib/band.rb)
     Here we'll introduce instance methods that do something!
-    a. Add our instance method `add_release`
-    b. Add our instance method `total_sales`	  
-    c. Add our instance method `latest_release`
-    d. Realize that another class `BandRelease` makes sense here
+1. Add our instance method `add_release`
+2. Add our instance method `total_sales`	  
+3. Add our instance method `latest_release`
+4. Realize that another class `BandRelease` makes sense here
 
 =================
 ##Adding Class Variables and Methods
@@ -240,8 +240,8 @@ That's Better!
 
 * [Step 004](https://github.com/stujo/ruby-classes-demo/blob/step004/lib/band.rb)
 	Here we'll introduce a class variable and a class method!
-    a. Add our class variable `@@band_count`   
-    b. Add our class method   `band_count` 	
+1. Add our class variable `@@band_count`   
+2. Add our class method   `band_count` 	
 
 
 ================
