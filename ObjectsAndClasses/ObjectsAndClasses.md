@@ -213,25 +213,7 @@ end
 ```
 Better!
 	
-##Module
 
-Sometimes we don't want to instantiate instances but we do want to group together a number of related methods. For example `Math` which exposes a number of mathematical functions to
-
-
-http://www.ruby-doc.org/core-2.1.1/Module.html
-
-```
-module Mod
-  include Math
-  CONST = 1
-  def meth
-    #  ...
-  end
-end
-Mod.class              #=> Module
-Mod.constants          #=> [:CONST, :PI, :E]
-Mod.instance_methods   #=> [:meth]
-```
 
 
 
@@ -264,6 +246,25 @@ cd ruby-classes-workshop
 
 
 
+##Module
+
+Sometimes we don't want to instantiate instances but we do want to group together a number of related methods. For example `Math` which exposes a number of mathematical functions to
+
+
+http://www.ruby-doc.org/core-2.1.1/Module.html
+
+```
+module Mod
+  include Math
+  CONST = 1
+  def meth
+    #  ...
+  end
+end
+Mod.class              #=> Module
+Mod.constants          #=> [:CONST, :PI, :E]
+Mod.instance_methods   #=> [:meth]
+```
 
 
 #The Self Study Lab Instructions
