@@ -1,6 +1,6 @@
-#DRAFT! DO NOT USE
+Objects and Classes
+=================
 
-#Objects and Classes
 
 ##Intro
 
