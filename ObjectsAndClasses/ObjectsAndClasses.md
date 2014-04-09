@@ -15,6 +15,9 @@ In Ruby, you will be able to:
 * Define a new Class
 * Create instances of your Class
 * Use `attr_reader`, `attr_accessor`
+* Understand Why We Use Classes
+* Have an Approach for designing a new class
+
 
 ##Objects and Classes Demo
 You've already been experiencing the joys of classes
@@ -48,8 +51,7 @@ Pair Up and come up with at least two answers to each of the following:
 
 	* What information do we know about a band?
 	* What actions can a band perform?
-	* What questions can we ask any band?
-	
+
 ##Hashes are Flexible but have Limitations
 How can we represent this information, actions and questions in a Hash?
 
@@ -231,26 +233,7 @@ Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
 
-##Struct
 
-Sometimes your see `Struct` this works similarly to a `Hash` but with fixed attributes
-
-You can add method definitions too, reproducing what you can do with `class`, without the `class`. I haven't used them though.
-
-
-http://www.ruby-doc.org/core-2.1.1/Struct.html
-
-```
-Customer = Struct.new(:name, :address) do
-  def greeting
-    "Hello #{name}!"
-  end
-end
-
-dave = Customer.new("Dave", "123 Main")
-dave.name     #=> "Dave"
-dave.greeting #=> "Hello Dave!"
-```
 
 #Time to Code Along (in Pairs)!
 
@@ -318,5 +301,24 @@ __Once you've completed the lab__
 * [Class Example - http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html
 ](http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html)
 
+##Struct
 
+Sometimes your see `Struct` this works similarly to a `Hash` but with fixed attributes
+
+You can add method definitions too, reproducing what you can do with `class`, without the `class`. I haven't used them though.
+
+
+http://www.ruby-doc.org/core-2.1.1/Struct.html
+
+```
+Customer = Struct.new(:name, :address) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+dave = Customer.new("Dave", "123 Main")
+dave.name     #=> "Dave"
+dave.greeting #=> "Hello Dave!"
+```
 
