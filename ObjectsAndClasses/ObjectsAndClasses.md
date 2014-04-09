@@ -1,7 +1,7 @@
 Objects and Classes
 =================
 
-![image](http://clients.stujophoto.com/photos/i-J3TMMz7/4/L/i-J3TMMz7-L.jpg)
+![Stone Henge - http://tujophoto.com/](http://clients.stujophoto.com/photos/i-J3TMMz7/4/L/i-J3TMMz7-L.jpg)
 
 ##Intro
 
