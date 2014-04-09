@@ -2,6 +2,8 @@ DRAFT! DO NOT USE
 
 #Introduction To Algorithms
 
+![Tahoe Rocks](http://clients.stujophoto.com/photos/i-gVgFLvQ/5/L/i-gVgFLvQ-L.jpg)
+
 Time for some computer sciencey stuff!
 
 #What is an Algorithm?
