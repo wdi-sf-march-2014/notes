@@ -97,10 +97,10 @@ __Try This Now__
 
 * [Step 001](https://github.com/stujo/ruby-classes-demo/blob/step001/lib/band.rb)
 
-	a. Create a project folder `ruby-classes-demo`
-	b. Create a lib directory
-	c. Create a new file lib/band.rb
-	d. Create our class Band ... end
+1. Create a project folder `ruby-classes-demo`
+2. Create a lib directory
+3. Create a new file lib/band.rb
+4. Create our class Band ... end
 	
 
 ================
