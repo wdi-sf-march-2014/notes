@@ -42,17 +42,17 @@ __Try This:__
 __Example:__
 If you know how to drive a car, when you get into any car, you can drive it, regardless of which model / manufacturer the car comes from. That's because you have an internal idea of the `Class` called `Car` and you understand the `Interface` that `Instances` of the class `Car` present to their users
   	
+================
 
-##Describing a Potential Class
+##Today you are a Record Company Executive!
 
-We're thinking about the `Bands` at our `Record Label`
+And We're thinking about the `Bands` at our `Record Label`
 
-Pair Up and come up with at least two answers to each of the following:
+![image](http://upload.wikimedia.org/wikipedia/commons/6/6f/Intermediapost_Recording_Studio.jpg =640x)
 
-	* What information do we know about a band?
-	* What actions can a band perform?
+================
 
-##Hashes are Flexible but have Limitations
+##Review: Hashes are Flexible but have Limitations
 How can we represent this information, actions and questions in a Hash?
 
 ```
@@ -76,15 +76,46 @@ aBand = {
 * What happens if someone makes a typo on their hash keys
 * What happens if someone uses an incorrect format for a value?
 
-#Using Classes
+================
 
-Classes allow us to:
 
-* Keep information and behaviour together in one place
-* Encapsulate the details of our implementation 
-* Keep the global namespace clear of naming conflicts
-* Define a clear interface to our implementation
-* Classes give us cleaner code (see next topic)
+##Using Classes
+
+
+
+```
+class Band
+
+ #... Your code goes here
+
+end
+
+
+```
+__Try This Now__
+
+* [Step 001](https://github.com/stujo/ruby-classes-demo/blob/step001/lib/band.rb)
+
+	a. Create a project folder `ruby-classes-demo`
+	b. Create a lib directory
+	c. Create a new file lib/band.rb
+	d. Create our class Band ... end
+	
+
+================
+
+##Describing a Potential Class
+
+We're thinking about the `Bands` at our `Record Label`
+
+Pair Up and come up with at least two answers to each of the following:
+
+	* What information do we know about a band?
+	* What actions can a band perform?
+	* What actions do we want to perform on a band?
+
+
+================
 
 ##Starting to Design a Class
 
@@ -108,44 +139,19 @@ puts "Currently we have #{Band.bandCount} bands signed to our label"
 
 ```
 
-##Defining the Class which Meets our Expectations
-Over the next few pages I'll demonstrate how to build the class, then you we'll try the workshop
+================
 
-We will introduce:
+##Adding Some Instance Methods
 
-* Where to put your classes: In YOUR_CLASS_NAME`.rb`
-* class              :       `class`
-* initialize method :        `def initialize (name, agent ....`
-* Instance variables :       `@agent`
-* Instance methods  :        `def add_release, total_sales  ....`
-* attr_accessor method :     `attr_accessor :name, :agent ....`
-* Class variables :          `@@band_count`
-* Class methods :            `def self.band_count ...`
-* Loading classes :          `require and require_relative`
-
-
-#Simple Ruby Class
-
-1. [Step 001](https://github.com/stujo/ruby-classes-demo/blob/step001/lib/band.rb)
-	a. Create a project folder `ruby-classes-demo`
-	b. Create a lib directory
-	c. Create a new file lib/band.rb
-	d. Create our class Band ... end
 	
-2. [Step 002](https://github.com/stujo/ruby-classes-demo/blob/step002/lib/band.rb)
+* [Step 002](https://github.com/stujo/ruby-classes-demo/blob/step002/lib/band.rb)
+    
 	a. Add our constructor the initialize method
 	b. Store the parameters in instance variables
 	c. Make our instance variables available with attr_accessor
 
-3. [Step 003](https://github.com/stujo/ruby-classes-demo/blob/step003/lib/band.rb)
-    a. Add our instance method `add_release`
-    b. Add our instance method `total_sales`	  
-    c. Add our instance method `latest_release`
-    d. Realize that another class `BandRelease` makes sense here
 
-4. [Step 004](https://github.com/stujo/ruby-classes-demo/blob/step004/lib/band.rb)
-    a. Add our class variable `@@band_count`   
-    b. Add our class method   `band_count` 	
+================
 
 ##Class without attr_accessor
 
@@ -195,6 +201,8 @@ end
 ```
 That was very unexciting!
 
+================
+
 ##Class with attr_accessor
 
 ```
@@ -214,12 +222,30 @@ end
 
 That's Better!
 
-================
-#Time to Code Along (in Pairs)!
-================
+
+=================
+##Adding More Instance Methods
+
+* [Step 003](https://github.com/stujo/ruby-classes-demo/blob/step003/lib/band.rb)
+    Here we'll introduce instance methods that do something!
+    a. Add our instance method `add_release`
+    b. Add our instance method `total_sales`	  
+    c. Add our instance method `latest_release`
+    d. Realize that another class `BandRelease` makes sense here
+
+=================
+##Adding Class Variables and Methods
 
 
-Let's try some pair programming!
+* [Step 004](https://github.com/stujo/ruby-classes-demo/blob/step004/lib/band.rb)
+	Here we'll introduce a class variable and a class method!
+    a. Add our class variable `@@band_count`   
+    b. Add our class method   `band_count` 	
+
+
+================
+#Time to Do It (in Pairs)!
+================
 
 1. Go look at this repository:
 
@@ -242,26 +268,55 @@ Let's try some pair programming!
 7. Re-Read README.md if you're not sure what to do
 
 
+================
 
-##Module
+##Why We Use Classes	
 
-Sometimes we don't want to instantiate instances but we do want to group together a number of related methods. For example `Math` which exposes a number of mathematical functions to
+Classes allow us to:
+
+* Keep information and behaviour together in one place
+* Encapsulate the details of our implementation 
+* Keep the global namespace clear of naming conflicts
+* Define a clear interface to our implementation
+* Classes give us cleaner code
+
+================
 
 
-http://www.ruby-doc.org/core-2.1.1/Module.html
+##One more thing: Modules
+
+Sometimes we don't want to instantiate instances but we do want to group together a number of related methods. For example `Math` which exposes a number of mathematical functions for your use and amusement
 
 ```
-module Mod
-  include Math
-  CONST = 1
-  def meth
-    #  ...
-  end
+module OrderProcessor
+
+   def self.processOrder(customer, items)
+      #do something to process the order
+   end
+
 end
-Mod.class              #=> Module
-Mod.constants          #=> [:CONST, :PI, :E]
-Mod.instance_methods   #=> [:meth]
 ```
+
+[http://www.dotnetperls.com/math-ruby](http://www.dotnetperls.com/math-ruby)
+
+================
+
+
+##What We Covered
+
+* Where to put your classes: In YOUR_CLASS_NAME`.rb`
+* class              :       `class`
+* initialize method :        `def initialize (name, agent ....`
+
+* Instance variables :       `@agent`
+* attr_accessor method :     `attr_accessor :name, :agent ....`
+
+* Instance methods  :        `def add_release, total_sales  ....`
+
+* Class variables :          `@@band_count`
+* Class methods :            `def self.band_count ...`
+
+* Modules : 				  `module OrderProcessor`
 
 ================
 
@@ -291,7 +346,7 @@ __Once you've completed the lab__
 * Create a Pull Request to ruby-classes-workshop master
 
 
-	
+=============	
 
 ##Further Reading
 
@@ -301,6 +356,8 @@ __Once you've completed the lab__
 
 * [Class Example - http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html
 ](http://blog.rubybestpractices.com/posts/rklemme/018-Complete_Class.html)
+
+=============	
 
 ##Struct
 
