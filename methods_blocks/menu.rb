@@ -7,7 +7,7 @@ def menu
     puts "  2) Option 2"
     puts "  3) Option 3"
     puts "  Q) Quit"
-  
+
     puts "Enter an option: "
     selection = gets.chomp.upcase
 
@@ -34,3 +34,5 @@ def menu
 end
 
 menu()
+
+

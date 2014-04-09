@@ -28,13 +28,9 @@
 		=> Hello World!
 
 
-#### Go to Gist, clone file 
+#### Go to notes repository. Fork a copy to your repo. Clone a copy from your repo to your desktop. 
 	
-	$ irb
-	> load './methods.rb'
-	Ruby Methods
-	=> true
-
+	
 ## Method with no arguments - three different styles
 
 	# Return a local variable
