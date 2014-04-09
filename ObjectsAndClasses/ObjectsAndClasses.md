@@ -211,13 +211,13 @@ class Student
 	end
 end
 ```
-Better!
-	
 
+That's Better!
 
-
-
+================
 #Time to Code Along (in Pairs)!
+================
+
 
 Let's try some pair programming!
 
@@ -225,24 +225,21 @@ Let's try some pair programming!
 
 	[https://github.com/stujo/ruby-classes-workshop](https://github.com/stujo/ruby-classes-workshop)
 	
-1. Read the README.md in the project	
+2. Read the README.md in the project	
 
-1. FORK IT into your GitHub account
+3. FORK IT into your GitHub account
 
-1. In your terminal, go to where you are keeping your ruby projects then CLONE your FORKED repo to your computer
+4. In your terminal, go to where you are keeping your ruby projects then CLONE your FORKED repo to your computer
 
-1. ```
-git clone https://github.com/YOURUSERNAME/ruby-classes-workshop
-```
+5.	git clone https://github.com/YOURUSERNAME/ruby-classes-workshop
 
-1. Which Should create a `ruby-classes-workshop` folder
+5. Which Should create a `ruby-classes-workshop` folder
 
-1. ```
-cd ruby-classes-workshop
-```
-1. Get started! `ruby students_as_hashes.rb` will show you the existing app
+6.	cd ruby-classes-workshop
 
-2. Re-Read README.md if you're not sure what to do
+6. Get started! `ruby students_as_hashes.rb` will show you the existing app
+
+7. Re-Read README.md if you're not sure what to do
 
 
 
@@ -266,9 +263,12 @@ Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
 
+================
 
 #The Self Study Lab Instructions
-The Lab is an RSpec Driven Lab
+================
+
+The Lab is an RSpec Driven Lab, but you are not learning RSpec, just running it
 
 This means that I've written tests already and you need to write the code to make the tests pass
 
