@@ -1,26 +1,26 @@
 #Inheritance
 
+##Quick Review:
+1. What is a method? What is a class?
+1. What is an instance method? What is class method?
+
 ##Objectives:
-1. Describe what is inheritance is and identify the benefits & disadvantages of its use. Create a 2 classes in which one class inherits from another class.
+1. Describe what inheritance is and identify the benefits & disadvantages of its use. Create  2 classes in which one class inherits from another class.
 1. Create a class that can override methods from it's parent class.
 1. Illustrate the different ways you can load code: load, require, require_relative
-
-##Quick Quiz Review:
-1. What is a method? What is an instance method?
-1. What is a class? What is class method?
 
 ##Goal #1 - Inheritance:
 
 - Inheritance is used to indicate that one class will get most or all of its features from a parent class. 
     
 *When is inheritance useful?
-        a. DRY - Don't Repeat Yourself
+        a. DRY - Don't Repeat Yourself & reuse code functionality
+        b. Faster implementation time
 
-REPLACE        b. Rails uses it heavily.
-
-        c. Example: Suppose you're building an application  helps you ship goods. Many forms of shipping are available, but all forms share some basic functionality (weight calculation, perhaps). We don’t want to duplicate the code that implements this functionality across the implementation of each shipping type. 
+        - Example: Suppose you're building an application  helps you ship goods. Many forms of shipping are available, but all forms share some basic functionality (weight calculation, perhaps). We don’t want to duplicate the code that implements this functionality across the implementation of each shipping type. 
 
 ##Demo
+
 ```
 class Animal
   def speak
@@ -46,6 +46,7 @@ end
     - In Ruby, initialize is an ordinary method and inherited just like another method.
 
 ##Code-Along
+
 ```
 class Box
 
@@ -68,11 +69,8 @@ class BigBox < Box
 
 end
 
-#create an object
-box = BigBox.new(10, 20)
-
-#print the area
-puts box.print_area()
+1.) How would I create a box? How could I create a BigBox?
+1.) How would I print the area of the BigBox?
 ```
 
 ##Exercise #1:
@@ -106,15 +104,30 @@ end
 puts Lab.new("Labrador", "Ben").to_s 
 # .to_s is called implicitly with any puts or print or p method call  
 ```
+Note:
+* ​to_s​ is actually defined in class ​Object​. Because ​Object​ is an ancestor of every Ruby.
 
-- When you invoke *super* with arguments, Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. super sends exactly those arguments.
+Fixnum: http://www.ruby-doc.org/core-2.1.1/Fixnum.html#method-i-to_s
+Hash: http://www.ruby-doc.org/core-2.1.0/Hash.html#method-i-inspect
+Array: http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-to_s
+
+- When you invoke *super* with arguments, Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. 
+- Super sends the right number of arguments for the parent's class' argument count
+
+##Discuss in pairs:
+- Do instance variables get inherited? 
+
 
 ##Exercise #2:
+There will be situations where certain properties of the superclass should not be inherited by a particular subclass. Though birds generally know how to fly, penguins are a flightless subclass of birds.
+
 Create a Bird class & a Penguin class. Give the Bird class an initialize, preen, and fly methods. Give the Penguin class a new fly method (since it cannot fly).
 
 
 ##Goal #3 - load, require, require_relative
     - When your projects start to grow & you start using multiple files, you'll need Ruby's require and load methods.
+
+Name the file: calendar.rb
 
 ```
 class Calendar
@@ -136,19 +149,17 @@ puts Calendar.new(8, 2011)
 - This will reload the ruby file every time it's called.
 - Load is typically used for checking for small changes and debugging - does not keep track of whether a file or library has been loaded
 
-1. In Pry, try this:
-    ``` pry(main)> load 'calendar.rb'```
-1. Now add to the initialize: 
-    ```@day = day```
-
-
 ##require
 - This will load a ruby file ONCE and only once. All subsequent require statements will not reload the file.
 - Doesn't need the .rb file extension, but won't hurt if it's there.
 
-
-##require_relative
-
-
-
 ##Exercise
+Change code and see how load and require behave.
+
+1. Create Person class, in the lib dir, that has name and age attributes. It will also have a method to determine if person can vote. Initially a person can vote if the are over 18.
+1. Open pry and "load" this person class.
+1. Create a person that is age 19.
+1. Can they vote?
+1. Now change the person class so that the voting age is now 21.
+1. Load the person class. Was the change seen?
+
