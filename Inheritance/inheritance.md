@@ -2,7 +2,7 @@
 
 ##Quick Review:
 1. What is a method? What is a class?
-1. What is an instance method? What is class method?
+1. What is an instance method? 
 
 ##Objectives:
 1. Describe what inheritance is and identify the benefits & disadvantages of its use. Create  2 classes in which one class inherits from another class.
@@ -17,7 +17,7 @@
         a. DRY - Don't Repeat Yourself & reuse code functionality
         b. Faster implementation time
 
-        - Example: Suppose you're building an application  helps you ship goods. Many forms of shipping are available, but all forms share some basic functionality (weight calculation, perhaps). We don’t want to duplicate the code that implements this functionality across the implementation of each shipping type. 
+        - Example: Suppose you're building an application that helps you ship goods. Many forms of shipping are available, but all forms share some basic functionality (weight calculation, perhaps). We don’t want to duplicate the code that implements this functionality across the implementation of each shipping type. 
 
 ##Demo
 
@@ -104,12 +104,6 @@ end
 puts Lab.new("Labrador", "Ben").to_s 
 # .to_s is called implicitly with any puts or print or p method call  
 ```
-Note:
-* ​to_s​ is actually defined in class ​Object​. Because ​Object​ is an ancestor of every Ruby.
-
-Fixnum: http://www.ruby-doc.org/core-2.1.1/Fixnum.html#method-i-to_s
-Hash: http://www.ruby-doc.org/core-2.1.0/Hash.html#method-i-inspect
-Array: http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-to_s
 
 - When you invoke *super* with arguments, Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. 
 - Super sends the right number of arguments for the parent's class' argument count
@@ -117,6 +111,12 @@ Array: http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-to_s
 ##Discuss in pairs:
 - Do instance variables get inherited? 
 
+Note:
+* ​to_s​ is actually defined in class ​Object​. Because ​Object​ is an ancestor of every Ruby.
+
+Fixnum: http://www.ruby-doc.org/core-2.1.1/Fixnum.html#method-i-to_s
+Hash: http://www.ruby-doc.org/core-2.1.0/Hash.html#method-i-inspect
+Array: http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-to_s
 
 ##Exercise #2:
 There will be situations where certain properties of the superclass should not be inherited by a particular subclass. Though birds generally know how to fly, penguins are a flightless subclass of birds.
@@ -124,7 +124,7 @@ There will be situations where certain properties of the superclass should not b
 Create a Bird class & a Penguin class. Give the Bird class an initialize, preen, and fly methods. Give the Penguin class a new fly method (since it cannot fly).
 
 
-##Goal #3 - load, require, require_relative
+##Goal #3 - load & require
     - When your projects start to grow & you start using multiple files, you'll need Ruby's require and load methods.
 
 Name the file: calendar.rb
