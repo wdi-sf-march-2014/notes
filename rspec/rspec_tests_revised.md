@@ -218,15 +218,6 @@
 
 
 
-list of commands like eq
-
-should vs. expect
-
-combine into a folder for a repo
-
-provide solution
-
-
 
 
 
