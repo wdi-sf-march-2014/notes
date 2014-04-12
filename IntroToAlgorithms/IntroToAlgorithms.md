@@ -7,16 +7,42 @@ Introduction To Algorithms
 
 Time for some computer sciencey stuff!
 #Objectives
+* Understand the difference between __Iteration__ and __Recursion__
 * Define an Algorithm
 * Demonstrate the Bubblesort Algorithm
-* Describe the __big O__
+* Recognize the __big O__ notation
 	* O(1)
 	* O(log N)
 	* O(N)
-	* O(N log N)
-	* O(N ^ 2) - N-squared
-	* O(N!)	
-* Have some understanding of Recursion
+	* O(N ^ 2) - N-Squared
+
+#Recursion and Iteration
+
+##Iteration
+Iteration uses a loop statement
+
+```
+def printx_loop (x)
+  x.times do |xn|
+    puts xn
+  end
+end
+
+printx_loop 10
+
+```
+##Recursion
+Recursion occurs when a function calls itself
+
+```
+def printx_recursion (x)
+   printx_recursion(x - 1) unless x == 1
+   puts x
+end
+
+printx_recursion 10
+
+```
 
 #What is an Algorithm?
 
@@ -28,14 +54,14 @@ Time for some computer sciencey stuff!
 
 #Eat your Veggies
 
-* BubbleSort
-* MergeSort
+* BubbleSort - O(N^2)
+* MergeSort - O(NlogN)
+* [Sorting Algorithms in Ruby](http://jlarusso.github.io/blog/2013/04/30/sorting-algorithms-in-ruby/)
 
 #Examples of Algorithms
 
 * [Fisher Yates Shuffle](http://bost.ocks.org/mike/shuffle/)
 * [Dijkstra's Shortest Path](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
-
 
 # What is Algorithmic Complexity?
 
@@ -70,42 +96,43 @@ It's EASY! Just read this:
 
 1. We consider all possible input to the algorithm, and choose the one which will perform the worst.  Then consider the algorithm line by line.
 
-2. For each operation which takes some minimal amount of time, add 1.  
+2. For a linear loop which goes through each piece of the input, multiply the operations inside of that by the size of the input (usually called N).
 
-3. For a linear loop which goes through each piece of the input, multiply the operations inside of that by the size of the input (usually called N).
-
-4. For a loop which chooses a section of the input, then focuses in on that section, that will be log time.
-
+3. For a loop which chooses a section of the input, then focuses in on that section, that will be log time.
 
 # Some Complexity Classes:
-* O(1) - Constant time
+* O(1) - Constant Time
    * Get the first value of a list
    * Random sample from a list
 
-* O(logN) - Divide and Pick
+* O(logN) - Logarithmic Time 
    * Typical of algorithms that divide the input, then look at one of the sections
    * Searching sorted data
 
-* O(N) - For each ....
+* O(N) - Linear Time 
+   * For each ....
    * Sum an array
    * Find the max of an unsorted array
 
-* O(NlogN) - Divide and pick a section for every piece of input
-   * Sorting with quicksort, merge sort, or other sort reasonably fast sort.
+* O(NlogN) - N Log Time
+   * Sorting with quicksort, merge sort
 
-* O(N^2) - For each piece of data, look at the data you haven't looked at yet (the rest of the list)
+* O(N^2) - Quadratic Time
+   * For each piece of data, look at the rest of the list
    * Insertion Sort
    * Selection Sort
    * Bubble Sort
    * List all pairs in a dataset
    * Dijkstra's algorithm without a priority queue
    
-* O(N!) - List all combinations of a set, every possible subset.  Impossibly slow and hardly ever needed.
+* O(N!) - List all combinations of a set, every possible subset.  
+  * Impossibly slow and hardly ever needed.
   * Naive travelling salesman
   
-# Cheat Sheet
+# Algorithm Cheat Sheet
 
 * [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
+
 
 
 
@@ -115,6 +142,7 @@ It's EASY! Just read this:
 * Overview of selected data structures, operations, and their complexity: [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
 * The classic Algorithms textbook by Cormen, Leierson, Rivest, and Stein: [http://mitpress.mit.edu/books/introduction-algorithms](http://mitpress.mit.edu/books/introduction-algorithms)
 * MIT notes on Big O: [http://web.mit.edu/16.070/www/lecture/big_o.pdf](http://web.mit.edu/16.070/www/lecture/big_o.pdf)
+* http://www.cs.dartmouth.edu/~dwagn/research/ordernotation.html
 * http://blog.codinghorror.com/the-danger-of-naivete/
 * http://bost.ocks.org/mike/shuffle/
 * http://jlarusso.github.io/blog/2013/04/30/sorting-algorithms-in-ruby/
