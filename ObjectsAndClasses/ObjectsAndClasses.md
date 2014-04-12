@@ -157,48 +157,42 @@ puts "Currently we have #{Band.bandCount} bands signed to our label"
 ##Class without attr_accessor
 
 ```
- # filename: 'student.rb'
-	
-class Student
-	def initialize (first,last,major,date_of_birth)
-	   @first_name = first
-	   @last_name = last
-	   @major = major
-	   @date_of_birth = date_of_birth
-	end
+ # filename: 'band.rb'
+ 
+ class Band
 
-	def first_name
-	  @first_name
-	end
+  def initialize(name,agent,signed)
+    @name = name
+    @agent = agent
+    @date_signed = signed
+  end
 
-	def first_name=(first)
-	  @first_name= first 
-	end
-			
-	def last_name
-	  @last_name
-	end
+  def name
+    @name
+  end
 
-	def last_name=(last)
-	  @last_name= last 
-	end
+  def name=(name)
+    @name= name 
+  end  
 
-	def major
-	  @major
-	end
+  def agent
+    @agent
+  end
 
-	def major=(maj)
-	  @major= maj 
-	end
+  def agent=(agent)
+    @agent= agent 
+  end  
 
-	def date_of_birth
-	  @date_of_birth
-	end
+  def date_signed
+    @date_signed
+  end
 
-	def date_of_birth=(dob)
-	  @date_of_birth= dob 
-	end
+  def date_signed=(date_signed)
+    @date_signed= date_signed 
+  end  
+
 end
+
 ```
 That was very unexciting!
 
@@ -207,18 +201,16 @@ That was very unexciting!
 ##Class with attr_accessor
 
 ```
- # filename: 'student.rb'
+  # filename: 'band.rb'
 	
-class Student
-	attr_accessor :first_name, :last_name, :major, :date_of_birth
-	
-	def initialize (first,last,major,date_of_birth)
-	   @first_name = first
-	   @last_name = last
-	   @major = major
-	   @date_of_birth = date_of_birth
-	end
-end
+ class Band
+   attr_accessor :name, :agent, :date_signed
+
+  def initialize(name,agent,signed)
+    @name = name
+    @agent = agent
+    @date_signed = signed
+  end
 ```
 
 That's Better!

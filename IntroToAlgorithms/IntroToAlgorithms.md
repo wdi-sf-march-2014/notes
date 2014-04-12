@@ -1,23 +1,124 @@
 #DRAFT! DO NOT USE
 
-#Introduction To Algorithms
+Introduction To Algorithms
+==================
 
 ![Tahoe Rocks](http://clients.stujophoto.com/photos/i-gVgFLvQ/5/L/i-gVgFLvQ-L.jpg)
 
 Time for some computer sciencey stuff!
+#Objectives
+* Define an Algorithm
+* Demonstrate the Bubblesort Algorithm
+* Describe the __big O__
+	* O(1)
+	* O(log N)
+	* O(N)
+	* O(N log N)
+	* O(N ^ 2) - N-squared
+	* O(N!)	
+* Have some understanding of Recursion
 
 #What is an Algorithm?
 
+* A definition of __How__ to do something
+* Always Produces the Same Results for a given set of inputs
+* The Input(s) are clearly defined - along with any pre conditions
+* The Output is clearly defined
+* Always ends (or terminates) at some point
+
+#Eat your Veggies
+
+* BubbleSort
+* MergeSort
+
+#Examples of Algorithms
+
+* [Fisher Yates Shuffle](http://bost.ocks.org/mike/shuffle/)
+* [Dijkstra's Shortest Path](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
+
+
+# What is Algorithmic Complexity?
+
+Often in software engineering, we need to choose between algorithms and data structures which are suited to different tasks.  
+
+We need to analyse our own tasks, and the data we will be using, and make informed decisions about what tools to use.  
+
+Sometimes one tool is better in every way than another, but more often we have to sacrifice memory use for computation speed, or sacrifice speed of deletions to increase speed of insertions, and so on.
+
+# Why do we care?
+
+* First, it is important that the algorithms used in our applications will behave well as the amount of data our application is operating on increases. 
+
+* Second, you will get these sorts of questions in interviews!
+
+#Example
+
+ For instance, in the absence of indexing, a database feature we will talk about next week, the ActiveRecord code `User.where(:name => "Delmer")` will take `O(n)` time.  This means that if the number of users in our database doubles, it will take twice as long to find Delmer.  
+ 
+ With indexing, this will take `O(log(n))` time, meaning that the amount of time used to find Delmer will double if the number of users in our database is __squared__.  
+ 
+ This is the difference between the app collapsing into a slow and unresponsive grave when the number of users gets to thousands and the app continuing calmly to a hundred thousand or a million users.
+
+
+#The Big O
+
+It's EASY! Just read this:
+
+* [Big O Notation](http://en.wikipedia.org/wiki/Big_O_notation)
+
+# How is the Big O of a procedure calculated?
+
+1. We consider all possible input to the algorithm, and choose the one which will perform the worst.  Then consider the algorithm line by line.
+
+2. For each operation which takes some minimal amount of time, add 1.  
+
+3. For a linear loop which goes through each piece of the input, multiply the operations inside of that by the size of the input (usually called N).
+
+4. For a loop which chooses a section of the input, then focuses in on that section, that will be log time.
+
+
+# Some Complexity Classes:
+* O(1) - Constant time
+   * Get the first value of a list
+   * Random sample from a list
+
+* O(logN) - Divide and Pick
+   * Typical of algorithms that divide the input, then look at one of the sections
+   * Searching sorted data
+
+* O(N) - For each ....
+   * Sum an array
+   * Find the max of an unsorted array
+
+* O(NlogN) - Divide and pick a section for every piece of input
+   * Sorting with quicksort, merge sort, or other sort reasonably fast sort.
+
+* O(N^2) - For each piece of data, look at the data you haven't looked at yet (the rest of the list)
+   * Insertion Sort
+   * Selection Sort
+   * Bubble Sort
+   * List all pairs in a dataset
+   * Dijkstra's algorithm without a priority queue
+   
+* O(N!) - List all combinations of a set, every possible subset.  Impossibly slow and hardly ever needed.
+  * Naive travelling salesman
+  
+# Cheat Sheet
+
+* [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
 
 
 
-
-#Further Reading
-
+  
+# Resources:
+* Good introduction to complexity analysis by Dionysis Zindros [http://discrete.gr/complexity/](http://discrete.gr/complexity/)
+* Overview of selected data structures, operations, and their complexity: [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
+* The classic Algorithms textbook by Cormen, Leierson, Rivest, and Stein: [http://mitpress.mit.edu/books/introduction-algorithms](http://mitpress.mit.edu/books/introduction-algorithms)
+* MIT notes on Big O: [http://web.mit.edu/16.070/www/lecture/big_o.pdf](http://web.mit.edu/16.070/www/lecture/big_o.pdf)
 * http://blog.codinghorror.com/the-danger-of-naivete/
 * http://bost.ocks.org/mike/shuffle/
 * http://jlarusso.github.io/blog/2013/04/30/sorting-algorithms-in-ruby/
 * http://en.wikipedia.org/wiki/Scope_resolution_operator#Ruby
-* 
+
 
 
