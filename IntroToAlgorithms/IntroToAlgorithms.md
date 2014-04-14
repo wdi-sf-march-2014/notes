@@ -34,11 +34,11 @@ Recursion occurs when a function calls itself
 
 ```
 def printx_recursion (x)
-   printx_recursion(x - 1) unless x == 1
+   printx_recursion(x - 1) unless x == 0
    puts x
 end
 
-printx_recursion 10
+printx_recursion 9
 
 ```
 
