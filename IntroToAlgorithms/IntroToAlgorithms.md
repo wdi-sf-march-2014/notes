@@ -140,7 +140,7 @@ It's EASY! Just read this:
 
 * Don't expect to finish everything, but practice as much as you wish
 
-* [algorithms-ruby-lab](https://github.com/stujo/algorithms-ruby-lab)
+* [algorithms-ruby-lab](https://github.com/wdi-sf-march-2014/algorithms-ruby-lab)
 
 * There is a secret bonus lab if you're interested so ask!
 
