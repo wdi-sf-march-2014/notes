@@ -1,5 +1,3 @@
-#DRAFT! DO NOT USE
-
 Introduction To Algorithms
 ==================
 
@@ -17,6 +15,10 @@ Time for some computer sciencey stuff!
 	* O(N ^ 2) - N-Squared
 
 #Recursion and Iteration
+
+* Problem statement print the numbers from 0 through 9 in order
+
+__Try This at Home__
 
 ##Iteration
 Iteration uses a loop statement
@@ -36,11 +38,11 @@ Recursion occurs when a function calls itself
 
 ```
 def printx_recursion (x)
-   printx_recursion(x - 1) unless x == 1
+   printx_recursion(x - 1) unless x == 0
    puts x
 end
 
-printx_recursion 10
+printx_recursion 9
 
 ```
 
@@ -134,7 +136,13 @@ It's EASY! Just read this:
 * [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
 
 
+#Algorithm and RSpec Lab
 
+* Don't expect to finish everything, but practice as much as you wish
+
+* [algorithms-ruby-lab](https://github.com/stujo/algorithms-ruby-lab)
+
+* There is a secret bonus lab if you're interested so ask!
 
   
 # Resources:
