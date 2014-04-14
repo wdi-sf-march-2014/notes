@@ -168,7 +168,8 @@
     
     	it "should have a side" do
     	    my_square = Square.new(5)
-    		@my_square.side.should eq(5)
+    		# @my_square.side.should eq(5)
+    		expect(@my_square.side).to eq(5)
     	end
 
     end
@@ -215,7 +216,24 @@
 
 	end
 	
+#@@@@@@@@@@@@@@@@@@
+##[Rspec Documentation "Relish"](https://relishapp.com/rspec/)
+##[Rspec expectations doc](http://rubydoc.info/gems/rspec-expectations/frames)
 
+## Other "expectations":
+
+* <h3> ".should != 5" is same as _".should_not eq(5)"_ </h3>
+	* <h3> expect(some_operation).to eq(5)</h3> 
+* <h3> ".should == true" is same as _".should  be_true"_ </h3>
+	* <h3> expect(some_operation).to be_true</h3>  
+* <h3> ".should == false" is same as _".should  be_false"_ </h3>
+	* <h3> expect(some_operation).to be_false</h3>  
+* <h3> ".should < 5" is same as _".should be < 5"_ </h3>
+	* <h3> expect(some_operation).to be < 5</h3>  
+	
+
+
+	
 
 
 
