@@ -1,5 +1,3 @@
-#DRAFT! DO NOT USE
-
 Introduction To Algorithms
 ==================
 
