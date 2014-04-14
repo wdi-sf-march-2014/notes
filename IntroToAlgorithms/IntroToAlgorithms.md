@@ -16,6 +16,8 @@ Time for some computer sciencey stuff!
 
 #Recursion and Iteration
 
+* Problem statement print the numbers from 0 through 9 in order
+
 ##Iteration
 Iteration uses a loop statement
 
