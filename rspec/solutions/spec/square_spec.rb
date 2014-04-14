@@ -19,15 +19,23 @@ describe Square do
 
   it "should be able to change side length" do 
     @my_square.side = 6
-    @my_square.side.should eq(6)
+    expect(@my_square.side).to eq(6)
   end
 
   it "should calculate the area" do
-    @my_square.area.should eq(25)
+    expect(@my_square.area).to eq(25)
   end
 
   it "should calculate the perimeter" do
-    @my_square.perimeter.should eq(20)
+    expect(@my_square.perimeter).to eq(20)
+  end
+
+  it "should calculate the perimeter" do
+    expect(@my_square.perimeter).to eq(20)
+  end
+
+  it "should calculate the diagonal" do
+    expect(@my_square.diagonal).to eq(7.07)
   end
 
   it "should have a to_s method" do 

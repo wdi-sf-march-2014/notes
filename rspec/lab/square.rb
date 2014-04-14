@@ -13,6 +13,10 @@ class Square
     @side * 4
   end
 
+  def diagonal
+    Math.sqrt(@side**2 + @side**2)
+  end
+
   def to_s
     "I am a square. My sides are of length: #{@side}. My area is: #{area}."
   end

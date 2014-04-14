@@ -130,6 +130,20 @@
     			@my_square = nil
     		end
 
+## Exercise 1: Write some describe / it tests for an existing class.
+#### 1) Go to your notes directory and pull the latest notes
+	$> git pull
+#### 2) Go to the notes/rspec
+	> cd rspec
+#### 3) Copy the lab directory to my_lab directory
+	> cp -r lab my_lab
+#### 4)Go to the my_lab directory
+	> cd my_lab
+#### 5) Run the first test: rspec spec/square_spec.rb
+	if this passes we can proceed
+
+
+### Assignment: We have a Square class in square.rb. We need to write tests in spec/square_spec.rb that tests square.rb. We will do this together.
 
 ## square.rb
 
@@ -174,13 +188,24 @@
     end
     
 # 3) Go through Red/Green/Refactor routine to create a Class with tests
+### Remember our mantra: Red, Green, Refactor
 
-## Employee Code Along
-### Let's design an Employee class:
+*  <h3> "Red" => write test, run test, test fails</h3>
+*  <h3>"Green" => write just enough code to make it pass</h3>
+*  <h3> "Refactor" => look for ways to improve your code</h3>
 
-* <h3> What attributes and behaviors should our Employee object have?</h3>
 
-### Create two files: employee.rb and employee_spec.rb
+## Exercise 2: 
+### Setup:
+#### 1) Run spec/employee_spec.rb
+	if this passes we can proceed
+### Assignment	
+#### 1) Create a list of attributes and methods that our Employee class should have.
+#### 2) Create a list of tests for the attributes and methods.
+#### 3) Add one of the tests into spec/employee_spec.rb
+#### 4) Run the test, it should fail (i.e."Red").
+#### 5) Add code to your employee.rb file until that test passes (i.e. "Green").
+#### 6) Return to step 3 until all tests are coded
 
 #### employee_spec.rb:
 
@@ -218,11 +243,12 @@
 #@@@@@@@@@@@@@@@@@@
 ##[Rspec Documentation "Relish"](https://relishapp.com/rspec/)
 ##[Rspec expectations doc](http://rubydoc.info/gems/rspec-expectations/frames)
+##[Better Specs - Rspec guidelines](http://betterspecs.org/)
 
 ## Other "expectations":
 
 * <h3> ".should != 5" is same as _".should_not eq(5)"_ </h3>
-	* <h3> expect(some_operation).to eq(5)</h3> 
+	* <h3> expect(some_operation).not_to eq(5)</h3> 
 * <h3> ".should == true" is same as _".should  be_true"_ </h3>
 	* <h3> expect(some_operation).to be_true</h3>  
 * <h3> ".should == false" is same as _".should  be_false"_ </h3>
