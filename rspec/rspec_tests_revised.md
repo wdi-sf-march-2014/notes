@@ -18,16 +18,15 @@
 
 * <h3> Go back to edit your program after a period of time, you can review the tests to see how the program is supposed to work. </h3>
 
-
 * <h3> You can refactor you code with some degree of assuance that your program still works. </h3>
 
-* <h3> For every new edit you want to release, you don't want to have to test all the buttons and links in you web site</h3>
+* <h3> For every new edit you want to release, you don't want to have to test all the buttons and links in you web site.</h3>
 
-* <h3> On a project team, you write code that could break someone else's code.</h3>
+* <h3> On a project team, you could write code that could break someone else's code.</h3>
 	
-* <h3> On a project team, someone writes code that could break your code.</h3>
+* <h3> On a project team, someone else could write code that could break your code.</h3>
 	
-
+	
 ## Test Driven Development Flow:
 
 ### Mantra: Red, Green, Refactor
@@ -52,7 +51,7 @@
  
 
 * <h3> rspec --init created:</h3>
-	* <h3> a spec folder with the spec_helper.rb file in it</h3>
+	* <h3> a spec folder with the spec_helper.rb file in it</h3>	
 	* <h3> a .rspec file that is for your configuration </h3>
 
 ### Edit .rspec ( use: "ls -la" to see the hidden files)
@@ -65,13 +64,11 @@
 ### Review spec_helper.rb
 
 * <h3> spec_helper.rb makes the RSpec tests are run in a random order.</h3>
+	* <h3> put all your tests in the spec folder.</h3> 
 * <h3>Beware of dependencies, tests should be indepentent.</h3>
-
 
 		$ cd spec
 		$ cat spec_helper.rb
-
-
 
 
 * <h3>spec_helper.rb:</h3>
@@ -119,17 +116,19 @@
 * <h3> Due to the random order of tests, you can't rely on the conditions of one test to setting up the other. </h3>
 * <h3> Eliminate the "order dependencies".</h3>
 * <h3> Before block runs before each test</h3>
-
-		before(:each) do  
-    		@my_square = Square.new(5)
-    	end
+	* <h4> before(:all), before(:each)</h4> 
+	
+			before(:each) do  
+    			@my_square = Square.new(5)
+    		end
     	
-    	after(:each) do  
-    		@my_square = nil
-    	end
- 
+    	 
 * <h3> After block runs after each test</h3>
+	* <h4> after(:all), after(:each)</h4> 
 
+			after(:each) do  
+    			@my_square = nil
+    		end
 
 
 ## square.rb
