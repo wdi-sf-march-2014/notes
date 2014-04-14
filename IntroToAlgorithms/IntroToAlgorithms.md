@@ -136,7 +136,13 @@ It's EASY! Just read this:
 * [http://bigocheatsheet.com/](http://bigocheatsheet.com/)
 
 
+#Algorithm and RSpec Lab
 
+* Don't expect to finish everything, but practice as much as you wish
+
+* [algorithms-ruby-lab](https://github.com/stujo/algorithms-ruby-lab)
+
+* There is a secret bonus lab if you're interested so ask!
 
   
 # Resources:
