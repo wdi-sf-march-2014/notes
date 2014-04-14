@@ -18,6 +18,8 @@ Time for some computer sciencey stuff!
 
 * Problem statement print the numbers from 0 through 9 in order
 
+__Try This at Home__
+
 ##Iteration
 Iteration uses a loop statement
 
