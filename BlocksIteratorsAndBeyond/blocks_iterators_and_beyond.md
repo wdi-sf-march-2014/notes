@@ -136,7 +136,7 @@ Define a person class.  The person class should take a name and an age as a para
 ```
 p = Person.new("Tim", 29)
 p.display_person  # returns a string: Tim is a person.  Age 29.
-p.display_person { |name, age| "#{name} is a #{age} year old intructor at general assembly" }
+p.display_person { |name, age| "#{name} is a #{age} year old instructor at general assembly" }
 ```
 
 ## Iterators
@@ -168,7 +168,7 @@ proc = Proc.new {puts "All blocks are just procs without names"}
 
 3.times &proc
 
-10.times &p
+10.times &proc
 
 ```
 
