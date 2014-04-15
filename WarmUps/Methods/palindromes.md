@@ -18,5 +18,9 @@ Notable Examples:
 	racecar
 	
 
-Directions: write a function called `is_palindrome` that returns `true` if a word is a palindrome or `false` if it isn't.
+Directions: write a method called `is_palindrome` that returns `true` if a word is a palindrome or `false` if it isn't. Don't use any built in string reversing method, only loops, iterators, or recursion.
+
+
+
+
 	
