@@ -93,6 +93,9 @@ With this we can define a `route` and tell the server how to *respond*.
     trap "INT" do server.shutdown; end
     server.start
 
+Note: Try puts the request object. 
+
+
 > Now we can go to a whole new route [localhost:8000/hello](localhost:8000/hello). 
 
 ### A Classy Route - To Explore on Your Own
@@ -235,30 +238,29 @@ However, note that this deviates away from our more preferred classical setup, s
 
 Our folder structure is now
 
-    /app_folder
+    /app_folder_name
       -/app.rb
       -/config.ru
 
 Now, what if there are some gems we want to use with our app, but we want to keep track of for deployment later. We keep track of these gems in a `Gemfile`.
 
-
 `Gemfile`
 
-  gem 'sinatra'
-  # Useful contributions to sinatra
-  gem 'sinatra-contrib'
-  gem 'pry'
-  
+    gem 'sinatra'
+    
+    # Useful additions to sinatra
+    gem 'sinatra-contrib'
+    gem 'pry'
+    
 Then we install them using `bundler`
 
-  $ bundle install 
+    $ bundle install 
 
 which will create a `Gemfile.lock` with the current setup of your app, and a `.bundle` folder with an `install.log`. Our file structure has now evolved into the following
 
   
-    /app_folder
+    /app_folder_name
       -/app.rb
-      -/config.ru
       -/Gemfile
       -/Gemfile.lock
       -/.bundle
@@ -267,44 +269,59 @@ which will create a `Gemfile.lock` with the current setup of your app, and a `.b
 Let's make use of `sinatra/relaoder` that comes with the `sinatra-contrib`, so we don't have to keep stopping and starting our server for every change.
 
 `./app.rb`
+  
+    require 'sinatra'
+    require 'sinatra/reloader'
 
-  require 'sinatra'
-  require 'sinatra/reloader'
-
-    get '/' do
-        'Hello, World'
-    end
+      get '/' do
+          'Hello, World'
+      end
 
 or if you were using that `config.ru` setup, you'll need to write
 
 `./app.rb`
 
-  require 'sinatra/base'
-  require 'sinatra/reloader'
-  
-  class App < Sinatra::Base
-      configure :development do
-       register Sinatra::Reloader
-      end
-      
-      get '/' do
-          'Hello, World'
-      end
-  end
+    require 'sinatra/base'
+    require 'sinatra/reloader'
+    
+    class App < Sinatra::Base
+        configure :development do
+         register Sinatra::Reloader
+        end
+        
+        get '/' do
+            'Hello, World'
+        end
+    end
 
 ---
 
 
 ## Routing and HTTP verbs
+
 How does Sinatra "handle" requests?
 
 Answer: Routes! 
 
 *Routes* are essentially an HTTP method and a regular expression to match the requested URL.
 
-e.g. 
+e.g.
 
 How does Sinatra use it?
     
-    Sinatra will look through each handler you've defined in the order you've     defined them and use the first handler it finds that meets the criteria.     For this reason, you should put your most specific handlers on top, and     your most vague handlers on the bottom. 
+  Sinatra will look through each handler you've defined in the order you've defined them and use the first handler it finds that meets the criteria. For this reason, you should put your most specific handlers on top, and your most vague handlers on the bottom. 
 
+
+
+Imagine we had a route that looked like the following:
+
+  get "hello/:name" do
+    "Hello #{params[:name]}"
+  end
+
+  get "hello/joe" do
+    "Hello, joe!!!!"
+  end
+
+
+it would not be able to access the "hello/joe" route.
