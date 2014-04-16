@@ -180,13 +180,11 @@ After install, make a new directory and create an `/app.rb` file
 
     require 'sinatra'
     
-    class App < Sinatra::Base
         #Routes:
         #get is a request with relative url and a block to execute
         get '/' do
             'Hello, World!'
         end
-    end
 
 then we can run the application in terminal using
 
