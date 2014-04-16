@@ -3,15 +3,16 @@ APIs are essential to web development.  In order to make an interesting interact
 
 ## Objectives
 * Understand what an API is and why it's useful
-* Get comfortable with the JSON format
+* Parse and use JSON data
+* Use Typheous to make an API request
 
 
 # What is an API?
 An API is an application programming interface.
+
 ## Why APIs
 * Abstraction layer for making requests
 * Creates reusable functionality
-* 
 
 
 
@@ -27,7 +28,7 @@ Lets look at an example of an api call in the wild. Next, go to [OMDB](http://ww
 
 
 # JSON
-__JSON => JavaScript Object Notation__ It is the de facto data exchange format of the web.  The structure of JSON is a key value pair hash, very similar to hashes in Ruby.
+__JSON => JavaScript Object Notation__ It is the de facto data exchange format of the web.  The structure of JSON is a key value pair hash, very similar to hashes in Ruby.  It is important to keep in mind that JSON data is only a string that represents objects like arrays and hashes.  The JSON data must be parsed in order for it to have meaning in a program.
 
 ## JSON Examples
 
@@ -143,6 +144,16 @@ The above request is the same as typing ```http://www.google.com/?name=Tim``` in
 
 Write a small ruby program that makes a request to ```http://www.omdbapi.com/``` and gets the movie Cars made in 2006.  Print the response to the screen.
 
-# Lab
-[Sinatra API lab](https://gist.github.com/tigarcia/807021585cb7225ffd50#file-sinatra_omdb_json_api_lab-md)
+## Resources
+
+* [http://www.programmableweb.com/apis](http://www.programmableweb.com/apis) - A list of lots of apis
+
+Popular APIs:
+
+* [Google Maps](https://developers.google.com/maps/documentation/javascript/)
+* [Yelp](http://www.yelp.com/developers/documentation)
+* [Flikr](http://www.flickr.com/services/api/)
+* [OMDB](http://www.omdbapi.com/)
+
+
 
