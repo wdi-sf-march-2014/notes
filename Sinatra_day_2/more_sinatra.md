@@ -1,26 +1,33 @@
 # More Sinatra
 
+##Quick Review
+
+1. What is a route? What is a parameter?
+2. 
+
+
 ## Views
 
-Right now, we are serving a `"Hello, World!"` string to the client. However, this is the web and content sent to clients is usually HTML. Lets create a folder for these HTML files called `views`.
+Right now, we are serving a `"Hello, World!"` string to the client. However, this is the web and content sent to clients is usually HTML. 
 
+Let's create a folder for these HTML files called `views`.
 
-Let's create an index.html file as follows.
+Next, create an index.html file as follows.
 
 `./views/index.html`
 
-  <h1> Hello, World </h1>
+    <h1> Hello, World </h1>
 
 and change our app
 
 `./app.rb`
 
-  require 'sinatra'
-  require 'sinatra/reloader'
+    require 'sinatra'
+    require 'sinatra/reloader'
 
-    get '/' do
-        send_file "views/index.html"
-    end
+      get '/' do
+          send_file "views/index.html"
+      end
     
  
  However, this is a completely static file that we are serving, which would require a lot work to change if wanted to change the message being displayed.
@@ -32,7 +39,7 @@ Rename your `index.html` to `index.erb` and make the following changes
 
 `./views/index.erb`
 
-  <h1> <%= @greeting %>, World! </h1>
+    <h1> <%= @greeting %>, World! </h1>
 
 
 Also, change your app.rb
@@ -55,7 +62,7 @@ As bad a example of erb tag usage see the following
 
 `./views/index.erb`
 
-  <h1> <%= greeting %>, World! </h1>
+    <h1> <%= greeting %>, World! </h1>
 
 
 with the following
@@ -95,9 +102,9 @@ Also, change your app.rb
 
     <% if @show_greeting %>
       <h1> <%= @greeting %>, World!</h1>
-  <% else %>
-         <h2> Welcome... </h2>
-  <% end %>
+    <% else %>
+           <h2> Welcome... </h2>
+    <% end %>
   
 
 -----
@@ -105,15 +112,15 @@ Also, change your app.rb
 
 A view called layout.erb with a yield will automatically wrap our views
 
-  `<!-- views/layout.erb -->
-  <html>
-    <head>
-      <title><%= @page_title || 'Untitled' %>
-    </head>
-    <body>
-      <%= yield %>
-    </body>
-  </html>`
+    `<!-- views/layout.erb -->
+    <html>
+      <head>
+        <title><%= @page_title || 'Untitled' %>
+      </head>
+      <body>
+        <%= yield %>
+      </body>
+    </html>`
 
 
 -----
@@ -196,7 +203,7 @@ After a request is made it is often important to make a redirect. A good example
     ```ruby <!--things.rb  -->
 
     require 'sinatra'
-    require 'sinatra/reload'
+    require 'sinatra/reloader'
     
     get '/things' do
         # Show a list (index) of things
@@ -214,7 +221,7 @@ Now with views:
     ```ruby <!--things.rb  -->
 
     require 'sinatra'
-    require 'sinatra/reload'
+    require 'sinatra/reloader'
     
     get '/animals' do
       @animals = # get all animals from DB
