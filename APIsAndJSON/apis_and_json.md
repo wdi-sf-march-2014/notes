@@ -4,7 +4,7 @@ APIs are essential to web development.  In order to make an interesting interact
 ## Objectives
 * Understand what an API is and why it's useful
 * Parse and use JSON data
-* Use Typheous to make an API request
+* Use Typhoeus to make an API request
 
 
 # What is an API?
