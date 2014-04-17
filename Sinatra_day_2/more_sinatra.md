@@ -2,9 +2,16 @@
 
 ##Quick Review
 
-1. What is a route? What is a parameter?
-2. 
+1. What is a route? 
+2. What is a parameter?
 
+
+
+| objectives  |
+| :---      |
+| Students can serve a page with embeded ruby |
+| Students can create forms and receive data from clients |
+|   Student can create layouts for their views |  
 
 ## Views
 
@@ -20,7 +27,7 @@ Next, create an index.html file as follows.
 
 and change our app
 
-`./app.rb`
+`./app.rb` 
 
     require 'sinatra'
     require 'sinatra/reloader'
@@ -29,36 +36,40 @@ and change our app
           send_file "views/index.html"
       end
     
+Check out what send_file does in the docs! [send_file](http://www.sinatrarb.com/intro.html#Sending%20Files)
  
- However, this is a completely static file that we are serving, which would require a lot work to change if wanted to change the message being displayed.
- 
+However, this is a completely static file that we are serving, which would require a lot work if we wanted to change the message being displayed.
 
 ### erb saves the day
 
-Rename your `index.html` to `index.erb` and make the following changes 
+Rename your `index.html` to `index.erb` and make the following changes: 
+
 
 `./views/index.erb`
 
     <h1> <%= @greeting %>, World! </h1>
 
-
-Also, change your app.rb
+Now, change your app.rb
 
 `./app.rb`
 
-  require 'sinatra'
-  require 'sinatra/reloader'
+    require 'sinatra'
+    require 'sinatra/reloader'
 
-    get '/' do
-        @greeting = "Hello"
-        erb :index
-    end
+      get '/' do
+          @greeting = "Hello"
+          erb :index
+      end
 
 
-Note, `<%= ... %>` are erb tags that render the return value of anything evaluated in them. Feel free to put most of your ruby in these tags. However if you  want to put a variable into these tags that was set in your *routing method* then it needs to be an instance variable, i.e. it needs the `@` prefix. See `@greeting` above. 
+Note, `<%= ... %>` are erb tags that render the return value of anything evaluated in them. 
+
+Feel free to put most of your Ruby in these tags. However, if you  want to put a variable into these tags that was set in your *routing method* then it needs to be an instance variable, i.e. it needs the `@` prefix. See `@greeting` above. 
+
+- Erb (embedded Ruby) is a templating system that embeds Ruby into a text document. In this case, it embeds Ruby code in an HTML document.
 
 ----
-As bad a example of erb tag usage see the following
+###A bad example of erb tag usage:
 
 `./views/index.erb`
 
@@ -69,13 +80,13 @@ with the following
 
 `./app.rb`
 
-  require 'sinatra'
-  require 'sinatra/reloader'
+    require 'sinatra'
+    require 'sinatra/reloader'
 
-    get '/' do
-        greeting = "Hello"
-        erb :index
-    end
+      get '/' do
+          greeting = "Hello"
+          erb :index
+      end
 
 
 would cause an error.
@@ -84,27 +95,27 @@ would cause an error.
 
 Similarly, there are another pair of erb tags,  `<% ... %>`. These erb tags simply evaluate an expression in the tags and use the value returned to change the layout of your html.
 
-Also, change your app.rb
+Next, change your app.rb
 
 `./app.rb`
 
-  require 'sinatra'
-  require 'sinatra/reloader'
+    require 'sinatra'
+    require 'sinatra/reloader'
 
-    get '/' do
-        @show_greeting = true
-        @greeting = "Hello"
-        erb :index
-    end
+      get '/' do
+          @show_greeting = true
+          @greeting = "Hello"
+          erb :index
+      end
 
 
 `./views/index.erb`
 
     <% if @show_greeting %>
       <h1> <%= @greeting %>, World!</h1>
-    <% else %>
-           <h2> Welcome... </h2>
-    <% end %>
+  <% else %>
+    <h2> Welcome... </h2>
+  <% end %>
   
 
 -----
@@ -181,24 +192,33 @@ A reusable form for creation or editing
     </form>
 
 
+-----
+
+### IN-CLASS EXERCISE: Make a calculator in Sinatra
+
+* `GET /add/1/1`
+* `GET /subtract/5/1`
+* `GET /multiply/3/11`
+* `GET /divide/2/1` - Do not crash on divide by zero!
+* Bonus challenge: (use Sinatra docs!)
+    * `GET /multiply/1/1.1` - Support floats
+    * `GET /add/1/2/3` - Allow an arbitrary number of operands
 
 -----
 ### Redirect
  
-After a request is made it is often important to make a redirect. A good example is when someone makes a post request. 
+After a request is made it is often important to make a redirect. A good example is when someone makes a POST request. 
 
-  post "/animals" do 
+    post "/animals" do 
+  
+      animal = params[:animal]
+      # save the animal somehow
     
-    animal = params[:animal]
-    # save the animal somehow
-    
-    redirect "/animals"
-  end
-
-
+      redirect "/animals"
+      end
 
 -----
-### Restful Routing
+### Restful Routing - To Explore on Your Own
     
     ```ruby <!--things.rb  -->
 
