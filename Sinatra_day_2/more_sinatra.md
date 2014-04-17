@@ -218,6 +218,8 @@ A good example is when someone makes a POST request. Or, for example, let's say 
       redirect "/animals"
       end
 
+Quick Exercise: Add a redirect to your movies app such that if the params movie is empty, it will redirect to the search page.
+
 -----
     
 ###If you want another practice exercise:
