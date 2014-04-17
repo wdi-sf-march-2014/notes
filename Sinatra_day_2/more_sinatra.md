@@ -30,7 +30,6 @@ and change our app
 `./app.rb` 
 
     require 'sinatra'
-    require 'sinatra/reloader'
 
       get '/' do
           send_file "views/index.html"
@@ -41,6 +40,9 @@ Check out what send_file does in the docs! [send_file](http://www.sinatrarb.com/
 However, this is a completely static file that we are serving, which would require a lot work if we wanted to change the message being displayed.
 
 ### erb saves the day
+
+- Erb (embedded Ruby) is a templating system that embeds Ruby into a text document. In this case, it embeds Ruby code in an HTML document.
+- Erb allows Ruby code to be embedded within a pair of <%= %> delimiters. The code is then evaluated in-place (they are replaced by the result of their evaluation).
 
 Rename your `index.html` to `index.erb` and make the following changes: 
 
@@ -54,19 +56,17 @@ Now, change your app.rb
 `./app.rb`
 
     require 'sinatra'
-    require 'sinatra/reloader'
 
       get '/' do
           @greeting = "Hello"
           erb :index
       end
 
+- Note, erb: index is rendering the views/index.erb
 
-Note, `<%= ... %>` are erb tags that render the return value of anything evaluated in them. 
+- Feel free to put most of your Ruby in these tags. However, if you  want to put a variable into these tags that was set in your *routing method* then it needs to be an instance variable, i.e. it needs the `@` prefix. See `@greeting` above. 
 
-Feel free to put most of your Ruby in these tags. However, if you  want to put a variable into these tags that was set in your *routing method* then it needs to be an instance variable, i.e. it needs the `@` prefix. See `@greeting` above. 
-
-- Erb (embedded Ruby) is a templating system that embeds Ruby into a text document. In this case, it embeds Ruby code in an HTML document.
+- If you wanted have commented out Ruby code in erb, this would be the syntax: <%# ruby code %>
 
 ----
 ###A bad example of erb tag usage:
@@ -81,7 +81,6 @@ with the following
 `./app.rb`
 
     require 'sinatra'
-    require 'sinatra/reloader'
 
       get '/' do
           greeting = "Hello"
@@ -100,7 +99,6 @@ Next, change your app.rb
 `./app.rb`
 
     require 'sinatra'
-    require 'sinatra/reloader'
 
       get '/' do
           @show_greeting = true
@@ -116,9 +114,9 @@ Next, change your app.rb
   <% else %>
     <h2> Welcome... </h2>
   <% end %>
-  
 
 -----
+
 ### Layouts
 
 A view called layout.erb with a yield will automatically wrap our views
@@ -203,11 +201,12 @@ A reusable form for creation or editing
 * Bonus challenge: (use Sinatra docs!)
     * `GET /multiply/1/1.1` - Support floats
     * `GET /add/1/2/3` - Allow an arbitrary number of operands
-
+    
 -----
 ### Redirect
  
-After a request is made it is often important to make a redirect. A good example is when someone makes a POST request. 
+After a request is made it is often important to make a redirect. You can trigger a browser redirect with the redirect helper method.
+A good example is when someone makes a POST request. Or, for example, let's say that you wanted to redirect everyone who visited the root of your web app (/) to an /index page. 
 
     post "/animals" do 
   
@@ -218,7 +217,54 @@ After a request is made it is often important to make a redirect. A good example
       end
 
 -----
-### Restful Routing - To Explore on Your Own
+    
+###If you want another practice exercise:
+Create a simple web application that manages a TODO list.  The web application should respond to the following routes:
+
+  http://localhost:4567/                    - display the TODO list
+  http://localhost:4567/add/wash+the+dog    - adds "wash the dog" as a TODO list item (spaces need to be escaped as plus signs in URLs)
+  http://localhost:4567/remove/wash+the+dog - removes "wash the dog" as a TODO list item
+
+Code to help you get started:
+  require 'sinatra'
+  
+  # Store the TODO list in an array
+  items = []
+  
+  get '/' do
+    # To iterate through an array, use the #each method 
+    # Note that "puts" in Sinatra will only output to the console, not the web
+    # browser.  Instead, build up a string called "response" and return it to
+    # Sinatra so that will be the response
+  
+    response = ""
+    items.each do |item|
+      # TODO: Build up the response string by concatenating "item" and a line
+      # break "<br/>" to the string
+    end
+  
+    # Keep the line here so that response is returned to sinatra
+    response
+  end
+  
+  get '/add/:item' do
+    # The new item will be available as params[:item]
+    # TODO: Insert code to add params[:item] to the global items array here
+  
+    redirect to('/')
+  end
+  
+  get '/remove/:item' do
+    # The item to be removed will be available as params[:item]
+    # TODO: Insert code to remove params[:item] from the global items array
+    # here.  You may want to use a method called Array#delete (look it up in the
+    # documentation!)
+  
+    redirect to('/')
+  end
+
+
+### RESTful Routing - To Explore on Your Own
     
     ```ruby <!--things.rb  -->
 
