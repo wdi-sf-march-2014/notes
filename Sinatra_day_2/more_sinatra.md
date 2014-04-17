@@ -225,17 +225,17 @@ Quick Exercise: Add a redirect to your movies app such that if the params movie 
 ###If you want another practice exercise:
 Create a simple web application that manages a TODO list.  The web application should respond to the following routes:
 
-  http://localhost:4567/                    - display the TODO list
-  http://localhost:4567/add/wash+the+dog    - adds "wash the dog" as a TODO list item (spaces need to be escaped as plus signs in URLs)
-  http://localhost:4567/remove/wash+the+dog - removes "wash the dog" as a TODO list item
+    http://localhost:4567/                    - display the TODO list
+    http://localhost:4567/add/wash+the+dog    - adds "wash the dog" as a TODO list item (spaces need to be escaped as plus signs in URLs)
+    http://localhost:4567/remove/wash+the+dog - removes "wash the dog" as a TODO list item
 
 Code to help you get started:
-  require 'sinatra'
+    require 'sinatra'
   
   # Store the TODO list in an array
-  items = []
+    items = []
   
-  get '/' do
+    get '/' do
     # To iterate through an array, use the #each method 
     # Note that "puts" in Sinatra will only output to the console, not the web
     # browser.  Instead, build up a string called "response" and return it to
