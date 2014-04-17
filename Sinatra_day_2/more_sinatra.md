@@ -201,7 +201,9 @@ A reusable form for creation or editing
 * Bonus challenge: (use Sinatra docs!)
     * `GET /multiply/1/1.1` - Support floats
     * `GET /add/1/2/3` - Allow an arbitrary number of operands
-    
+
+Optional: Add a menu and a form to input the values.
+
 -----
 ### Redirect
  
