@@ -42,7 +42,7 @@ However, this is a completely static file that we are serving, which would requi
 ### erb saves the day
 
 - Erb (embedded Ruby) is a templating system that embeds Ruby into a text document. In this case, it embeds Ruby code in an HTML document.
-- Erb allows Ruby code to be embedded within a pair of <% %> delimiters. The code is then evaluated in-place (they are replaced by the result of their evaluation).
+- Erb allows Ruby code to be embedded within a pair of <%= %> delimiters. The code is then evaluated in-place (they are replaced by the result of their evaluation).
 
 Rename your `index.html` to `index.erb` and make the following changes: 
 
