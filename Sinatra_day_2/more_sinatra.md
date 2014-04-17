@@ -249,24 +249,22 @@ Code to help you get started:
   
     # Keep the line here so that response is returned to sinatra
     response
+    end
+  
+    get '/add/:item' do
+        # The new item will be available as params[:item]
+        # TODO: Insert code to add params[:item] to the global items array here
+    redirect '/'
   end
   
-  get '/add/:item' do
-    # The new item will be available as params[:item]
-    # TODO: Insert code to add params[:item] to the global items array here
+    get '/remove/:item' do
+        # The item to be removed will be available as params[:item]
+        # TODO: Insert code to remove params[:item] from the global items array
+        # here.  You may want to use a method called Array#delete (look it up in the
+        # documentation!)
   
-    redirect to('/')
-  end
-  
-  get '/remove/:item' do
-    # The item to be removed will be available as params[:item]
-    # TODO: Insert code to remove params[:item] from the global items array
-    # here.  You may want to use a method called Array#delete (look it up in the
-    # documentation!)
-  
-    redirect to('/')
-  end
-
+        redirect '/'
+    end
 
 ### RESTful Routing - To Explore on Your Own
     
