@@ -255,7 +255,7 @@ Code to help you get started:
         # The new item will be available as params[:item]
         # TODO: Insert code to add params[:item] to the global items array here
     redirect '/'
-  end
+    end
   
     get '/remove/:item' do
         # The item to be removed will be available as params[:item]
