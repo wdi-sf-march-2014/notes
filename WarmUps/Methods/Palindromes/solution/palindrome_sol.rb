@@ -4,7 +4,7 @@ def is_palindrome(word)
 	index = 0
 	length = word.length
 	check_chars = true
-	while(index < length/2)
+	while(index < length/2 && check_chars)
 		check_chars = word[index] == word[length - index - 1]
 		index += 1
 	end
