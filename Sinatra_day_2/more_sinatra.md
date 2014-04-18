@@ -201,7 +201,9 @@ A reusable form for creation or editing
 * Bonus challenge: (use Sinatra docs!)
     * `GET /multiply/1/1.1` - Support floats
     * `GET /add/1/2/3` - Allow an arbitrary number of operands
-    
+
+Optional: Add a menu and a form to input the values.
+
 -----
 ### Redirect
  
@@ -216,22 +218,24 @@ A good example is when someone makes a POST request. Or, for example, let's say 
       redirect "/animals"
       end
 
+Quick Exercise: Add a redirect to your movies app such that if the params movie is empty, it will redirect to the search page.
+
 -----
     
 ###If you want another practice exercise:
 Create a simple web application that manages a TODO list.  The web application should respond to the following routes:
 
-  http://localhost:4567/                    - display the TODO list
-  http://localhost:4567/add/wash+the+dog    - adds "wash the dog" as a TODO list item (spaces need to be escaped as plus signs in URLs)
-  http://localhost:4567/remove/wash+the+dog - removes "wash the dog" as a TODO list item
+    http://localhost:4567/                    - display the TODO list
+    http://localhost:4567/add/wash+the+dog    - adds "wash the dog" as a TODO list item (spaces need to be escaped as plus signs in URLs)
+    http://localhost:4567/remove/wash+the+dog - removes "wash the dog" as a TODO list item
 
 Code to help you get started:
-  require 'sinatra'
+    require 'sinatra'
   
   # Store the TODO list in an array
-  items = []
+    items = []
   
-  get '/' do
+    get '/' do
     # To iterate through an array, use the #each method 
     # Note that "puts" in Sinatra will only output to the console, not the web
     # browser.  Instead, build up a string called "response" and return it to
@@ -245,24 +249,22 @@ Code to help you get started:
   
     # Keep the line here so that response is returned to sinatra
     response
-  end
+    end
   
-  get '/add/:item' do
-    # The new item will be available as params[:item]
-    # TODO: Insert code to add params[:item] to the global items array here
+    get '/add/:item' do
+        # The new item will be available as params[:item]
+        # TODO: Insert code to add params[:item] to the global items array here
+    redirect '/'
+    end
   
-    redirect to('/')
-  end
+    get '/remove/:item' do
+        # The item to be removed will be available as params[:item]
+        # TODO: Insert code to remove params[:item] from the global items array
+        # here.  You may want to use a method called Array#delete (look it up in the
+        # documentation!)
   
-  get '/remove/:item' do
-    # The item to be removed will be available as params[:item]
-    # TODO: Insert code to remove params[:item] from the global items array
-    # here.  You may want to use a method called Array#delete (look it up in the
-    # documentation!)
-  
-    redirect to('/')
-  end
-
+        redirect '/'
+    end
 
 ### RESTful Routing - To Explore on Your Own
     
