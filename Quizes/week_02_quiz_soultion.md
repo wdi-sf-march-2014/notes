@@ -158,7 +158,7 @@ __Answer:__ Headers such as Cookie, Accept, Accept Encoding, Control-Cache, Host
 
 __Answer:__ Any data.  A response body could have html, css, a jpeg image, an audio file, etc.
 
-4. Name one status code that could come in an HTTP response header
+* Name one status code that could come in an HTTP response header
 
 __Answer:__ [RFC for Response Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 
@@ -207,6 +207,19 @@ The action and the method have be switched incorrectly.  The form should be the 
    <input type="submit" value="submit name">
 </form>
 ```
+
+* After the following form is submitted, how would you write code in sinatra to access the params hash and get the ```animal[species]``` value?
+
+```
+<form action="/animal" method="post" >
+   <input type="text" name="animal[species]">
+   <input type="text" name="animal[description]">
+</form>
+```
+
+__Answer:__
+
+params[:animal][:species]
  
 
 ## HTML/CSS, DOM
