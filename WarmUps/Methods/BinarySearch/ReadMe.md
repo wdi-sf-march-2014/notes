@@ -5,16 +5,16 @@ Given a sorted array we want to check if a value is in the array. The benefit of
 
 For example: 
 
-	my_arr = [1,1,2,3,5,8,15,23,38,51]
+	my_arr = [1,1,2,3,5,8,15,23,38,61]
 	
 	
 	
 	
 and assuming we want to check if `23` is in `my_arr` we begin as follows:
 
-1. search `[1,1,2,3,5,8,15,23,38,51]` for `38`.
-2. search `[8,15,23,38,51]` for `38`.
-3. search  `[38, 51]` for `38`, and returns true.
+1. search `[1,1,2,3,5,8,15,23,38,61]` for `38`.
+2. search `[8,15,23,38,61]` for `38`.
+3. search  `[38, 61]` for `38`, and returns true.
 
 
 What's happening?
@@ -23,9 +23,9 @@ What's happening?
 
 * Now we search for `38` in the right half of the array
 
-		[8,15,23,38,51]
+		[8,15,23,38,61]
 * Then we ask is `23` less or equal to `38`, and since it isn't we search the right half of the current array,
 		
-		[38,51]
+		[38,61]
 * Now we check if `38` is less than equal to `38`, and stop our search because it is, returning `true`.
 
