@@ -22,10 +22,31 @@ Given the Triangle class:
 
 Write one "describe block" with two "it-blocks"" within. "Before each" test create a triangle with `@base = 4` and `@height = 8`. In the first "it-block" test that the `@base` equals `4` (attribute test). In the second "it-block," test that the `#area` equals `16` (method test).
 
+__Answer:__
+
+```
+describe Triangle do 
+  before(:each) do
+    @triangle = Triangle.new(4,8)
+  end 
+  
+  it "should have a base" do  
+    expect(@triangle.base).to eq(4)
+  end
+  
+  it "shoud have an area of 4" do
+    expect(@triangle.area).to eq(16)
+  end
+end
+```
+
 
 ## Algorithms 
 * How can you tell if a method you are looking at is recursive or not?
 
+__Answer:__
+
+A method which calls itself, is recursive
 
 __Given the following code__
 
@@ -39,8 +60,29 @@ foo 9
 ```
 
 * What will the screen output of this code be?
+
+__Answer:__
+
+```
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+```
+
+
 * What is the return value of ```foo 9```
 
+
+__Answer:__
+
+nil
 
 
 
@@ -54,10 +96,22 @@ foo 9
     	person = "john"
     	my_func {|greeting| puts "#{greeting}, #{person}" }
     	
+__Answer:__
+
+```
+Hello, john
+```
 
 * Why does the block have access to the person variable
 
+__Answer:__
+
+
+The block has access to the variables that are in the surrounding scope.  The block is taking advantage of an enclosure.
+
+
 * Implement each given the following definition:
+
 
 ```
 class ArrayContainer
@@ -71,16 +125,43 @@ class ArrayContainer
 end
 ```
 
+__Answer:__
+
+```
+class ArrayContainer
+  def initialize(arr)
+    @arr = arr
+  end
+  
+  def each &block
+    i = 0
+    while i < @arr.length
+      yield @arr[i]
+      i += 1
+    end
+    @arr
+  end
+end
+```	
 
 ## HTTP request and response
 
 * Define Server
 
+__Answer:__ A computer that responds to http requests on some port
+
 * Name one thing that goes in a HTTP request header
+
+__Answer:__ Headers such as Cookie, Accept, Accept Encoding, Control-Cache, Host, Referer.  Also, the HTTP verb (GET or POST for example) and URI (path) of the request.  Also, the request body.  In the case of a GET request, a body is not common.
 
 * Name one thing that could come in an HTTP response body
 
-* Name one status code that could come in an HTTP response header
+__Answer:__ Any data.  A response body could have html, css, a jpeg image, an audio file, etc.
+
+4. Name one status code that could come in an HTTP response header
+
+__Answer:__ [RFC for Response Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+
 
 ## Intro Sinatra
 
@@ -94,6 +175,10 @@ get "/double/:my_number" do
   erb :show
 end
 ```
+
+__Answer:__
+
+There is a type error because input is a string.  To fix the bug the code must be ```@double = 2 * input.to_f```.
 
 ## API's 
 
@@ -112,15 +197,18 @@ Answer: JSON is a string that represents a set of objects.  A ruby hash or array
    <input type="submit" value="submit name">
 </form>
 ```
-
-* After the following form is submitted, how would you write code in sinatra to access the params hash and get the ```animal[species]``` value?
+        
+__Answer:__
+The action and the method have be switched incorrectly.  The form should be the following:
 
 ```
-<form action="/animal" method="post" >
-   <input type="text" name="animal[species]">
-   <input type="text" name="animal[description]">
+<form action="/" method="get">
+   <input type="text" name="my_name">
+   <input type="submit" value="submit name">
 </form>
 ```
+ 
+
 ## HTML/CSS, DOM
 Find the 2 errors in this css file:
 	
@@ -128,6 +216,17 @@ Find the 2 errors in this css file:
 	    color: red
 	    float: left
 	    }
+	    
+__Answer:__
+
+There shouldn't be a colon after div and there should be a semi colon after red.
+
+```
+div {
+  color: red;
+  float: left
+}
+``` 
 
 What's the problem with the following HTML markup?
 
@@ -154,4 +253,6 @@ What's the problem with the following HTML markup?
     </body>
 </html>
 ```
+__Answer:__
 
+The ```someId``` id is used more than once.  You should never name 2 different html elements by the same id.
