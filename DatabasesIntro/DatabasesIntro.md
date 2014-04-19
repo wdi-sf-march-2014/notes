@@ -1,12 +1,10 @@
-Draft - Do Not Use Yet!
-====================
 
 Introduction To Databasess
 ==================
 
 ![Race Car](http://clients.stujophoto.com/photos/i-kPJSjw7/1/L/i-kPJSjw7-L.jpg)
 
-__Credit for these great notes goes to [Tim Garcia](https://github.com/tigarcia)__
+__Credit for the good parts of these notes goes to [Tim Garcia](https://github.com/tigarcia)__
 
 *"The point of the backend is to store, manipulate, and retrieve data."*
 
