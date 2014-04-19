@@ -50,9 +50,12 @@ gem install pg
 # Objectives And Scope
 * Install Postgres (server / client) onto your laptop
 * Understand what a database is
-* Get familiar with SQL (Create tables, insert, read, update, and delete)
-* Use Postgres
-* Use the pg gem to query the database from a ruby application.
+* Know how to start postgres
+* Know how to start psql client
+* Use SQL to Create a database
+* Use SQL to Create a table
+* Use SQL to insert, select, update, and delete data
+* Understand what Primary Keys are
 
 __Note:__ Although this lesson covers basic SQL, it will not cover joins or more advanced nested queries.
 
@@ -315,7 +318,8 @@ Creating an ER diagram can be useful if you are designing a DB with lots of tabl
 * [Wikipedia - ER Diagram](http://en.wikipedia.org/wiki/Entity-relationship_model)
 * [Ultimate Guide To ER Diagrams](http://creately.com/blog/diagrams/er-diagrams-tutorial/) - Not so ultimate, but a good intro.
 
-# psql and SQL Review
+#Review
+##psql and SQL 
 
 * CREATE a Database:
 
@@ -375,6 +379,12 @@ DELETE from students WHERE name = 'Mary';
 ```
 /q
 ```
+## Database Basics
+
+* Starting and stopping Postgres
+* Starting and exiting psql
+* Primary Keys
+* Normalization
 
 
 # Exercise Time
