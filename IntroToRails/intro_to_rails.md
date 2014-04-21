@@ -62,17 +62,22 @@ When you start to work on bigger projects, the architecture of the moving parts 
 - [Example Gemfile](http://imgur.com/AJxVpsu)
 - After you change your Gemfile, run bundle. Make sure to save the file first. The bundle (or bundle install)  command goes to find the gems in your Gemfile and install them. If you run bundle update, it will look for the most recent version of the gem and update them.
 - Let's add the [better_errors gem](https://github.com/charliesome/better_errors)
-  - You have to put any gem you want to use in your Gemfile. You have to run bundle anytime you change your Gemfile. Your rails server needs to be restarted after any changes to your Gemfile.
+  - You have to put any gem you want to use in your Gemfile. You have to run ```bundle``` anytime you change your Gemfile. Your rails server needs to be restarted after any changes to your Gemfile.
 
 
 ##Starting up Rails
 
 Start Rails: 
 
-- The rails server command launches a small web server named WEBrick which comes bundled with Ruby. 
-- Port number=3000
+1) The rails server command launches a small web server named WEBrick which comes bundled with Ruby. 
 
   ```rails server or rails s```
+  
+2) Port number=3000
+  - Navigate to localhost:3000
+
+3) Where is the "Welcome to Rails" file coming from?
+
 
 Console:
 
