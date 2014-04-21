@@ -67,7 +67,7 @@ When you start to work on bigger projects, the architecture of the moving parts 
 
 ##Starting up Rails
 
-Start Rails: 
+Start the Rails server: 
 
 1) The rails server command launches a small web server named WEBrick which comes bundled with Ruby. 
 
