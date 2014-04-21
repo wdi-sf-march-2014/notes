@@ -1,7 +1,9 @@
 #Introduction To Rails
 
-#Objectives:
-
+##Objectives:
+* Understand how to begin and navigate through a basic Rails project
+* Demonstrate a diagram and explain how Model-View-Controller works in a Rails app
+* Begin to describe typical workflow in a Rails project
 
 ##What Sinatra has helped us learn:
 
