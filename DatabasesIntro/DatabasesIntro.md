@@ -106,7 +106,7 @@ A database server is a computer or group of computers that is dedicated to stori
 
 If you installed Postgress.app you have access to psql from the elephant icon at the top of the screen:
 
-* ![image](https://www.dropbox.com/s/ml1gk00asvqxmi6/psql-shortcut.png)
+* ![image](https://raw.githubusercontent.com/wdi-sf-march-2014/notes/master/DatabasesIntro/Postgres.png)
 
 If you are using the command line:
 
