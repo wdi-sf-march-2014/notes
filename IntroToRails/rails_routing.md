@@ -39,6 +39,7 @@ In a bullet list, the why is as follows:
 * to separate certain aspects found in larger applications <br>
 <img width="100"src="images/separate_concerns.png">
 * to familiarize ourselves with the most common pattern used to design web applications, **Model-View-Controller**
+<img width="100"src="images/mvc_small.png">
 * to facilitate workflow using conventions
 
 ## Need More Why About Code Organization? 
