@@ -40,7 +40,9 @@ In a bullet list, the why is as follows:
 <img width="100"src="images/separate_concerns.png">
 * to familiarize ourselves with the most common pattern used to design web applications, **Model-View-Controller** <br>
 <img width="100"src="images/mvc_small.png">
-* to facilitate workflow using conventions
+* to facilitate workflow using conventions<br>
+	<img width="100" src="http://www.abnoteblog.com/wp-content/uploads/2011/10/reinventing-the-wheel-300x199.jpg"><br>
+	*not re-inventing the wheel every time*
 
 ## Need More Why About Code Organization? 
 
