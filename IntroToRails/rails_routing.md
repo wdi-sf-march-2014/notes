@@ -36,7 +36,8 @@ If you are familiar with those then you are prepared and will practice them agai
 
 In a bullet list, the why is as follows:
 	
-* to separate certain aspects found in larger applications
+* to separate certain aspects found in larger applications 
+<img src="images/separate_concerns.png">
 * to familiarize ourselves with the most common pattern used to design web applications, **Model-View-Controller**
 * to facilitate workflow using conventions
 
