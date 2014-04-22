@@ -44,15 +44,15 @@ In a bullet list, the why is as follows:
 
 ### Separating Concerns
 
-In writing a large application it is important to establish something known as **Separation of Concerns**, *writing modular code that focuses on one aspect within the application.* The benefit of this is similar to idea of **compartementalization** with respect to a production line, which allows for *more rapid development* by being able to **divide and conquer** the construction of a product. Comparments can focus on one task and optmize functional concerns far outside the scope of other compartments, but still achieve the expected component.  Ultimately it reduces the headache of debugging and controlling a large application that can ultimately grow to a level of complexity that no one person could ever fully comprehend (nor want or need to). 
+In writing a large application it is important to establish something known as **Separation of Concerns**, *writing modular code that focuses on one aspect within the application.* The benefit of this is similar to idea of **compartementalization** with respect to a production line, which allows for *more rapid development* by being able to **divide and conquer** the construction of a product. Comparments can focus on one task and optmize functional concerns far outside the scope of other compartments, but still work together to acheive the same product.  Ultimately it reduces the headache of debugging and controlling a large application that can ultimately grow to a level of complexity that no one person could ever fully comprehend (nor want or need to). 
 
 ### Organizational Principles
 
-In order to manage the development of emerging aspects within a project it is important to construct a guideline that will shape how things are separated, a **design pattern**, which everyone can use to maintain **consistent** organization of aspects. This is a *conventional* choice that helps to understandably scale a project. Part of the role of a developer is to become familiar with using design patterns, but this takes time (and trust), as different patterns emphaize an array of qualities: scalability, modularity, interoperability, security, performance, et cetera.
+In order to manage the development of emerging aspects within a project it is important to construct a guideline that will shape how things are separated, a **design pattern**, which everyone can use to maintain **consistent** organization of different aspects. This is a *conventional* choice that helps to understandably scale a project. Part of the role of a developer is to become familiar with using design patterns, but this takes time (and trust), as different patterns emphaize an array of qualities: scalability, modularity, security, performance, et cetera.
 
 ### Conventions To Focus On
 
-In Rails we see one of the most popular patterns of Web Application Design that has evolved over the years, **Model-View-Controller**. The **MVC** patterns seeks to separate components into **Data Concerns**, **Presentation Concerns**, **Request and Response (or Action) Concerns** respectiveley:
+In Rails we see one of the most popular patterns of Web Application Design that has evolved over the years, **Model-View-Controller**. The **MVC** patterns seeks to separate components into **Data Concerns**, **Presentation Concerns**, and **Request and Response (or Action) Concerns** respectiveley:
 
 **MVC**
 
@@ -114,7 +114,7 @@ Typically we associate **CRUD** with the following **HTTP** methods
 | Update | PUT or UPDATE | `PUT "/puppies/1?name=lassy"` (change puppy number 1 to have name lassy) |
 | Delete | DELETE | `Delete "/puppies/1"` (destroy the first puppy, yikes!!!!) |
 
-REST stands for **REpresentational State Transfer**. We will demonstrate these practices throughout this lesson, but for now preparing don't worry too much about it yet.
+REST stands for **REpresentational State Transfer**. We will demonstrate these practices throughout this lesson, but for now, don't worry about it yet.
 
 ## Part 1: On the Runway 
 
@@ -159,6 +159,8 @@ Your `routes.rb` will just be telling your app how to connect *HTTP* requests to
 	e.g. if we had a `PuppiesController` that had a `index` method we could say
 
 		get "/puppies", to: "puppies#index"
+	
+	rails would assume `"puppies"` in the `"puppies#index"` part of the route was referring to a class called `PuppiesController` in your "app/controllers" folder, no need to also write `Controller` to  designate the class `PuppiesController`. 
 
 * Using the above routing pattern we'll write our first 
 
@@ -170,7 +172,7 @@ Your `routes.rb` will just be telling your app how to connect *HTTP* requests to
 		
 	We'll have to define a `planes` controller and a `index` method soon enough.
 	
-* However, we distinguish the `'/'` (*root*) from other routes, and we just write `root to: 'planes#show'` to indicate it in `routes.rb`.
+* However, we distinguish the `'/'` (*root*) from other routes, and we can just write `root to: 'planes#index'` to indicate it in `routes.rb`.
 
 	`/config/routes.rb`
 
@@ -500,265 +502,3 @@ Let's finally put some `erb` in our `index` view.
 ## Halfway there: Take off
 
 We've successfully made an `index`, `new`, and `create`. Next we will talk about adding a `show`, `edit`, and `update`
-
-
-### Revisting our application flow
-
-Right now, our app redirects to  `#index` after a create, which isn't helpful for quickly verifying what you just created. To do this we create a `#show`.
-
-
-### Showing 
-Let's add our `show` route.
-
-`/config/routes.rb`
-
-	RouteApp::Application.routes.draw do
-		root to: 'planes#index'
-		
-		## My new show method
-		get '/planes/:id', to: 'planes#show'
-		
-		get '/planes', to: 'planes#index'
-		
-		get '/planes/new', to: 'planes#new'
-		
-		post '/planes', to: 'planes#create'
-		
-	end
-
-
-Is this right?? No, our `/planes/:id` path is above our `/planes/new` path, which means it will never get checked, and all requests for `/planes/new`.
-
-It should be as follows 
-
-`/config/routes.rb`
-
-	RouteApp::Application.routes.draw do
-		root to: 'planes#index'
-		
-		get '/planes', to: 'planes#index'
-		
-		get '/planes/new', to: 'planes#new'
-		
-		## My new show method
-		get '/planes/:id', to: 'planes#show'
-		
-		post '/planes', to: 'planes#create'
-		
-	end
-
-
-A controller method  
-
-
-`app/controllers/planes_controller.rb`
-
-	PlanesController < ApplicationController
-		
-		...
-		
-		def show
-			plane_id = params[:id]
-			@plane = Plane.find(plane_id)
-			render :show
-		end
-		
-	end
-
-A view for showing a plane
-
-
-`app/views/show.html.erb`
-		
-		<div>
-			Name: <%= @plane.name %> <br>
-			Type: <%= @plane.type %> <br>
-			Description: <%= @plane.description %>
-		</div>
-
-## Changing the `#create` redirect
-
-The `#create` method redirects to `#index` (the `/planes` path), but this isn't very helpful for verrifying that a newly created plane was properly created. The best way to fix this is to have it redirect to `#show`.
-
-
-	PlanesController < ApplicationController
-		
-		...
-		
-		def create
-			plane = params.require(:plane).permit(:name, :type, :description)
-			plane = Plane.create(plane)
-			redirect_to "/planes/#{plane.id}"
-		end
-		
-	end
-
-
-Recall that the `#show` method has a path `/planes/:id`, which means we need to specify the `id` of the plane we want to show. To do this  we added 
-
-		plane = Plane.create(plane)
-and once it's created it has an `id` we can use to redirect. We use string interpolation as follows. 
-
-		redirect_to "/planes/#{plane.id}"
-
-
-## Editing
-
-Editing a plane model requires two seperate methods. One to display the model information to be edited by the client, and another to handle updates submitted by the client.
-
-If look back at how we handled the getting of our `new` form we see the following pattern.
-
-* Make a route first
-* Define a controller method 	
-* render view
-
-The only difference is that now we need to use the `id` of the object to be edited. We get the following battle plan.
-
-* Make a route first
-	* Make sure it specifies the `id` of the thing to be edited
-* Define a controller method 
-	* Retrieve the `id` of the model to be edited from `params`
-	* use the `id` to find the model
-* render view
-	* use model to display in the form 
-
-### Getting to an Edit
-
-We begin with handling the request from a client for an edit page. 
-
-* We can easily define a **RESTful** route to handle getting the edit page as follows
-
-	`/config/routes.rb`
-
-		RouteApp::Application.routes.draw do
-			root to: 'planes#index'
-			
-			get '/planes', to: 'planes#index'
-			
-			get '/planes/new', to: 'planes#new'
-			
-			get '/planes/:id', to: 'planes#show'
-			
-			# The Edit path
-			get '/planes/:id/edit, to: 'planes#edit'
-			
-			post '/planes', to: 'planes#create'
-			
-		end
-	
-* Similarly, using our `#show` method as inspiration we write an `#edit` method
-
-	
-	`app/controllers/planes_controller.rb`
-	
-		PlanesController < ApplicationController
-			
-			...
-			
-			def edit
-				plane_id = params[:id]
-				@plane = Plane.find(plane_id)
-				render :edit
-			end
-			
-		end
-
-
-* Let's quickly begin the setup of an `edit` form using our `new.html.erb` from earlier, by just adding  `...value="<%= @plane.attr_name %>"...` to each respect field.
-
-
-	`app/views/planes/edit.html.erb`
-	
-		<form action="/planes" method="post">
-			<input type="text" name="plane[name]" value="<%= @plane.name %>">
-			<input type="text" name="plane[type]" value="<%= @plane.type %>">
-			<textarea name="plane[description]" value="<%= @plane.description %>"></textarea>
-			<%= token_tag form_authenticity_token %>
-			
-			<button> Update Plane </button>
-		</form>
-
-* Next we have to modify the `action` and `method`, but we can't explicitly change the method at the top of the form, because the browser still needs to send a `POST` request. Instead we add field that contains the method we actually want to make, `PUT`.  Using something as follows
-
-	
-		<input name="_method" type="hidden" value="put" />
-
-	Combined with the change we make to the `action` we get the following.
-	
-	`app/views/planes/edit.html.erb`
-
-		<form action="/planes/<%= @plane.id %>" method="post">
-			<input name="_method" type="hidden" value="put" />
-			....
-		</form>
-
-
-That's pretty much the whole-shebang when comes to getting an edit page. Our previous knowledge has really come to help us understand what we need to do. We'll see this also true for the update that still needs to be handled witht the submission of the form above.
-
-
-### Putting updated form data 
-
-If look back at how we handled the submission of our `new` form we see the following pattern.
-
-* Make a route first
-* Define a controller method 
-* redirect to something
-
-The only difference now is that we will need to use the `id` of the object being update.
-
-* Make a route first
-	* Make sure it specifies the `id` of the thing to be **updated**
-* Define a controller method 
-	* Retrieve the `id` of the model to be **updated** from `params`
-	* use the `id` to find the model
-	* retrieve the updated info sent from the form in `params`
-	* update the model
-* redirect to show
-	* use `id` to redirect to `#show` 
-	
-### Putting it into action
-
-* **Make a route** that uses the `id` of the object to be updated
-		`/config/routes.rb`
-
-		RouteApp::Application.routes.draw do
-			root to: 'planes#index'
-			
-			get '/planes', to: 'planes#index'
-			
-			get '/planes/new', to: 'planes#new'
-			
-			get '/planes/:id', to: 'planes#show'
-
-			get '/planes/:id/edit, to: 'planes#edit'
-			
-			post '/planes', to: 'planes#create'
-			
-			# Route the incoming update using the id
-			put '/planes/:id', to 'planes#update'
-		
-		end
-	
-	Note the method we now need to create is called `#update`
-* In the `PlanesController` we will create the `#update` method mentioned above
-	
-	`app/controllers/planes_controller.rb`
-	
-		PlanesController < ApplicationController
-			
-			...
-			
-			def update
-				plane_id = params[:id]
-				plane = Plane.find(plane_id)
-				
-				# get updated data
-				updated_attributes = params.require(:plane).permit(:name, :type, :description)
-				# update the plane
-				plane.update_attributes(updated_attributes)
-				
-				#redirect to show
-				redirect_to "/posts/#{plane_id}"
-			end
-			
-		end
