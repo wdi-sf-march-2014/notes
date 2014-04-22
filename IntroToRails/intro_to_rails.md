@@ -1,4 +1,4 @@
-#Introduction To Rails
+#Introduction To [Rails](https://github.com/rails/rails}
 
 ##Objectives:
 * Understand how to begin and navigate through a basic Rails project
