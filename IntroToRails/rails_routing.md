@@ -45,6 +45,8 @@ In a bullet list, the why is as follows:
 
 ### Separating Concerns
 
+<img src="http://aspiringcraftsman.com/wp-content/uploads/2010/01/Monk.png">
+
 In writing a large application it is important to establish something known as **Separation of Concerns**, *writing modular code that focuses on one aspect within the application.* The benefit of this is similar to idea of **compartementalization** with respect to a production line, which allows for *more rapid development* by being able to **divide and conquer** the construction of a product. Comparments can focus on one task and optmize functional concerns far outside the scope of other compartments, but still achieve the expected component.  Ultimately it reduces the headache of debugging and controlling a large application that can ultimately grow to a level of complexity that no one person could ever fully comprehend (nor want or need to). 
 
 ### Organizational Principles
