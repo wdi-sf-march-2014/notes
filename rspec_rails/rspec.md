@@ -224,3 +224,12 @@ ______________
 **1.** Write a request spec for displaying a list of todos when one goes to the root path.  
 
 **2.** Write a request spec to ensure that if you go to the path '/recent' it will only display recent todos.  
+
+###Resources
+________________
+
+**Rspec-Rails Documentation** https://github.com/rspec/rspec-rails  
+
+**Model Specs** https://www.relishapp.com/rspec/rspec-rails/docs/model-specs  
+
+**Request Specs** https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec  
