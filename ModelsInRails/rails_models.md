@@ -1,14 +1,14 @@
 # Rails Models
 
 ## Objectives
-* Describe what ActiveRecord does, how it relates to a database
-* Get data from the database using ActiveRecord and model methods
+* Describe what Active Record does, how it relates to a database
+* Get data from the database using Active Record and model methods
 * Use migrations to alter your database
 * Create model validations to validate input
 
-## ActiveRecord and ORM
+## Active Record and ORM
 
-__ORM__ stands for object relational mapping. ORM describes a software system that maps sql queries and results into objects.  __ActiveRecord__ is an example of an ORM system that is used commonly in rails.  What is an example of an ActiveRecord object?   If you have a model called Todo, defined below:
+__ORM__ stands for object relational mapping. ORM describes a software system that maps SQL queries and results into objects.  __Active Record__ is an example of an ORM system that is used commonly in rails.  What is an example of an Active Record object?   If you have a model called Todo, defined below:
 
 ```
 class Todo < ActiveRecord::Base
@@ -17,9 +17,9 @@ end
 
 Todo is a class that inherits from ```ActiveRecord::Base```.  Todo defines a model in rails.  Todo is an object that models the data in the ```todos``` database.  The ```Todo``` class has methods that allow the user of the class to query the data in todos.  For example, ```Todo.all``` is a method call on the ```ActiveRecord``` object that issues a SQL query to the database that looks like this: ```SELECT "todos".* FROM "todos"```.  The object that is returned from ```Todo.all``` is a ```ActiveRecord::Relation``` object.  It is similar to an array of ```Todo``` objects.
 
-## ActiveRecord Methods
+## Active Record Methods
 
-ActiveRecord gives us access to loads of tools that help write SQL statements for us.  To test that out, we'll use a todo app as a sandbox.  
+Active Record gives us access to loads of tools that help write SQL statements for us.  To test that out, we'll use a todo app as a sandbox.  
 
 ### Setting up the Todo App
 
@@ -36,7 +36,7 @@ Now you should be on a branch called todo_with_done_and_recent.  The lesson will
 
 One last thing, if you ever mess up your code and you want to __REVERT ALL CHANGES__ back to a clean working state, do the following command: ```git checkout -- .```  Don't forget that last period!  This command takes your repo back to the last commit.
 
-### ActiveRecord all, find, find_by, where, count, first, take
+### Active Record all, find, find_by, where, count, first, take
 
 All of the methods listed help you retrieve data from the database and then get back ActiveRecord objects.  The methods ```all``` and ```find``` are used frequently in rails examples.  Here is an example of ```find_by``` using the todo app mentioned above:
 
@@ -45,7 +45,7 @@ All of the methods listed help you retrieve data from the database and then get 
 Todo.find_by(title: "Wash the Car")
 ```
 
-If we want to get a set of data that mataches a query, we can specify the ```where``` clause in the SQL statement.
+If we want to get a set of data that matches a query, we can specify the ```where``` clause in the SQL statement.
 
 ```
 Todo.where('created_at < ?', Date.today )
@@ -62,9 +62,9 @@ Todo.where('created_at < ?', Date.today ).count
 Search around for the difference between ```first``` and ```take```.  In rails console, find the record in the database with the smallest id whose date created was before today.  
 
 
-### ActiveRecord save, update, destroy, reload
+### Active Record save, update, destroy, reload
 
-An object is only modified in the database when you issue a sql command.  For example, if I do the following:
+An object is only modified in the database when you issue a SQL command.  For example, if I do the following:
 
 ```
 todo = Todo.find_by(title: "Wash the Car")
@@ -86,7 +86,7 @@ Or
 
 ```
 todo = Todo.find_by(title: "Wash the Car")
-todo.update(title: "Don't wash the car", description: "I'm I'm too lazy to wash the car today")
+todo.update(title: "Don't wash the car", description: "I'm too lazy to wash the car today")
 ```
 
 Notice the SQL statements that get executed.  The log shows you what is happening.
@@ -129,7 +129,7 @@ end
 
 ## Migrations
 
-A migration keeps track of all the changes you've made in the database.  It allows developers to collaborate on the database without passing around SQL scripts.  It's also very useful when you push your site to production since you don't want to make changes to your production database until you're confident in the changes you've made.  But you also want a way to repoduce the changes reliably.  That is what a migration is for.  Take a look at the ```db/migrate``` folder.  In it, you'll find the first migration that was used to create the todos table.  Notice the line, ```t.timestamps```. That is active records way of adding the ```created_at``` and ```updated_at``` columns to the database.
+A migration keeps track of all the changes you've made in the database.  It allows developers to collaborate on the database without passing around SQL scripts.  It's also very useful when you push your site to production since you don't want to make changes to your production database until you're confident in the changes you've made.  But you also want a way to repoduce the changes reliably.  That is what a migration is for.  Take a look at the ```db/migrate``` folder.  In it, you'll find the first migration that was used to create the todos table.  Notice the line, ```t.timestamps```. That is Active Record's way of adding the ```created_at``` and ```updated_at``` columns to the database.
 
 #### Exercise 3
 
@@ -144,13 +144,13 @@ rake db:migrate
 ````
     
 #### Exercise 4
-Now that we have our new column, we need to create a migration that populates the data in done field. In the previous exercise, we set a default value for done, but if you look at ```Todo.all``` in the rails console, all the records that were already there have a value of nil for done.  Create another migration like this:
+Now that we have our new column, we need to create a migration that populates the data in the done field of the database. In the previous exercise, we set a default value for done, but if you look at ```Todo.all``` in the rails console, all the records that were already there have a value of nil for done.  Create another migration like this:
 
 ```
 rails g migration AddDoneDataToTodos
 ```
 
-Take a look a the migration that was generated this time.  Notice that there is no code inside the change method.  That's what we need to add.  Write some code that sets all todo item done fields to false.
+Take a look at the migration that was generated this time.  Notice that there is no code inside the change method.  That's what we need to add.  Write some code that sets all todo item done fields to false.
 
 __HINT__:  The method ```change``` is the same as any method in rails.  It has access to active record objects.  If I wanted to make an migration that just set the first todo item's done field to false, I might write it like this:
 
@@ -167,7 +167,7 @@ Once you get the migration working, don't forget to do ```rake db:migrate```.
 
 ## Validation
 
-One other great feature of models is validation.  Very often you need to have some validation on your data.  For example, in our todo app, we may want to validate that the title and the description are present.  We could also validate the length of the input using max and min.  Here is a simple validation on the todo model (Flie located here: ```app/models/todo.rb```):
+One other great feature of models is validation.  Very often you need to have some validation on your data.  For example, in our todo app, we may want to validate that the title and the description are present.  We could also validate the length of the input using max and min.  Here is a simple validation on the todo model (File located here: ```app/models/todo.rb```):
 
 ```
 class Todo < ActiveRecord::Base
@@ -199,7 +199,7 @@ Finally, you can add validations to other fields as well.  Let's add a validatio
 class Todo < ActiveRecord::Base
   # Validating the title is present and the length of the title is between 2 and 200
   validates :title, presence: true, length: {minimum: 2, maximum: 200}
-  # Valdiating that there is some description.
+  # Validating that there is some description.
   validates :description, presence: true
   
   def self.all_todos_modified_after(date)
@@ -215,7 +215,9 @@ Go to rails console.  Now try to create an empty todo item by doing the followin
 todo = Todo.create()
 ```
 
-Take a look at the contents of todo.  Notice that is has no values.  Try calling the ```persisted?``` method on todo.  What does it do?  Next, do the following:
+Take a look at the contents of todo.  Notice that is has no values.  Try calling the ```persisted?``` method on todo.  What does ```persisted?``` do?
+
+Next, do the following:
 
 ```
 todo = Todo.first
