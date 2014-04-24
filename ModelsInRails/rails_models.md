@@ -28,11 +28,16 @@ Use this [todo app repo](https://github.com/wdi-sf-march-2014/rails_todo_app).  
 ```
 git clone https://github.com/wdi-sf-march-2014/rails_todo_app.git
 git fetch origin
-git checkout -b todo_with_done_and_recent_solution origin/todo_with_done_and_recent_solution
-git checkout -b todo_with_done_and_recent origin/todo_with_done_and_recent
+git checkout -b model_e1 origin/model_e1
+git checkout -b model_e2 origin/model_e2
+git checkout -b model_e3 origin/model_e3
+git checkout -b model_e4 origin/model_e4
+git checkout -b model_e5 origin/model_e5
+git checkout -b model_solution origin/model_solution
+git checkout model_e1
 ```
 
-Now you should be on a branch called todo_with_done_and_recent.  The lesson will use this branch for some exercises.  Please make sure you're on the correct branch by typing ```git branch``` to see the branch you're on.  Another way to check is to type ```git status```.  The status message tells you the branch you're working on as well.
+Now you should be on a branch called model_e1.  The lesson will use this branch for some exercises.  Please make sure you're on the correct branch by typing ```git branch``` to see the branch you're on.  Another way to check is to type ```git status```.  The status message tells you the branch you're working on as well.  To switch to a branch to work on an, like exercise 3, just checkout the corresponding branch:  ```git checkout model_e3```.  Note, this may not work if you have local changes.
 
 One last thing, if you ever mess up your code and you want to __REVERT ALL CHANGES__ back to a clean working state, do the following command: ```git checkout -- .```  Don't forget that last period!  This command takes your repo back to the last commit.
 
