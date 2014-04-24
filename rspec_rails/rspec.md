@@ -5,6 +5,16 @@
 - create unit tests for methods in model
 - define TDD
 
+###Schedule
+- Review Rspec *(15 - 20 minutes)*
+- Install Rspec in Rails *(15 minutes)*
+- Code Along - 2 Rspec tests *(15 minutes)*
+- Exercise - Write 2 Rspec tests *(15 minutes)*
+- Code along - 1 test then Code *(10 minutes)*
+- Exercise - Write Tests and Code *(15 minutes)*
+- Code along - Write 1 Request Spec *(15 minutes)*
+- Exercise - Write 1 Request Spec *(15 minutes)*
+
 ###Rspec Review
 __________________
 
@@ -127,18 +137,13 @@ describe 'title' do
   end
 end
 
-describe 'recent' do
-  before do
-    @todo1 = Todo.create(title: "my title",description: "my description")
-    @todo2 = Todo.create(title: "my title",description: "my description")
-    @todo3 = Todo.create(title: "my title",description: "my description", 
-      created_at: (Date.today - 3.days), updated_at: (Date.today - 3.days))
+describe 'all_todos_modified_after' do
+  it 'should not return todos modified before given date' do
+    todo1 = Todo.create(title: "my title", description: "my description", updated_at: (Time.now - 4.days))
+    todo2 = Todo.create(title: "my title", description: "my description", updated_at: (Time.now - 1.day))
+    date = (Time.now - 2.days)
+    Todo.all_todos_modified_after(date).should eq([todo2])
   end
-
-  it 'should return todos that have been updated today' do
-    Todo.recent.should eq [@todo1, @todo2]
-  end
-
 end
 
 ```
@@ -215,11 +220,6 @@ end
 ###Exercise
 ______________
 
-**1.** Write a request spec for displaying a list of todos when one goes to the root path  
+**1.** Write a request spec for displaying a list of todos when one goes to the root path.  
 
-###Resources
-__________________
-
-**Rspec-Rails Documentation:** https://github.com/rspec/rspec-rails  
-**Model Specs:** https://www.relishapp.com/rspec/rspec-rails/docs/model-specs  
-**Request Specs:** https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec  
+**2.** Write a request spec to ensure that if you go to the path '/recent' it will only display recent todos.  
