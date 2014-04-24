@@ -6,16 +6,6 @@
 - create simple request specs to test controllers/functionality
 - define TDD
 
-###Schedule
-- Review Rspec *(15 - 20 minutes)*
-- Install Rspec in Rails *(15 minutes)*
-- Code Along - 2 Rspec tests *(15 minutes)*
-- Exercise - Write 2 Rspec tests *(15 minutes)*
-- Code along - 1 test then Code *(10 minutes)*
-- Exercise - Write Tests and Code *(15 minutes)*
-- Code along - Write 1 Request Spec *(15 minutes)*
-- Exercise - Write 1 Request Spec *(15 minutes)*
-
 ###Rspec Review
 __________________
 
