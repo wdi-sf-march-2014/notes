@@ -3,6 +3,7 @@
 ###Learning Objectives
 - install rspec in rails app with documentation
 - create unit tests for methods in model
+- create simple request specs to test controllers/functionality
 - define TDD
 
 ###Schedule
