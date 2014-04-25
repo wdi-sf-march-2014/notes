@@ -41,6 +41,69 @@ Now you should be on a branch called model_e1.  The lesson will use this branch 
 
 One last thing, if you ever mess up your code and you want to __REVERT ALL CHANGES__ back to a clean working state, do the following command: ```git checkout -- .```  Don't forget that last period!  This command takes your repo back to the last commit.
 
+### First Time App Setup
+
+Here are the steps to get your app set up for the first time.
+
+First, make sure your ```Gemfile``` has the ```pg``` gem.
+
+Next, got to ```config/database.yml```.  You need to make sure that the adapter is ```postgresql```.  Here is a sample database.yml file:
+
+```
+development:
+  adapter: postgresql
+  database: todo_development
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: todo_test
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: todo
+  pool: 5
+  timeout: 5000
+```
+
+Next, do:
+
+```
+bundle install
+```
+
+Finally, run your migrations. 
+
+__Optionally Drop__ your old database:
+
+```
+rake db:drop  
+```
+
+__Create__ your database:
+
+```
+rake db:create
+```
+
+__Migrate__ your database:
+
+```
+rake db:migrate
+```
+
+__Seed__ your database if needed:
+
+```
+rake db:seed
+```
+
+
 ### Active Record all, find, find_by, where, count, first, take
 
 All of the methods listed help you retrieve data from the database and then get back ActiveRecord objects.  The methods ```all``` and ```find``` are used frequently in rails examples.  Here is an example of ```find_by``` using the todo app mentioned above:
