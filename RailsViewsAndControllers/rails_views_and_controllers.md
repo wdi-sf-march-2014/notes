@@ -3,14 +3,14 @@
 * <h2> Todo App is a complete implementation of a CRUD.</h2>
 * <h2> The morning we will review the Todo App in detail. </h2>
 * <h2> The afternoon lesson will be a code along to create the Todo App. </h2>
-	
+  
 ## We will analyze the todo_app in detail
 
 * <h3> We will follow how the Views and the Controller communicate together. </h3>
-	* <h3> We will follow a  typical rails code development sequence. </h3>
-	
+  * <h3> We will follow a  typical rails code development sequence. </h3>
+  
 * <h3> We will learn some Rails commands used in the view </h3>
-	* <h3> form_for, link_to, button_to </h3> 
+  * <h3> form_for, link_to, button_to </h3> 
 * <h3> Our focus will be on Views and Controllers. Of course we will need to have routes. </h3>
 * <h3> The database model code is stubbed out for us. We will leave the detailed discussion of the database creation and commands for tomorrows lesson. </h3>
 
@@ -29,15 +29,15 @@
 
 ## Action: Run bundle install.
 ## Action: Prepare the database
-	# migrate the database
-	bundle exec rake db:migrate
-	
-	# seed the database
-	bundle exec rake db:seed
+  # migrate the database
+  bundle exec rake db:migrate
+  
+  # seed the database
+  bundle exec rake db:seed
 
 ## Action: Go to your terminal and start the server.
-	# start the server
-	rails s
+  # start the server
+  rails s
 
 ## We begin the review! 
 
