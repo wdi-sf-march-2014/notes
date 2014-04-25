@@ -165,9 +165,55 @@ We generated the model and the migration with the foreign key in the belongs_to 
 
 This works because ActiveRecord knows to look for the column `band_id` in the `tracks` table
  
-##has_many through:
+##has_many through (Part 1)
+
+An `Artist` is a member of a band for a period of time.
+
+I've called this period of time a `Stint`
+
+Each `Stint` has a `Band`, an `Artist` as well as `start_date` and `end_date`
+
+The `start_date` and `end_date` are important information for our app, but we're not interested in during this explaination of `has_many, through: `
+
+<pre>
+ class Artist < ActiveRecord::Base
+   <b>has_many :stints</b>
+ end
+</pre>
+
+<pre>
+ class Band < ActiveRecord::Base
+   belongs_to :agent
+   <b>has_many :stints</b>
+ end
+</pre>
+
+<pre>
+ class Stint < ActiveRecord::Base
+   <b>belongs_to :artist</b>
+   <b>belongs_to :band</b>
+   
+   #Omitted: start_date / end_date,  etc.
+ end
+</pre>
+
+You can see that we have two has_many and their two matching belongs_to relationships
+
+But what is the relationship between `Band` and `Artist` ?
+
+##has_many through (Part 2)
 
 * [has_many through:](http://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+
+<pre>
+ class Band < ActiveRecord::Base
+   belongs_to :agent
+   has_many :stints
+   <b>has_many :artists, through: :stints</b>
+ end
+</pre>
+
+We don't need another migration because all the data already exists, `ActiveRecord` does the magical `JOIN`s for us
 
 #Less Common Associations
 
@@ -189,11 +235,4 @@ This works because ActiveRecord knows to look for the column `band_id` in the `t
 #Related Notes
 
 * [Model field data types](http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html#method-i-column
-
-#Review
-
-#Furter Reading
-
-
-# Exercise Time
 
