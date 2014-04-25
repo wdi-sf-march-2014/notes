@@ -98,10 +98,12 @@ __Many to Many (through)__
 You are working on a side project for a local Community College.
 Help design the database for student admissions. `Applicants` can apply to any number of `DegreePrograms` with an `Application`, but need to write a separate `Application` for each. Each Application are reviewed by a single `Reviewer` but each `Reviewer` can work on multiple `Applications`
 
-Applicant
-Application
-DegreeProgram
-Reviewer
+__Entities__
+
+* Applicant
+* Application
+* DegreeProgram
+* Reviewer
 
 * Spend 10 minutes drawing out your ERD
   * What are the relationships
@@ -148,6 +150,24 @@ class Track < ActiveRecord::Base
   belongs_to :band
 end
 ```
+## TODO
+
+``` DISPLAY TABLES ```
+
+``` rake db:migrate ```
+
+``` DISPLAY TABLES ```
+
+
+## Using belongs_to
+
+band.tracks
+
+with select fields
+
+SHOW SQL
+
+
 
 ##has_many
 
@@ -222,6 +242,7 @@ We don't need another migration because all the data already exists, `ActiveReco
 * [has_one](http://guides.rubyonrails.org/association_basics.html#the-has-one-association)
 
 
+
 ##has_one through:
 
 * [has_one through:](http://guides.rubyonrails.org/association_basics.html#the-has-one-through-association)
@@ -230,6 +251,28 @@ We don't need another migration because all the data already exists, `ActiveReco
 ##has_and_belongs_to_many
 
 * [has_and_belongs_to_many](http://guides.rubyonrails.org/association_basics.html#has-and-belongs-to-many-association-reference)
+
+
+
+#Active Record Usage
+
+
+
+Band has many tracks 
+
+myBand.tracks 
+
+How to Create Tracks 
+
+Band.first.tracks.new({})
+
+myBand.tracks.create({})
+
+myBand.build_track
+
+myBand.create_track
+
+
 
 
 #Related Notes
