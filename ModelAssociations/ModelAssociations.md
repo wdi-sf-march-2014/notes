@@ -455,7 +455,6 @@ end
 </pre>
 
 
-
 ```
 wilber.bands.map(&:name)
   Band Load (3.8ms)  SELECT "bands".* FROM "bands" INNER JOIN "stints" ON "bands"."id" = "stints"."band_id" WHERE "stints"."artist_id" = $1  [["artist_id", 1]]
