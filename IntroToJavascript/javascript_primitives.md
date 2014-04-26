@@ -2,7 +2,6 @@
 
 ## Objectives
 * History of Javascript
-* 
 * Understand Data Types
   * Comments
   * Numbers
@@ -17,11 +16,14 @@
   * While loop
   * For loop
   * Switch case
+  
+## History of Javascript
+
 
 ## Why Javascript? 
 Simple answer: We want high performance web sites!
 
-But what does this mean?
+*But what does this mean?*
 
 * Client side programming:</h3>
   * Interaction with the DOM
@@ -29,20 +31,20 @@ But what does this mean?
   * Send requests to the server.
   * Act on response from the server.
 
-
 ## Comments in Javascript:
 * Ruby uses '#' to indicate a comment line.
 * JavaScript uses '//' for line comment.
 
 ## Numbers:
 * Ruby has Integers and Floats
-* JavaScript we have just Numbers.
+* JavaScript only has Numbers
 
 ## Values & Expressions
 * Computers return values when you give them expressions. 
 * Give the computer a value and it returns a value, thus values are expressions as well.
   
-    // values are expressions
+  ```
+  // values are expressions
     console.log(42);
     //=> 42
 
@@ -53,10 +55,12 @@ But what does this mean?
     // string concatenation is an expression
     console.log("hello" + " world");
     //=> "hello world"
+    ```
 
 ## Conditionals: always use Triple Equal "===" or "!=="
 * Check to see if two values are identical with the "===" strict equality.
-
+  
+  ```
     console.log("Always use triple equal sign to test equality.")
 
     console.log(42 === 42);
@@ -74,31 +78,36 @@ But what does this mean?
 
     console.log("foo" !== "bar");
     //=> true
+    ```
     
 ## Reference Types: 
-### Even if they have the same values and are the same type, reference types are not strictly equal.
+- Even if they have the same values and are the same type, reference types are not strictly equal.
 * Arrays are unique structures.
 
+  ```
     console.log("Arrays are reference-type data structures.")
     console.log([1,2,3] === [ 2-1, 1+1, 2+1]);
     //=> false
 
     console.log([1,2,3] === [1,2,3]);
     //=> false
+    ```
 
 
 ## Undefined
 * When something is "undefined" it has no value.
 * Oddly enough "undefined" is a value.
 
-    
+    ```
     console.log("undefined is a value-type.");
     console.log(undefined === undefined);
     //=> true
+    ```
 
 ## False
 * 0, false, null, undefined, Empty String: ""
     
+    ```
     console.log("False Tester:");
     // Try: 0, "", undefined, null, false. Anything else is true!
     if(0) { 
@@ -106,9 +115,11 @@ But what does this mean?
     } else {
       console.log(false);
     }
-
+  ```
+  
 ## JavaScript Object Literals
 
+  ```
   var micky_mouse = {
                     "first_name": "Micky",
                     "last_name": "Mouse",
@@ -120,7 +131,7 @@ But what does this mean?
                     "address": "Disneyland"
                   }
 
-  // ##### JS Object Literals are reference types
+  // JS Object Literals are reference types
   // Access a literal value with ".key" syntax!
   console.log(micky_mouse.first_name);
   // This also works
@@ -132,9 +143,12 @@ But what does this mean?
   } else {
     console.log(false );
   }
+  ```
 
 
 ## Conditional (if-else)
+
+  ```
   console.log("if - else if - else:")
   // var state = "red";
   var state = "green";
@@ -146,21 +160,19 @@ But what does this mean?
                 "passing": "Tests are passing.",
                 "refactor": "Time to refactor."
               }
+              
   if (state === "red") {  
-  
     console.log(message.failing);
-    
   } else if (state === "green") {
-  
     console.log(message.passing);
-    
   } else { // Time to refactor.
-  
-    console.log(message.refactor);
-    
+    console.log(message.refactor);  
   }
+  ```
+  
 
 ## While loop
+  ```
   var a = [1,2,3,4];
   var b = [1,2,3,4];
 
@@ -168,15 +180,15 @@ But what does this mean?
   
   var i = 0;
   
-  while(i < a.length){
-  
+  while(i < a.length) {
     console.log("The element at index " + i + " is: " + a[i]);
-    i++;
-    
+    i++; 
   }
+  ```
 
 ## For loop
 
+  ```
   var mixed = [1, "two", "three", true];
   
   console.log("For Loop:")
@@ -184,11 +196,13 @@ But what does this mean?
   // Most common mistake is using commas instead of "semicolons" inside the loop declaration.
   
   for(var i = 0; i < mixed.length; i++) {
-  
-    console.log("The element at index " + i + " is: " + mixed[i]);
-    
+    console.log("The element at index " + i + " is: " + mixed[i]); 
   }
+  ```
+  
 ## Switch Case
+  
+  ```
   var expression = "label2"
 
   switch (expression) {
@@ -205,11 +219,11 @@ But what does this mean?
         console.log("Default case.");
         break;
     }
+   ```
 
 
 ## Exercise: Implement a routine that checks to see if two arrays are identical.
 * Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
-*  
 * Turn array compare exercise into a function that returns true or false.
 
 
