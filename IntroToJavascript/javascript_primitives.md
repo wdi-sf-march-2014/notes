@@ -1,60 +1,50 @@
 # JavaScript Introduction
 
-## While waiting for lesson to start:
-* <h3>Install Node.js - go to http://nodejs.org/</h3>
-* <h3>Go to your working directory</h3>
-* <h3>Clone repository: https://github.com/spencereldred/JavaScript-Intro</h3>
+## Objectives
+* History of Javascript
+* Understand Data Types
+  * Comments
+  * Numbers
+  * Values & Expressions
+  * Conditionals
+  * Reference Types
+  * Undefined
+  * False
+* Understand Javascript Object Literal
+* Understand Javascript Control Flow
+  * Conditionals (if/else)
+  * While loop
+  * For loop
+  * Switch case
+  
+## History of Javascript
 
-## Learning Objectives
-* <h3>Overview - why JavaScript</h3>
-* <h3>Today's work flow: Node, Developer Console</h3>
-* <h3>Understand Data Types</h3>
-  * <h3>Comments</h3>
-  * <h3>Numbers</h3>
-  * <h3>Values & Expressions</h3>
-  * <h3>Conditionals</h3>
-  * <h3>Reference Types</h3>
-  * <h3>Undefined</h3>
-  * <h3>False</h3>
-* <h3>Understand JavaScript Object Literal</h3>
-* <h3>Understand JavaScript Control Flow</h3>
-  * <h3>Conditionals (if-else)</h3>
-  * <h3>While loop</h3>
-  * <h3>For loop</h3>
-  * <h3>Switch case</h3>
 
-## Why Javascript? We want high performance web sites!
+## Why Javascript? 
+Simple answer: We want high performance web sites!
 
-* <h3> Client side programming:</h3>
-  * <h3> Interaction with the DOM.</h3>
-  * <h3> Respond to DOM events: click, submit...</h3>
-  * <h3> Send requests to the server.</h3>
-  * <h3> Act on response from the server.</h3>
-* <h3> Server side programming with Node.js.</h3>
+*But what does this mean?*
 
-## Resources:
-* <h3> Code School free course on the Developer Tools.</h3>
-    https://www.codeschool.com/courses/discover-devtools
-* <h3>JavaScript Alonge:</h3>
-    https://leanpub.com/javascript-allonge/read#leanpub-auto-a-pull-of-the-lever-prefaces
-* <h3>MDN JavaScript Reference</h3>
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
-* <h3>W3Schools JavaScript Reference</h3>
-    http://www.w3schools.com/jsref/default.asp
+* Client side programming:</h3>
+  * Interaction with the DOM
+  * Respond to DOM events: click, submit...
+  * Send requests to the server.
+  * Act on response from the server.
 
-## Comments:
-* <h3> Ruby uses '#' to indicate a comment line.</h3>
-* <h3> JavaScript uses '//' for line comment.</h3>
+## Comments in Javascript:
+* Ruby uses '#' to indicate a comment line.
+* JavaScript uses '//' for line comment.
 
 ## Numbers:
-* <h3> Ruby has Integers and Floats.</h3>
-* <h3> JavaScript we have just Numbers.</h3>
+* Ruby has Integers and Floats
+* JavaScript only has Numbers
 
 ## Values & Expressions
-* <h3> Computers return values when you give them expressions. </h3>
-* <h3> Give the computer a value and it returns a value, thus values are expressions as well. </h3>
+* Computers return values when you give them expressions. 
+* Give the computer a value and it returns a value, thus values are expressions as well.
   
-    // values are expressions
+  ```
+  // values are expressions
     console.log(42);
     //=> 42
 
@@ -65,10 +55,12 @@
     // string concatenation is an expression
     console.log("hello" + " world");
     //=> "hello world"
+    ```
 
 ## Conditionals: always use Triple Equal "===" or "!=="
-* <h3> Check to see if two values are identical with the "===" strict equality.</h3>
-
+* Check to see if two values are identical with the "===" strict equality.
+  
+  ```
     console.log("Always use triple equal sign to test equality.")
 
     console.log(42 === 42);
@@ -86,31 +78,36 @@
 
     console.log("foo" !== "bar");
     //=> true
+    ```
     
 ## Reference Types: 
-### Even if they have the same values and are the same type, reference types are not strictly equal.
-* <h3> Arrays are unique structures.</h3>
+- Even if they have the same values and are the same type, reference types are not strictly equal.
+* Arrays are unique structures.
 
+  ```
     console.log("Arrays are reference-type data structures.")
     console.log([1,2,3] === [ 2-1, 1+1, 2+1]);
     //=> false
 
     console.log([1,2,3] === [1,2,3]);
     //=> false
+    ```
 
 
 ## Undefined
-* <h3> When something is "undefined" it has no value.</h3>
-* <h3> Oddly enough "undefined" is a value.</h3>
+* When something is "undefined" it has no value.
+* Oddly enough "undefined" is a value.
 
-    
+    ```
     console.log("undefined is a value-type.");
     console.log(undefined === undefined);
     //=> true
+    ```
 
 ## False
-* <h3>0, false, null, undefined, Empty String: ""</h3>
+* 0, false, null, undefined, Empty String: ""
     
+    ```
     console.log("False Tester:");
     // Try: 0, "", undefined, null, false. Anything else is true!
     if(0) { 
@@ -118,8 +115,11 @@
     } else {
       console.log(false);
     }
-
+  ```
+  
 ## JavaScript Object Literals
+
+  ```
   var micky_mouse = {
                     "first_name": "Micky",
                     "last_name": "Mouse",
@@ -131,7 +131,7 @@
                     "address": "Disneyland"
                   }
 
-  // ##### JS Object Literals are reference types
+  // JS Object Literals are reference types
   // Access a literal value with ".key" syntax!
   console.log(micky_mouse.first_name);
   // This also works
@@ -143,9 +143,12 @@
   } else {
     console.log(false );
   }
+  ```
 
 
 ## Conditional (if-else)
+
+  ```
   console.log("if - else if - else:")
   // var state = "red";
   var state = "green";
@@ -157,21 +160,19 @@
                 "passing": "Tests are passing.",
                 "refactor": "Time to refactor."
               }
+              
   if (state === "red") {  
-  
     console.log(message.failing);
-    
   } else if (state === "green") {
-  
     console.log(message.passing);
-    
   } else { // Time to refactor.
-  
-    console.log(message.refactor);
-    
+    console.log(message.refactor);  
   }
+  ```
+  
 
 ## While loop
+  ```
   var a = [1,2,3,4];
   var b = [1,2,3,4];
 
@@ -179,15 +180,15 @@
   
   var i = 0;
   
-  while(i < a.length){
-  
+  while(i < a.length) {
     console.log("The element at index " + i + " is: " + a[i]);
-    i++;
-    
+    i++; 
   }
+  ```
 
 ## For loop
 
+  ```
   var mixed = [1, "two", "three", true];
   
   console.log("For Loop:")
@@ -195,11 +196,13 @@
   // Most common mistake is using commas instead of "semicolons" inside the loop declaration.
   
   for(var i = 0; i < mixed.length; i++) {
-  
-    console.log("The element at index " + i + " is: " + mixed[i]);
-    
+    console.log("The element at index " + i + " is: " + mixed[i]); 
   }
+  ```
+  
 ## Switch Case
+  
+  ```
   var expression = "label2"
 
   switch (expression) {
@@ -216,15 +219,16 @@
         console.log("Default case.");
         break;
     }
+   ```
 
 
 ## Exercise: Implement a routine that checks to see if two arrays are identical.
-* <h3> Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.</h3>
-
-## Afternoon Lab: 
-* <h3> Turn array compare exercise into a function that returns true or false.</h3>
-* <h3>Code School - DevTools Levels 1-4.</h3>
+* Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
+* Turn array compare exercise into a function that returns true or false.
 
 
 
-
+## Resources:
+* [Code School free course on the Developer Tools](https://www.codeschool.com/courses/discover-devtools)
+* [JavaScript Alonge](https://leanpub.com/javascript-allonge/read#leanpub-auto-a-pull-of-the-lever-prefaces)
+* [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
