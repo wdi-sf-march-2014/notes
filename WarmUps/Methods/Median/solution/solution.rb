@@ -18,7 +18,6 @@ def median(arr, mid_index=nil, pos_right=0)
     end
 
     if mid_index <= pos_right + less_than_pivot.length - 1
-       puts "#{mid_index} is less equal to #{pos_right + less_than_pivot.length - 1}"
        median(less_than_pivot, mid_index, pos_right)
     elsif mid_index > pos_right + less_than_pivot.length + equal_to_pivot.length - 1
        pos_right += less_than_pivot.length + equal_to_pivot.length 
