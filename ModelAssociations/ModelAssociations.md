@@ -1,6 +1,3 @@
-
-#Draft: Do Not Use!
----------
 Intro to Model Associations
 ==================
 
