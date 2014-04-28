@@ -298,16 +298,12 @@ beafles.agent
 
 * [has_many](http://guides.rubyonrails.org/association_basics.html#the-has-many-association)
 
-We generated the model and the migration with the foreign key in the belongs_to example step, we can just add the has_many block to our Band class:
+We generated the model and the migration with the foreign key in the belongs_to example step, we can just add the has_many block to our Agent class:
 
 
 <pre>
  class Agent < ActiveRecord::Base
- 
- 
-   has_many :bands
- 
-   
+   <b>has_many :bands</b>
  end
 </pre>
 
