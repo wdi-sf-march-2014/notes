@@ -232,6 +232,6 @@ Simple answer: We want high performance web sites!
 
 
 ## Resources:
-* [Code School free course on the Developer Tools](https://www.codeschool.com/courses/discover-devtools)
+* [Javascript Koans](https://github.com/mrdavidlaing/javascript-koans)
 * [JavaScript Alonge](https://leanpub.com/javascript-allonge/read#leanpub-auto-a-pull-of-the-lever-prefaces)
 * [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
