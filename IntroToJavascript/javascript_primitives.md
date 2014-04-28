@@ -10,14 +10,18 @@
   * Reference Types
   * Undefined
   * False
-* Understand Javascript Object Literal
-* Understand Javascript Control Flow
+  * Arrays
+* Javascript Object Literal 
+* Javascript Control Flow
   * Conditionals (if/else)
   * While loop
   * For loop
   * Switch case
 
 ##Objectives
+* Be able to use various JS data types
+* Be able to control flow operators in JS
+* Be able to manipulate JS object literals
   
 ## History of Javascript
 * Not to be confused with Java, but it is the baby child of Java syntax & Scheme principles
@@ -29,12 +33,19 @@ Simple answer: We want high performance web sites!
 
 *But what does this mean?*
 
-* Client side programming:</h3>
+* Client side programming:
   * Interaction with the DOM
   * Respond to DOM events: click, submit...
   * Send requests to the server.
-  * Act on response from the server.
+  * Act on response from the server.    
 * Loosely-typed language: you don't have to explicitly declare what type of data the variables are. You just need to use the var keyword to indicate that you are declaring a variable, and the interpreter will work out what data type you are using from the context, and use of quotes.
+  * JS figures out the type based on value, and the type can change:
+  
+  ```
+  var x;
+  x = 2;
+  x = 'Hi';
+  ```
 
 # Getting Started
 ## Node Install
@@ -88,7 +99,12 @@ $ node hello.js
     // string concatenation is an expression
     console.log("hello" + " world");
     ```
-## Exercise: 
+### Exercise: The Fortune Teller
+
+  Why pay a fortune teller when you can just program your fortune yourself?
+
+  - Store the following into variables: number of children, partner's name, geographic location, job title.
+  - Output your fortune to the screen like so: "You will be a X in Y, and married to Z with N kids."
 
 ## Conditionals: always use Triple Equal "===" or "!=="
 * Check to see if two values are identical with the "===" strict equality.
@@ -136,10 +152,16 @@ $ node hello.js
   }
   ```
   
-## Exercise:   
+## Exercise: 
+- The World Translator
+  - Write a function named helloWorld that:
+    - takes 1 argument, a language code (e.g. "es", "de", "en")
+    - returns "Hello, World" for the given language, for atleast 3 languages. It should default to returning English.
+  - Call that function for each of the supported languages and log the result to make sure it works.  
     
 ## Reference Types: 
-- Even if they have the same values and are the same type, reference types are not strictly equal.
+- So what kinds of values might be the same type and have the same contents, but not be considered identical to JavaScript?
+  - Even if they have the same values and are the same type, reference types are not strictly equal.
 * Arrays are unique structures.
 * Try this in your console:
 
@@ -149,10 +171,9 @@ $ node hello.js
 
     console.log([1,2,3] === [1,2,3]);
     ```
-##Exercise:  
 
 ## Undefined
-* When something is "undefined" it has no value.
+* When something is "undefined", it represents a value that hasn't been defined.
 * Oddly enough "undefined" is a value.
 
     ```
@@ -160,6 +181,8 @@ $ node hello.js
     console.log(undefined === undefined);
     //=> true
     ```
+##null
+* Represents an explicitly empty value
 
 ## False
 * 0, false, null, undefined, Empty String: ""
@@ -201,19 +224,7 @@ $ node hello.js
     console.log(false );
   }
   ```
-## While loop
-  ```
-  var a = [1,2,3,4];
-  var b = [1,2,3,4];
 
-  console.log("While Loop:")
-  
-  var i = 0;
-  
-  while(i < a.length) {
-    console.log("The element at index " + i + " is: " + a[i]);
-    i++; 
-  }
   ```
 
 ## For loop
@@ -229,6 +240,19 @@ $ node hello.js
     console.log("The element at index " + i + " is: " + mixed[i]); 
   }
   ```
+  ## While loop
+  ```
+  var a = [1,2,3,4];
+  var b = [1,2,3,4];
+
+  console.log("While Loop:")
+  
+  var i = 0;
+  
+  while(i < a.length) {
+    console.log("The element at index " + i + " is: " + a[i]);
+    i++; 
+  }
 
 - ###Exercise: Create an array with your friends names & then loop through the array and console.log each of your friends names
   
@@ -253,11 +277,15 @@ $ node hello.js
     }
    ```
 
-- ### Exercise: Implement a routine that checks to see if two arrays are identical.
+- ### Exercise: JavaScript Calculator
 
+  - Create a calculator in JavaScript.
 
-* Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
-* Turn array compare exercise into a function that returns true or false.
+    - Prompt the user to enter an operator and two operands.
+Support the following operations: addition, subtraction, multiplication, and division.
+Output may appear in the console or in an alert.
+    - Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
+    - Turn array compare exercise into a function that returns true or false.
 
 
 ## Resources:
