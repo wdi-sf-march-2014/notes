@@ -36,6 +36,36 @@ Simple answer: We want high performance web sites!
   * Act on response from the server.
 * Loosely-typed language: you don't have to explicitly declare what type of data the variables are. You just need to use the var keyword to indicate that you are declaring a variable, and the interpreter will work out what data type you are using from the context, and use of quotes.
 
+# Getting Started
+## Node Install
+
+Since we have `brew` installed we can just install node with it
+
+```
+$ brew install node
+```
+or if you're feeling more browser friendly try the following [node link](http://nodejs.org/download/).
+
+Once finished, you should be able to interact with the `node` repl by saying
+
+```
+$ node 
+``` 
+
+or you can run a javascript file like the one below
+
+`hello.js`
+
+```
+console.log("hello world!")
+```
+
+by using the pattern `node <filename>` in javascript.
+
+```
+$ node hello.js
+```
+
 ## Comments in Javascript:
 * Ruby uses '#' to indicate a comment line.
 * JavaScript uses '//' for line comment.
@@ -51,17 +81,14 @@ Simple answer: We want high performance web sites!
   ```
   // values are expressions
     console.log(42);
-    //=> 42
 
     // addition is an expression
     console.log(2 + 2);
-    //=> 4
 
     // string concatenation is an expression
     console.log("hello" + " world");
-    //=> "hello world"
     ```
-## Exercise:
+## Exercise: 
 
 ## Conditionals: always use Triple Equal "===" or "!=="
 * Check to see if two values are identical with the "===" strict equality.
@@ -86,7 +113,7 @@ Simple answer: We want high performance web sites!
     //=> true
     ```
     
-    
+
   ```
   console.log("if - else if - else:")
   // var state = "red";
