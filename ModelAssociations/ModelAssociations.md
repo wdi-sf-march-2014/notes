@@ -1,3 +1,6 @@
+
+#Draft: Do Not Use!
+---------
 Intro to Model Associations
 ==================
 
@@ -303,11 +306,7 @@ We generated the model and the migration with the foreign key in the belongs_to 
 
 <pre>
  class Agent < ActiveRecord::Base
- 
- 
-   has_many :bands
- 
-   
+   <b>has_many :bands</b>
  end
 </pre>
 
