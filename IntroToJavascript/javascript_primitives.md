@@ -99,7 +99,7 @@ $ node hello.js
     // string concatenation is an expression
     console.log("hello" + " world");
     ```
-### Exercise: The Fortune Teller
+### Exercise #1: The Fortune Teller
 
   Why pay a fortune teller when you can just program your fortune yourself?
 
@@ -152,12 +152,11 @@ $ node hello.js
   }
   ```
   
-## Exercise: 
-- The World Translator
-  - Write a function named helloWorld that:
-    - takes 1 argument, a language code (e.g. "es", "de", "en")
-    - returns "Hello, World" for the given language, for atleast 3 languages. It should default to returning English.
-  - Call that function for each of the supported languages and log the result to make sure it works.  
+## Exercise #2: The World Translator
+- Write a function named helloWorld that:
+  - takes 1 argument, a language code (e.g. "es", "de", "en")
+  - returns "Hello, World" for the given language, for atleast 3 languages. It should default to returning English.
+- Call that function for each of the supported languages and log the result to make sure it works.  
     
 ## Reference Types: 
 - So what kinds of values might be the same type and have the same contents, but not be considered identical to JavaScript?
@@ -181,8 +180,7 @@ $ node hello.js
     console.log(undefined === undefined);
     //=> true
     ```
-##null
-* Represents an explicitly empty value
+
 
 ## False
 * 0, false, null, undefined, Empty String: ""
@@ -196,6 +194,9 @@ $ node hello.js
       console.log(false);
     }
   ```
+
+##null
+* Represents an explicitly empty value
   
 ## JavaScript Object Literals 
 
@@ -225,8 +226,6 @@ $ node hello.js
   }
   ```
 
-  ```
-
 ## For loop
 
   ```
@@ -240,8 +239,9 @@ $ node hello.js
     console.log("The element at index " + i + " is: " + mixed[i]); 
   }
   ```
-  ## While loop
-  ```
+  
+## While loop
+  ```  
   var a = [1,2,3,4];
   var b = [1,2,3,4];
 
@@ -253,8 +253,10 @@ $ node hello.js
     console.log("The element at index " + i + " is: " + a[i]);
     i++; 
   }
+  ```
 
-- ###Exercise: Create an array with your friends names & then loop through the array and console.log each of your friends names
+###Exercise #3: 
+- Create an array with your friends names & then loop through the array and console.log each of your friends names
   
 ## Switch Case
   
@@ -277,7 +279,8 @@ $ node hello.js
     }
    ```
 
-- ### Exercise: JavaScript Calculator
+
+- ### Before Lunch Exercise: JavaScript Calculator
 
   - Create a calculator in JavaScript.
 
@@ -292,3 +295,9 @@ Output may appear in the console or in an alert.
 * [Code School free course on the Developer Tools](https://www.codeschool.com/courses/discover-devtools)
 * [JavaScript Alonge](https://leanpub.com/javascript-allonge/read#leanpub-auto-a-pull-of-the-lever-prefaces)
 * [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+
+##Style Guide
+Check out some style guides for coding  
+
+- [http://nerds.airbnb.com/our-javascript-style-guide](Airbnb JS Guide)
+- [https://github.com/zillow/javascript](Zillow JS Guide) 
