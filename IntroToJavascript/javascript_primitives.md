@@ -1,6 +1,6 @@
 # JavaScript Introduction
 
-## Objectives
+## Agenda
 * History of Javascript
 * Understand Data Types
   * Comments
@@ -16,9 +16,11 @@
   * While loop
   * For loop
   * Switch case
+
+##Objectives
   
 ## History of Javascript
-* Not to be confused with JAVA
+* Not to be confused with Java, but it is the baby child of Java syntax & Scheme principles
 * Created in 10 days in May 1995 by [Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich)
 * It's an exciting time to learn Javascript! It's the language that enables web pages to respond to user interaction beyond the basic level.
 
@@ -59,6 +61,7 @@ Simple answer: We want high performance web sites!
     console.log("hello" + " world");
     //=> "hello world"
     ```
+## Exercise:
 
 ## Conditionals: always use Triple Equal "===" or "!=="
 * Check to see if two values are identical with the "===" strict equality.
@@ -83,19 +86,43 @@ Simple answer: We want high performance web sites!
     //=> true
     ```
     
+    
+  ```
+  console.log("if - else if - else:")
+  // var state = "red";
+  var state = "green";
+  // var state = "blue";
+
+  // "message" is an example of a JavaScript Object Literal.
+  var message = {
+                "failing": "Tests are failing.",
+                "passing": "Tests are passing.",
+                "refactor": "Time to refactor."
+              }
+              
+  if (state === "red") {  
+    console.log(message.failing);
+  } else if (state === "green") {
+    console.log(message.passing);
+  } else { // Time to refactor.
+    console.log(message.refactor);  
+  }
+  ```
+  
+## Exercise:   
+    
 ## Reference Types: 
 - Even if they have the same values and are the same type, reference types are not strictly equal.
 * Arrays are unique structures.
+* Try this in your console:
 
   ```
     console.log("Arrays are reference-type data structures.")
     console.log([1,2,3] === [ 2-1, 1+1, 2+1]);
-    //=> false
 
     console.log([1,2,3] === [1,2,3]);
-    //=> false
     ```
-
+##Exercise:  
 
 ## Undefined
 * When something is "undefined" it has no value.
@@ -120,7 +147,7 @@ Simple answer: We want high performance web sites!
     }
   ```
   
-## JavaScript Object Literals
+## JavaScript Object Literals 
 
   ```
   var micky_mouse = {
@@ -147,33 +174,6 @@ Simple answer: We want high performance web sites!
     console.log(false );
   }
   ```
-
-
-## Conditional (if-else)
-
-  ```
-  console.log("if - else if - else:")
-  // var state = "red";
-  var state = "green";
-  // var state = "blue";
-
-  // "message" is an example of a JavaScript Object Literal.
-  var message = {
-                "failing": "Tests are failing.",
-                "passing": "Tests are passing.",
-                "refactor": "Time to refactor."
-              }
-              
-  if (state === "red") {  
-    console.log(message.failing);
-  } else if (state === "green") {
-    console.log(message.passing);
-  } else { // Time to refactor.
-    console.log(message.refactor);  
-  }
-  ```
-  
-
 ## While loop
   ```
   var a = [1,2,3,4];
@@ -202,6 +202,8 @@ Simple answer: We want high performance web sites!
     console.log("The element at index " + i + " is: " + mixed[i]); 
   }
   ```
+
+- ###Exercise: Create an array with your friends names & then loop through the array and console.log each of your friends names
   
 ## Switch Case
   
@@ -224,14 +226,14 @@ Simple answer: We want high performance web sites!
     }
    ```
 
+- ### Exercise: Implement a routine that checks to see if two arrays are identical.
 
-## Exercise: Implement a routine that checks to see if two arrays are identical.
+
 * Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
 * Turn array compare exercise into a function that returns true or false.
 
 
-
 ## Resources:
-* [Javascript Koans](https://github.com/mrdavidlaing/javascript-koans)
+* [Code School free course on the Developer Tools](https://www.codeschool.com/courses/discover-devtools)
 * [JavaScript Alonge](https://leanpub.com/javascript-allonge/read#leanpub-auto-a-pull-of-the-lever-prefaces)
 * [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
