@@ -18,7 +18,9 @@
   * Switch case
   
 ## History of Javascript
-
+* Not to be confused with JAVA
+* Created in 10 days in May 1995 by [Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich)
+* It's an exciting time to learn Javascript! It's the language that enables web pages to respond to user interaction beyond the basic level.
 
 ## Why Javascript? 
 Simple answer: We want high performance web sites!
@@ -30,6 +32,7 @@ Simple answer: We want high performance web sites!
   * Respond to DOM events: click, submit...
   * Send requests to the server.
   * Act on response from the server.
+* Loosely-typed language: you don't have to explicitly declare what type of data the variables are. You just need to use the var keyword to indicate that you are declaring a variable, and the interpreter will work out what data type you are using from the context, and use of quotes.
 
 ## Comments in Javascript:
 * Ruby uses '#' to indicate a comment line.
