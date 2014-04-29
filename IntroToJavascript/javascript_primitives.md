@@ -25,12 +25,13 @@
 * Be able to manipulate JS object literals
   
 ## History of Javascript
+![Javascript Timeline](javascript.jpg "Javascript")
 * Not to be confused with Java, but it is the baby child of Java syntax & Scheme principles
 * Created in 10 days in May 1995 by [Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich)
 * It's an exciting time to learn Javascript! It's the language that enables web pages to respond to user interaction beyond the basic level.
 
 ## Why Javascript? 
-![Javascript All The Things](javascript.jpg "Javascript")
+![Javascript All The Things](javascriptimeline.jpg "Javascript Timeline")
 
 Simple answer: We want high performance web sites!
 
@@ -42,7 +43,7 @@ Simple answer: We want high performance web sites!
   * Send requests to the server.
   * Act on response from the server.    
 * Loosely-typed language: you don't have to explicitly declare what type of data the variables are. You just need to use the var keyword to indicate that you are declaring a variable, and the interpreter will work out what data type you are using from the context, and use of quotes.
-  * JS figures out the type based on value, and the type can change:
+  * That is, JS figures out the type based on value, and the type can change:
 
   ```
   var x;
