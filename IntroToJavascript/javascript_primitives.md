@@ -259,7 +259,7 @@ you can also open the Javascript console in the browser:
   ```
 
 ###Exercise #3: 
-- Create an array with your friends names & then loop through the array and console.log each of your friends names
+- Write a for loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and report that to the screen (e.g. "2 is even").
   
 ## Switch Case
   
