@@ -76,6 +76,9 @@ by using the pattern `node <filename>` in javascript.
 ```
 $ node hello.js
 ```
+you can also open the Javascript console in the browser:
+
+[http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers](How to open the JavaScript console in different browsers?)
 
 ## Comments in Javascript:
 * Ruby uses '#' to indicate a comment line.
@@ -286,10 +289,7 @@ $ node hello.js
 
     - Prompt the user to enter an operator and two operands.
 Support the following operations: addition, subtraction, multiplication, and division.
-Output may appear in the console or in an alert.
-    - Set "result" to "true" if the two arrays are equal, and to "false" if the two arrays are unequal.
-    - Turn array compare exercise into a function that returns true or false.
-
+Output may appear in the console or in an alert.  
 
 ## Resources:
 * [Code School free course on the Developer Tools](https://www.codeschool.com/courses/discover-devtools)
