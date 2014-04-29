@@ -1,6 +1,7 @@
 # JavaScript Introduction
 
 ## Agenda
+* Brainstorm (Ruby v. Javascript)
 * History of Javascript
 * Understand Data Types
   * Comments
@@ -29,6 +30,8 @@
 * It's an exciting time to learn Javascript! It's the language that enables web pages to respond to user interaction beyond the basic level.
 
 ## Why Javascript? 
+![Javascript All The Things](javascript.jpg "Javascript")
+
 Simple answer: We want high performance web sites!
 
 *But what does this mean?*
@@ -40,7 +43,7 @@ Simple answer: We want high performance web sites!
   * Act on response from the server.    
 * Loosely-typed language: you don't have to explicitly declare what type of data the variables are. You just need to use the var keyword to indicate that you are declaring a variable, and the interpreter will work out what data type you are using from the context, and use of quotes.
   * JS figures out the type based on value, and the type can change:
-  
+
   ```
   var x;
   x = 2;
@@ -259,7 +262,7 @@ you can also open the Javascript console in the browser:
   ```
 
 ###Exercise #3: 
-- Write a for loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and report that to the screen (e.g. "2 is even").
+- Create an array with your friends names & then loop through the array and console.log each of your friends names
   
 ## Switch Case
   
