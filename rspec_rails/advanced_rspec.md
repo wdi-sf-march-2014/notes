@@ -235,6 +235,20 @@ end
 
 ```
 
+###Factory Girl - Useful Methods
+
+**Create**  
+
+`FactoryGirl.create(:model_name)` will create and save an object to your database.  
+
+**Build**  
+
+`FactoryGirl.build(:model_name)` works like `.new` in rails. It will create a ruby object, but not save it to your test database.  
+
+**Attributes For**  
+
+`FactoryGirl.attributes_for(:model_name)` will return a hash of attributes for a model, but an instance of that class. This is useful for creating params.  
+
 ####Resources
 
 - **Rspec Stubs:** https://www.relishapp.com/rspec/rspec-mocks/v/2-3/docs/method-stubs  
