@@ -25,13 +25,35 @@ A cookie is just a key and value that your browser stores.  The browser ensures 
 
 HTTP is a stateless protocol. A cookie is a way of storing some state on the client side for future requests.  For the purposes of authentication, the cookie will store a token that we help the user log into the site without having to up in his password every time.
 
+### Exercise
+
+Go to your favorite major website (Google, Facebook, Amazon, etc).  Open up developer tools and look at the `Resources` tab.  Pay attention to the domain column, the expires column, and the secure column.  What do those fields do?  How do they modify the cookie?   
+
 ## HTTP vs HTTPS
 
 HTTP is unencrypted traffic.  HTTPS (minus any [major security bugs](http://blog.existentialize.com/diagnosis-of-the-openssl-heartbleed-bug.html)) is a secure connection between the client and the server.  So any data that is sent of http cannot be considered secure.  HTTPS is required to ensure secure transfer of data on the web.
 
+### Exercise
+
+Read the rails guide on [session hijacking](http://guides.rubyonrails.org/security.html#session-hijacking).  Discuss with your neighbors and the class afterwards.
+
 ## Cookbook App With Auth
 
-The code for the cookbook application is available [here](https://github.com/wdi-sf-march-2014/cook_book_with_authentication_and_authorization).
+The code for the cookbook application is available [here](https://github.com/wdi-sf-march-2014/cook_book_with_authentication_and_authorization).  Fork and clone the app if you'd like to have your own version to follow along with.
+
+
+__Follow the create user path__: Look at the ```app/controllers/users_controller.rb``` file.  Follow the flow of creating a new user.   What is happening?  Notice how the password is securely stored in the database.
+
+
+__Follow the create session path__:  Next, look at the ```app/controllers/sessions_controller.rb```.  How does the user sign in once he has created an account?  What verifies that the user's password is correct?  What happens when the user puts in an invalid password?
+
+### Exercise (Research)
+
+Go check out the [has_secure_password docs](http://apidock.com/rails/ActiveModel/SecurePassword/ClassMethods/has_secure_password).  What features does the has_secure_password method add to our model?  What has to be done in order for has_secure_password to work?
+
+### Exercise (Coding)
+
+Fork and clone the [cookbook app](https://github.com/wdi-sf-march-2014/cook_book_with_authentication_and_authorization).  Write a second before filter on the ingredients controller.  The filter should not allow any modifying action to be preformed on an ingredient unless the current user owns that ingredient.
 
 ## Setup Steps For A Secure Application
 
@@ -79,10 +101,17 @@ __Step 5__: Force the app to use SSL in production.  In ```config/environments/p
 config.force_ssl = true
 ```
 
+
+### Exercise
+
+Using any existing rails app, follow the above steps to ensure that it is secure.  Use the instructions above and the [cookbook app](https://github.com/wdi-sf-march-2014/cook_book_with_authentication_and_authorization) as a reference.
+
 ## Resources
 
 * [Rails Security Guide](http://guides.rubyonrails.org/security.html)
 * [Devise: an authentication gem](https://github.com/plataformatec/devise)
 * [Cookbook app with authentication and authorization](https://github.com/wdi-sf-march-2014/cook_book_with_authentication_and_authorization)
+* [Michael Hartl's Book on Rails - Chapters 5 to 9](http://www.railstutorial.org/book)
+* [has_secure_password docs](http://apidock.com/rails/ActiveModel/SecurePassword/ClassMethods/has_secure_password)
 * [Heartblead Bug in OpenSSL](http://blog.existentialize.com/diagnosis-of-the-openssl-heartbleed-bug.html)
 * [Dotenv](https://github.com/bkeepers/dotenv)
