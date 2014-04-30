@@ -8,13 +8,13 @@ def median(arr, mid_index=nil, pos_right=0)
     greater_than_pivot = []
 
     arr.each do |number|
-    	if pivot > number
-	   less_than_pivot << number
-	elsif pivot < number
-	   greater_than_pivot << number
-	else
-	   equal_to_pivot << number
-	end
+        if pivot > number
+	       less_than_pivot << number
+	   elsif pivot < number
+	       greater_than_pivot << number
+	   else
+	       equal_to_pivot << number
+	   end
     end
 
     if mid_index <= pos_right + less_than_pivot.length - 1
