@@ -19,6 +19,7 @@ Make sure to do all of the following with your app.
 * **Handles invalid data.** Your models should validate data and handle incorrect inputs. Validate sign up information, verify valid email addresses, and secure passwords.
 * **External APIs.** Use an external API to add functionality to your app.
 * **Heroku.** Deploy your code to Heroku. We will be covering this early next week.
+	* A requirement for the Heroku deployment is to ensure you do not expose secrets in your app.  __Do not check secret keys into Github!__
 * **Javascript.** You should use Javascript when it is needed.
 * **Authentication** Your site should have an authentication component.  You can write the code from scratch or use a gem like [Devise](https://github.com/plataformatec/devise).
 * **Authorization** Where appropriate, you should implement an authorization scheme.  For example, if you make a blog app, other users should not be able to delete the posts that you create.  You can implement this from scratch or try a gem like [CanCanCan](https://github.com/CanCanCommunity/cancancan)
@@ -28,8 +29,8 @@ Make sure to do all of the following with your app.
 If you want to push yourself and learn something new, optionally consider doing some of the following with your app:
 
 * **Front-end Framework.** Use either Twitter Bootstrap or Foundation to kick-start your front-end.
-* **File upload.** Take a look at carrierwave and AWS/S3.
-* **Web Scraping.** Check out Nokogiri.
+* **File upload.** Take a look at [carrierwave](https://github.com/carrierwaveuploader/carrierwave) and AWS/S3.  Alternatively, you can check out [paperclip](https://github.com/thoughtbot/paperclip).
+* **Web Scraping.** Check out [Nokogiri](https://github.com/sparklemotion/nokogiri).
 
 ## PLANNING & DELIVERABLES
 
