@@ -207,15 +207,16 @@ you can also open the Javascript console in the browser:
 * Represents an explicitly empty value
   
 ## JavaScript Object Literals 
+* An object literal is a list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({}).
 
   ```
-  var micky_mouse = {
-                    "first_name": "Micky",
+  var mickey_mouse = {
+                    "first_name": "Mickey",
                     "last_name": "Mouse",
                     "address": "Disneyland"
                   }
-  var micky = {
-                    "first_name": "Micky",
+  var mickey = {
+                    "first_name": "Mickey",
                     "last_name": "Mouse",
                     "address": "Disneyland"
                   }
