@@ -180,7 +180,17 @@ Our deployed app has a separate database from our development environment. That 
 
 This will open your app in your browser.  
 
-*Your app may or may not work at this point*
+***DEBUGGING*  
+
+Hopefully your app works on heroku, however, you may just see a sad page that looks like this...  
+
+[Sad Heroku](http://media.tumblr.com/tumblr_m8270hYTFn1qcmzd4.png)  
+
+One tool we have for debuggin further problems is our heroku logs.  
+
+Run `$ heroku logs` in your terminal.  
+
+Scan all of the logs for error messages. If you see obvious error messages goole what they mean. If you still can't find a solution, now would be a good time to ask an instructor for help.  
 
 ###Step 4: Add your API Keys
 ____________________________
