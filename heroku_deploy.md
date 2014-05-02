@@ -184,7 +184,7 @@ This will open your app in your browser.
 
 Hopefully your app works on heroku, however, you may just see a sad page that looks like this...  
 
-[Sad Heroku](http://media.tumblr.com/tumblr_m8270hYTFn1qcmzd4.png)  
+![Sad Heroku](http://media.tumblr.com/tumblr_m8270hYTFn1qcmzd4.png)  
 
 One tool we have for debuggin further problems is our heroku logs.  
 
