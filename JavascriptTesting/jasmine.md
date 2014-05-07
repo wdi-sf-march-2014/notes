@@ -7,6 +7,7 @@
 
 
 ###What is Behavioral Driven Development
+- 
 - Some practices of BDD:
   - Establishing the goals of different stakeholders required for a vision to be implemented
   - Involving stakeholders in the implementation process through outside-in software development
@@ -33,9 +34,22 @@
 - ```src``` folder is where the Javascript code resides
 - The SpecRunner.html file is what runs the tests in a browser
 
+###Create a Test Runner
+- Jasmine can run your tests within a web browser by using a spec runner HTML file. The spec runner is a simple HTML page that links the necessary JavaScript and CSS files for both Jasmine and your code.
+
+###Running the Tests
+- To run our tests, simply open SpecRunner.html in a web browser. 
+
+
 ###Matchers
 
 [Jasmine Matchers](https://github.com/pivotal/jasmine/wiki/Matchers)
 
+###JSHint
+- [JSHint](http://www.jshint.com/)
+- a tool that helps to detect errors and potential problems in your JavaScript code.
 
-###Lab Time
+###Exercise Time
+
+You are writing a simple calculator using CoffeeScript and you want to verify it functions as expected. You decide to use the Jasmine test framework.
+
