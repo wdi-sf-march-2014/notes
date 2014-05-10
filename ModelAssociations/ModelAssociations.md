@@ -482,4 +482,3 @@ More complicated to set up, requires a separate migration for the join table, si
 * [Associations Docs](http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
 
 * [Model field data types](http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html#method-i-column
-
