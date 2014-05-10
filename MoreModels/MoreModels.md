@@ -15,14 +15,13 @@ More Models: ActiveRecord Queries
 #Objectives
 * Use `.where` and `.find`
 * Understand Query Chaining and why it works
-* Dynamic Finders
-* Check for record existance
-* find_or_create
+* Defining `scope`s
+	* Default `scope` 
+* ~~Dynamic Finders~~
+* find_or_create_by
 * Ordering Model Results with `.order`
 	* Default `order`
 * Grouping Model Results with `.group`
-* Defining `scope`s
-	* Default `scope` 
 * Understand and use Eager Loading
 * Run `EXPLAIN`
 
@@ -34,11 +33,14 @@ More Models: ActiveRecord Queries
 * puts Gem.loaded_specs["rails"].version
 
 
-#.find
+#Basics
+
+##.find
 Returns a single result (or nil)
 
 ```
 Agent.find(1)
+
 SELECT  "agents".* FROM "agents"  WHERE "agents"."id" = ? LIMIT 1  [["id", 1]]
 ```
 
@@ -47,32 +49,38 @@ SELECT  "agents".* FROM "agents"  WHERE "agents"."id" = ? LIMIT 1  [["id", 1]]
 ```
 
 
-#.all
+##.all
+
 ```
 Agent.all
+
 SELECT "agents".* FROM "agents"
 ```
+This is also the default query for all other relations
 
-#.where
+##.where
 * `.where` Which records to select:
 
 ```
 Agent.where(first_name: 'Bob')
+
 SELECT "agents".* FROM "agents"  WHERE "agents"."first_name" = 'Bob'
 ```
 ```
 Agent.where(last_name: 'Williams')
+
 SELECT "agents".* FROM "agents"  WHERE "agents"."last_name" = 'Williams'
 ```
 
-##not
+##.not
 
 ```
 Agent.where.not(last_name: 'Williams')
+
 SELECT "agents".* FROM "agents"  WHERE ("agents"."last_name" != 'Williams')
 ```
 
-##order 
+##.order 
 
 ```
 Agent.where(first_name: 'Bob').order(:last_name)
@@ -88,25 +96,21 @@ SELECT "agents".* FROM "agents"  WHERE "agents"."first_name" = 'Bob'  ORDER BY "
 
 ```
 
-##limit
+##.limit
 
 ```
 Agent.all.limit(2)
+
 SELECT  "agents".* FROM "agents"  LIMIT 2
 ```
 
-
-#Scopes
-
-[http://guides.rubyonrails.org/active_record_querying.html#scopes](http://guides.rubyonrails.org/active_record_querying.html#scopes)
-
-
-**TODO!**
+__Notice that all of these can be combined together__
 
 #Query Chaining
 
 ```
 Agent.where(first_name: 'Bob').where(last_name: 'Williams')
+
 SELECT "agents".* FROM "agents"  WHERE "agents"."first_name" = 'Bob' AND "agents"."last_name" = 'Williams'
 ```
 
@@ -115,6 +119,66 @@ SELECT "agents".* FROM "agents"  WHERE "agents"."first_name" = 'Bob' AND "agents
 Agent.where(first_name: 'Bob').class
  => Agent::ActiveRecord_Relation
 ```
+__DEFINITELY STOP AND TALK ABOUT THIS__
+
+
+#Scopes
+
+[http://guides.rubyonrails.org/active_record_querying.html#scopes](http://guides.rubyonrails.org/active_record_querying.html#scopes)
+
+We can use relations to keep our code DRY!
+
+##Default Scope on Model
+
+```
+class Chapter < ActiveRecord::Base
+  default_scope {order(:number)}
+end
+```
+
+```
+Chapter.all
+
+  Chapter Load (0.7ms)  SELECT "chapters".* FROM "chapters"   ORDER BY "chapters"."number" ASC
+```
+
+```
+Chapter.where('number > 2')
+
+  Chapter Load (0.6ms)  SELECT "chapters".* FROM "chapters"  WHERE (number > 2)  ORDER BY "chapters"."number" ASC
+```
+
+##Default Scope on Association
+
+```
+class Chapter < ActiveRecord::Base
+  has_many :examples, ->{ order(:number) }
+```
+
+__Note:__ Remember that this is a *lambda* not a *block*
+
+
+```
+Chapter.first.examples
+
+...
+
+Example Load (1.2ms)  SELECT "examples".* FROM "examples"  WHERE "examples"."chapter_id" = $1  ORDER BY "examples"."number" ASC  [["chapter_id", 1]]
+```  
+
+#Dynamic Finders
+
+Deprecated the old-style hash based finder API. This means that methods which previously accepted "finder options" no longer do.
+
+All dynamic methods except for find_by_... and find_by_...! are deprecated. Here's how you can rewrite the code:
+
+find_all_by_... can be rewritten using where(...).
+find_last_by_... can be rewritten using where(...).last.
+scoped_by_... can be rewritten using where(...).
+find_or_initialize_by_... can be rewritten using find_or_initialize_by(...).
+find_or_create_by_... can be rewritten using find_or_create_by(...).
+find_or_create_by_...! can be rewritten using find_or_create_by!(...).
+
 
 #Other Query Methods
 ##Single Object Finders:
@@ -230,9 +294,7 @@ Band.all.includes(:albums).first.albums.uniq.map(&:title)
 
 ```
 Agent.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
-```
-
-
+```x`
 	
 #Query Methods - Extras
 * `..find`, `.first` and `.last` with 'limit'
@@ -270,3 +332,5 @@ Agent.where("created_at >= :start_date AND created_at <= :end_date",
 #Resources
 * [http://guides.rubyonrails.org/active_record_querying.html](http://guides.rubyonrails.org/active_record_querying.html)
 * [http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html)
+* [http://api.rubyonrails.org/classes/ActiveRecord/Relation.html](http://api.rubyonrails.org/classes/ActiveRecord/Relation.html)
+* 
