@@ -9,6 +9,7 @@ Lab: Finders and ActiveRecord::Relation
 		* validate user input, display errors and perform search
 	* Update search action to use SearchForm
 	* Reuse or refactor existing index view to display results
+	* Add a link to your search page somewhere in your app
 * **Optionally:** Add Pagination using the Kaminari gem
 * **Optionally:** Use the Ransack gem to add an advanced search feature
 * **Optionally:** 
