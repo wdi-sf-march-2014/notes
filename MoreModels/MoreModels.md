@@ -1,7 +1,3 @@
-#Draft Do Not Use!
-
-
-
 Topic: finders joins and callbacks
 
 More Models: ActiveRecord Queries
