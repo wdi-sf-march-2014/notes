@@ -290,7 +290,7 @@ Band.all.includes(:albums).first.albums.uniq.map(&:title)
 
 ```
 Agent.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
-```x`
+```
 	
 #Query Methods - Extras
 * `..find`, `.first` and `.last` with 'limit'
