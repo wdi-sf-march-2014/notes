@@ -78,7 +78,7 @@ That has a lot of comments in it, I was trying to be helpful ;), but you may fin
 	* [https://gist.github.com/stujo/3138e9b58af60d90814e](https://gist.github.com/stujo/3138e9b58af60d90814e)	
 
 * Kaminari
-	* [https://github.com/amatsuda/kaminari](https://github.com/amatsuda/	kaminari)
+	* [https://github.com/amatsuda/kaminari](https://github.com/amatsuda/kaminari)
 	
 * Ransack
 	* [https://github.com/activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack)
