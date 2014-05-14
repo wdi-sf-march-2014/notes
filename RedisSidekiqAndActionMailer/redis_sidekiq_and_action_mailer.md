@@ -227,6 +227,33 @@ end
 
 Now the majority of the work is done in the background with the ```LinksWorker``` class.  
 
+### Testing Workers
+
+Testing a worker is fairly simple because we can run a worker without using sidekiq at all.  To manually test, open up `rails c` and call the worker.  In the LinkWorker example, the code would be:
+
+```
+site = Site.first
+LinksWorker.new.perform(site.id)
+```
+
+You can also add a spec for the worker.  For the link worker spec, the file would be `spec/workers/links_worker_spec.rb`.  Here is the code:
+
+```
+require 'spec_helper'
+
+describe "LinksWorker" do
+	describe "Perform check url" do
+		let(:data){ {url: "https://www.google.com"} }
+		it "Gets a page and puts all the urls in the database" do
+			site = Site.create(data)
+			LinksWorker.new.perform(site.id)
+			site.links.should_not be_nil
+			site.links.length.should > 0
+		end
+	end
+end
+```
+
 ## Unicorn
 
 Up until now, we have used the Thin web server.  It is a reliable web server, that works for development, but does not work in the real world.  The problem is that Thin can only accept one connection at a time.  This section describes switching to the Unicorn web server.
