@@ -8,8 +8,13 @@ Intro to jQuery
 
 #Objectives
 * Understand the structure and purpose of jQuery
-* Do jQuery Rails Install
-* 
+* Do jQuery Rails Install :)
+* Understand basic jQuery Selectors
+* Understand basic jQuery Event Handlers
+* Know how to use ```$( document ).ready( handler )```
+* Know where to go for more information
+* Try some basic exercises
+* View some more complex examples
 
 #Intro to jQuery
 * Easier real-world javascript
@@ -19,6 +24,7 @@ Intro to jQuery
 	* Event Handling
 	* Animations
 	* AJAX
+	* Collections
 	* Extensible Architecture (plugins)
 * _Standard_ ish
 * Cross Browser Compatibility
@@ -32,13 +38,27 @@ Intro to jQuery
 
 * Image Carousel
 * Password Strength
-* ToDo / Done
-
 
 
 #Simple Example
 
-button to show hide
+* button to show hide
+* [Hide / Show using DOM Ready](http://jquery-intro.herokuapp.com/chapters/1/examples/15)
 
+#How Does It Work
+* jQuery wraps native browser DOM elements:
+	* ```$(dom_element)```
+	* And this allows us to use all the coolness!
+	* Don't forget to wrap your elements objects! 
+* the jQuery API wrapper has numerous methods
+	* Details here: [http://api.jquery.com/](http://api.jquery.com/)
+* jQuery provides a standard method for extending this API - Plugins
+	* Lots of Plugins: [http://plugins.jquery.com/](http://plugins.jquery.com/)
+	* How to create a plugin: [http://learn.jquery.com/plugins/basic-plugin-creation/](http://learn.jquery.com/plugins/basic-plugin-creation/)
 
+#Resources
+* [http://api.jquery.com/](http://api.jquery.com/)
+* [http://plugins.jquery.com/](http://plugins.jquery.com/)
+* [http://jquery-intro.herokuapp.com/](http://jquery-intro.herokuapp.com/)
+* [http://jplayground.herokuapp.com/](http://jplayground.herokuapp.com/)
 
