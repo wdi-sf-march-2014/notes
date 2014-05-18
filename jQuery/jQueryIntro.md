@@ -44,6 +44,11 @@ Intro to jQuery
 
 * button to show hide
 * [Hide / Show using DOM Ready](http://jquery-intro.herokuapp.com/chapters/1/examples/15)
+* Shows
+	* Selectors
+	* Event Handlers
+	* Anonymous functions
+		
 
 #How Does It Work
 * jQuery wraps native browser DOM elements:
@@ -55,6 +60,8 @@ Intro to jQuery
 * jQuery provides a standard method for extending this API - Plugins
 	* Lots of Plugins: [http://plugins.jquery.com/](http://plugins.jquery.com/)
 	* How to create a plugin: [http://learn.jquery.com/plugins/basic-plugin-creation/](http://learn.jquery.com/plugins/basic-plugin-creation/)
+
+
 
 #Resources
 * [http://api.jquery.com/](http://api.jquery.com/)
