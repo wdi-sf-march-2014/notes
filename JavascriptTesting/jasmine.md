@@ -34,8 +34,12 @@
 - ```src``` folder is where the Javascript code resides
 - The SpecRunner.html file is what runs the tests in a browser
 
-###Create a Test Runner
+###Spec Runner
 - Jasmine can run your tests within a web browser by using a spec runner HTML file. The spec runner is a simple HTML page that links the necessary JavaScript and CSS files for both Jasmine and your code.
+- The spec runner loads the necessary Jasmine files first.
+- ```jasmine.js``` contains the testing framework
+- ```jasmine-html.js``` contains the reporter, which will run the javascript
+- ```jasmine.css``` formats the test results
 
 ###Running the Tests
 - To run our tests, simply open SpecRunner.html in a web browser. 
@@ -45,32 +49,33 @@
 
 [Jasmine Matchers](https://github.com/pivotal/jasmine/wiki/Matchers)
 
-Common, built-in Matchers:
-
-  expect(x).toEqual(y); compares objects or primitives x and y and passes if they are equivalent
+  Common, built-in Matchers:
   
-  expect(x).toBe(y); compares objects or primitives x and y and passes if they are the same object
-  
-  expect(x).toMatch(pattern); compares x to string or regular expression pattern and passes if they match
-  
-  expect(x).toBeDefined(); passes if x is not undefined
-  
-  expect(x).toBeUndefined(); passes if x is undefined
-  
-  expect(x).toBeNull(); passes if x is null
-  
-  expect(x).toBeTruthy(); passes if x evaluates to true
-  
-  expect(x).toBeFalsy(); passes if x evaluates to false
-  
-  expect(x).toContain(y); passes if array or string x contains y
-  
-  expect(x).toBeLessThan(y); passes if x is less than y
-  
-  expect(x).toBeGreaterThan(y); passes if x is greater than y
-  
-  expect(function(){fn();}).toThrow(e); passes if function fn throws exception e when executed
-
+```
+    expect(x).toEqual(y); compares objects or primitives x and y and passes if they are equivalent
+    
+    expect(x).toBe(y); compares objects or primitives x and y and passes if they are the same object
+    
+    expect(x).toMatch(pattern); compares x to string or regular expression pattern and passes if they match
+    
+    expect(x).toBeDefined(); passes if x is not undefined
+    
+    expect(x).toBeUndefined(); passes if x is undefined
+    
+    expect(x).toBeNull(); passes if x is null
+    
+    expect(x).toBeTruthy(); passes if x evaluates to true
+    
+    expect(x).toBeFalsy(); passes if x evaluates to false
+    
+    expect(x).toContain(y); passes if array or string x contains y
+    
+    expect(x).toBeLessThan(y); passes if x is less than y
+    
+    expect(x).toBeGreaterThan(y); passes if x is greater than y
+    
+    expect(function(){fn();}).toThrow(e); passes if function fn throws exception e when executed
+```
 
 ###JSHint
 - [JSHint](http://www.jshint.com/)
@@ -78,5 +83,4 @@ Common, built-in Matchers:
 
 ###Exercise Time
 
-You are writing a simple calculator using CoffeeScript and you want to verify it functions as expected. You decide to use the Jasmine test framework.
-
+You are writing a simple calculator using Javascript and you want to verify it functions as expected. Use Jasmine to test this calculator.
