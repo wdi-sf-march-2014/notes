@@ -7,7 +7,7 @@ The objective of this project is to:
 * To gain experience integrating topics covered during this course thus far.
 * Showcase your abilities to potential employers, friends, family, and community members.
 
-You will be working in **groups of 4** for this project.
+You will be working in **groups of 3-4** for this project.
 
 ## CORE REQUIREMENTS
 * **Models.** Your app should have at least 3 models with appropriate associations and validations.
