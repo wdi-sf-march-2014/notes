@@ -43,7 +43,7 @@ We may not have covered all of these in class, but if you want to push yourself 
 
 * **Group members.** You'll be working in groups of 3 or 4. Use your strengths to contribute to all parts of the project.
 * **Scope.** What are you planning to build? What do you reasonably think you can implement in the time period?
-* **User stories.** What features will your app have? Set up your project and user stories in [Trello](https://trello.com).
+* **User stories.** What features will your app have? Set up your project and user stories in [Trello](https://trello.com). Using Trello or a similar project management tool is a requirement.
 * **Wireframes.** Sketch out what a few of your core pages will look like and how they will work. Paper works great. You can also check out wireframing software like Gliffy or Omnigraffle.
 * **Object Models.** Draw out the model associations for your project.
 * **Milestones.** Outline some milestones for yourself based on how you prefer to work.
@@ -56,5 +56,7 @@ We may not have covered all of these in class, but if you want to push yourself 
 
 ## TIMELINE
 
-* Week 7, Day 3 - Wednesday, May 21st - Groups & Specs Assigned
+* Week 7, Day 2 - Tuesday, May 20th - Groups & Specs Assigned
+* Week 7, Day 3-5 - Project Deliverables Checked-off
+* Week 7, Day 5 - Project #2 Rubric distributed
 * Week 8, Day 5 - Friday, May 30th - Completed project deliverables due at 10am
