@@ -13,7 +13,7 @@ AJAX is a bit of a misnomer now. XML used to be a common data transfer format on
 
 ###HTTP Request - Response Life Cycle
 
-![HTTP request-response](http://images.slideplayer.us/1/220171/slides/slide_3.jpg)
+![HTTP request-response](http://books.zkoss.org/images/8/8d/Performancemeter.png)
 
 ##Code Along - First Ajax Request
 
