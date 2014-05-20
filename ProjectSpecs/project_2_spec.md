@@ -12,8 +12,9 @@ You will be working in **groups of 3-4** for this project.
 ## CORE REQUIREMENTS
 * **Models.** Your app should have at least 3 models with appropriate associations and validations.
 * **Views.** Use partials to DRY (Don’t Repeat Yourself) up your views, loading data via Ajax when appropriate.
-* **Postgres.** Use [Postgres.app](http://postgresapp.com) for your database in development and production.
+* **Postgres.** Use Postgres for your database in development and production.
 * **Handles invalid data.** Forms in your application should validate data and handle incorrect inputs. Do this on both on the client-side with JavaScript and on the back-end with Rails.
+* **Testing** Your tests should include model and request specs. Your group project will go much smoother if you write tests for your code before committing it. __Do not check in a new feature without some testing__.
 * **JavaScript & jQuery.** Spice up the front-end of your app and have some event driven functionality. Try out a new plugin or a library.
 * **AJAX.** Use AJAX to communicate with the server without reloading the page when appropriate.
 * **External APIs.** Use an external API to add functionality to your app.
@@ -30,6 +31,9 @@ We may not have covered all of these in class, but if you want to push yourself 
 * **Web Scraping** Check out [Nokogiri](http://nokogiri.org/), [mechanize](https://github.com/sparklemotion/mechanize), and [phantom.js](http://phantomjs.org/).
 * **Regex** You might consider using Regular Expressions to process text. Validation is one common use case. Use [Rubular](http://rubular.com/) for initial testing.
 * **Charting** Visualize your data with [Morris.js](http://www.oesmith.co.uk/morris.js/) or [D3](http://d3js.org/).
+* **Testing** Try some advanced rspec features, or try using [Capybara](https://github.com/jnicklas/capybara).
+* **Authentication** If you haven't used a gem for authentication, try out [Devise](https://github.com/plataformatec/devise)
+* **Authorization** Try using [CanCanCan](https://github.com/CanCanCommunity/cancancan) for authorization.
 
 ## PLANNING & DELIVERABLES
 
@@ -37,9 +41,9 @@ We may not have covered all of these in class, but if you want to push yourself 
 ####Project Plan deliverables:
 *You should review the following with your instructional team BEFORE you start to code.*
 
-* **Group members.** You'll be working in groups of 4 or 5. Use your strengths to contribute to all parts of the project.
+* **Group members.** You'll be working in groups of 3 or 4. Use your strengths to contribute to all parts of the project.
 * **Scope.** What are you planning to build? What do you reasonably think you can implement in the time period?
-* **User stories.** What features will your app have? Set up your project and user stories in [Trello](https://trello.com).
+* **User stories.** What features will your app have? Set up your project and user stories in [Trello](https://trello.com). Using Trello or a similar project management tool is a requirement.
 * **Wireframes.** Sketch out what a few of your core pages will look like and how they will work. Paper works great. You can also check out wireframing software like Gliffy or Omnigraffle.
 * **Object Models.** Draw out the model associations for your project.
 * **Milestones.** Outline some milestones for yourself based on how you prefer to work.
@@ -52,5 +56,7 @@ We may not have covered all of these in class, but if you want to push yourself 
 
 ## TIMELINE
 
-* Week 7, Day 3 - Wednesday, May 21st - Groups & Specs Assigned
+* Week 7, Day 2 - Tuesday, May 20th - Groups & Specs Assigned
+* Week 7, Day 3-5 - Project Deliverables Checked-off
+* Week 7, Day 5 - Friday, May 23rd - Project #2 Rubric distributed
 * Week 8, Day 5 - Friday, May 30th - Completed project deliverables due at 10am
