@@ -12,7 +12,7 @@ You will be working in **groups of 3-4** for this project.
 ## CORE REQUIREMENTS
 * **Models.** Your app should have at least 3 models with appropriate associations and validations.
 * **Views.** Use partials to DRY (Don’t Repeat Yourself) up your views, loading data via Ajax when appropriate.
-* **Postgres.** Use [Postgres.app](http://postgresapp.com) for your database in development and production.
+* **Postgres.** Use Postgres for your database in development and production.
 * **Handles invalid data.** Forms in your application should validate data and handle incorrect inputs. Do this on both on the client-side with JavaScript and on the back-end with Rails.
 * **JavaScript & jQuery.** Spice up the front-end of your app and have some event driven functionality. Try out a new plugin or a library.
 * **AJAX.** Use AJAX to communicate with the server without reloading the page when appropriate.
