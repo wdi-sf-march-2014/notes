@@ -87,18 +87,16 @@ Now that our app has controllers and a model, let's set up the routes and views.
 $( document ).ready(function(){
   
   //add new todo
-  $("input").keypress(function(e) {
-     if (e.which == 13) {
-       e.preventDefault();
-       var text = $('input').val();
-       if(!text.length) {
-         return;
-       }
-       else {
-         addTodo(text);
-         $('input').val("");
-       }
-     }
+  $("#todo-form").on('submit', function(e) {
+    e.preventDefault();
+    var text = $('input').val();
+    if(!text.length) {
+      return;
+    }
+    else {
+      addTodo(text);
+      $('input').val("");
+    }
   });
   
   $('ul').on('click', 'li', function(){
@@ -116,13 +114,13 @@ $( document ).ready(function(){
      $(this).parent().remove();
    });
   
-  /*$('ul').on('mouseenter', 'li', function(){
-    $(this).find('span').text("Delete?");
-  })*/
-  
-  var addTodo = function(text){
-    var newTodo = '<li>' + text + '<span class="delete">Delete</span></li>';
-    $(newTodo).hide().appendTo('ul').fadeIn(500);    
+  addTodo = function(todoItem) {
+    var $newTodo = $('<li></li>');
+
+    $newTodo.append(todoItem + '<span class="delete">Delete</span>');
+    
+    $newTodo.hide().appendTo('ul').fadeIn(500);
+    console.log($newTodo);
   };
   
   $('#deleteAll').click(function(){
@@ -211,7 +209,7 @@ The last step is to add our html.  Let's create a view called main in `app/views
 
     <h1>Todo App</h1>
 
-    <form>
+    <form id="todo-form">
       <input type="text" placeholder="what do you need to do?">
     </form>
   
@@ -347,22 +345,22 @@ Change the above code.  Instead of `var seedTodos`, create an empty array called
 The completed javascript should look similar to the following:
 
 ```
+
+var count = 1000;
+
 $( document ).ready(function(){
   
-
   //add new todo
-  $("input").keypress(function(e) {
-     if (e.which == 13) {
-       e.preventDefault();
-       var text = $('input').val();
-       if(!text.length) {
-         return;
-       }
-       else {
-         addTodo(text);
-         $('input').val("");
-       }
-     }
+  $("#todo-form").on('submit', function(e) {
+    e.preventDefault();
+    var text = $('input').val();
+    if(!text.length) {
+      return;
+    }
+    else {
+      addTodo({text: text, completed: false});
+      $('input').val("");
+    }
   });
   
   $('ul').on('click', 'li', function(){
@@ -380,19 +378,20 @@ $( document ).ready(function(){
      $(this).parent().remove();
    });
   
-  /*$('ul').on('mouseenter', 'li', function(){
-    $(this).find('span').text("Delete?");
-  })*/
-  
-  var addTodo = function(todoItem){
-    var newTodo = '<li data-id="' + todoItem.id + '">';
+  addTodo = function(todoItem) {
+    if (!todoItem.id) {
+      todoItem.id = count;
+      count += 1;
+    }
+    var $newTodo = $('<li data-id="' + todoItem.id + '"></li>');
 
     if (todoItem.completed) {
-      newTodo = '<li data-id="' + todoItem.id + '" class="completed">';
+      $newTodo.addClass("completed");
     }
-    newTodo += todoItem.text + '<span class="delete">Delete</span></li>';
+    $newTodo.append(todoItem.text + '<span class="delete">Delete</span>');
     
-    $(newTodo).hide().appendTo('ul').fadeIn(500);
+    $newTodo.hide().appendTo('ul').fadeIn(500);
+    console.log($newTodo);
   };
   
   $('#deleteAll').click(function(){
