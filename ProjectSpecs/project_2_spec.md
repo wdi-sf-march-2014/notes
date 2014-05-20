@@ -58,5 +58,5 @@ We may not have covered all of these in class, but if you want to push yourself 
 
 * Week 7, Day 2 - Tuesday, May 20th - Groups & Specs Assigned
 * Week 7, Day 3-5 - Project Deliverables Checked-off
-* Week 7, Day 5 - Project #2 Rubric distributed
+* Week 7, Day 5 - Friday, May 23rd - Project #2 Rubric distributed
 * Week 8, Day 5 - Friday, May 30th - Completed project deliverables due at 10am
