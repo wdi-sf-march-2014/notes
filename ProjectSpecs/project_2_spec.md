@@ -37,7 +37,7 @@ We may not have covered all of these in class, but if you want to push yourself 
 ####Project Plan deliverables:
 *You should review the following with your instructional team BEFORE you start to code.*
 
-* **Group members.** You'll be working in groups of 4 or 5. Use your strengths to contribute to all parts of the project.
+* **Group members.** You'll be working in groups of 3 or 4. Use your strengths to contribute to all parts of the project.
 * **Scope.** What are you planning to build? What do you reasonably think you can implement in the time period?
 * **User stories.** What features will your app have? Set up your project and user stories in [Trello](https://trello.com).
 * **Wireframes.** Sketch out what a few of your core pages will look like and how they will work. Paper works great. You can also check out wireframing software like Gliffy or Omnigraffle.
