@@ -14,7 +14,7 @@ You will be working in **groups of 3-4** for this project.
 * **Views.** Use partials to DRY (Don’t Repeat Yourself) up your views, loading data via Ajax when appropriate.
 * **Postgres.** Use Postgres for your database in development and production.
 * **Handles invalid data.** Forms in your application should validate data and handle incorrect inputs. Do this on both on the client-side with JavaScript and on the back-end with Rails.
-* **Testing** Make sure to write rspec tests.  Your group project will go much smoother if you write tests for your code before committing it.  We expect model tests as well as request specs.
+* **Testing** Your tests should include model and request specs. Your group project will go much smoother if you write tests for your code before committing it. __Do not check in a new feature without some testing__.
 * **JavaScript & jQuery.** Spice up the front-end of your app and have some event driven functionality. Try out a new plugin or a library.
 * **AJAX.** Use AJAX to communicate with the server without reloading the page when appropriate.
 * **External APIs.** Use an external API to add functionality to your app.
