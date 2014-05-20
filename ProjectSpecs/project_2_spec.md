@@ -31,6 +31,9 @@ We may not have covered all of these in class, but if you want to push yourself 
 * **Web Scraping** Check out [Nokogiri](http://nokogiri.org/), [mechanize](https://github.com/sparklemotion/mechanize), and [phantom.js](http://phantomjs.org/).
 * **Regex** You might consider using Regular Expressions to process text. Validation is one common use case. Use [Rubular](http://rubular.com/) for initial testing.
 * **Charting** Visualize your data with [Morris.js](http://www.oesmith.co.uk/morris.js/) or [D3](http://d3js.org/).
+* **Testing** Try some advanced rspec features, or try using [Capybara](https://github.com/jnicklas/capybara).
+* **Authentication** If you haven't used a gem for authentication, try out [Devise](https://github.com/plataformatec/devise)
+* **Authorization** Try using [CanCanCan](https://github.com/CanCanCommunity/cancancan) for authorization.
 
 ## PLANNING & DELIVERABLES
 
