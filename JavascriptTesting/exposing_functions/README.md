@@ -84,7 +84,7 @@ A Factory:
 [http://jsbin.com/funiw/2/edit?html,js,console,output](http://jsbin.com/funiw/2/edit?html,js,console,output)
 
     $(document).ready(function() {
-    
+
         window.myname = window.myname || {};
 
         myname.factory = function(secret) {
