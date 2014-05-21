@@ -18,7 +18,7 @@ var url = system.args[1];
 var js_file = system.args[2];
 
 
-var screengrab_name = nicename(url) + "_" + nicename(js_file);
+var screengrab_name = nicename(url.replace(/^https?:\/\//,'')) + "_" + nicename(js_file);
 
 if (fs.exists(js_file)) {
 
