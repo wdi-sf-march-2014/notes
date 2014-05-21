@@ -138,7 +138,8 @@ page.open('http://jplayground.herokuapp.com/senior', function() {
 
 I've made a simple injection script so that you can run arbitrary javascript against any website
 
-```samples/run_remote.js```
+**Look at: **samples/run_remote.js
+
 
 ```
 	$ cd samples
@@ -151,7 +152,6 @@ This also works locally. Say you have a file called ```my_inspector.js``` and yo
 rails application:
 
 ```
-	$ cd samples
 	$ phantomjs run_remote.js http://localhost:3000/ my_inspector.js
 ```
 
