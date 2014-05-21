@@ -3,6 +3,12 @@ var system = require('system');
 var fs = require('fs');
 
 
+function nicename(name)
+{
+  return name.replace(/[^a-zA-Z0-9-_]/g, '');
+}
+
+
 if (system.args.length === 1) {
   console.log('Usage: run_remote.js <some URL> <some JS File>');
   phantom.exit();
@@ -10,6 +16,9 @@ if (system.args.length === 1) {
 
 var url = system.args[1];
 var js_file = system.args[2];
+
+
+var screengrab_name = nicename(url) + "_" + nicename(js_file);
 
 if (fs.exists(js_file)) {
 
@@ -34,8 +43,8 @@ if (fs.exists(js_file)) {
       // Wait for any handlers to fire
       setTimeout(function () {
 
-        console.log('Creating Before Screen Grab in run_remote_before.png');
-        page.render('run_remote_before.png');
+        console.log('Creating Before Screen Grab in ' + screengrab_name + '_before.png');
+        page.render(screengrab_name + '_before.png');
 
         console.log('Injecting ' + js_file);
         page.injectJs(js_file);
@@ -43,8 +52,8 @@ if (fs.exists(js_file)) {
         // Wait for any handlers to fire
         setTimeout(function () {
           //Screen Grab After
-          console.log('Creating After Screen Grab in run_remote_after.png');
-          page.render('run_remote_after.png');
+          console.log('Creating After Screen Grab in ' + screengrab_name + '_after.png');
+          page.render(screengrab_name + '_after.png');
           phantom.exit();
         }, 1000);
       }, 1000);
