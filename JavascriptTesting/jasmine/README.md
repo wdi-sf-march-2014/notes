@@ -1,4 +1,4 @@
-Jasmin Intro
+Jasmine Intro
 ==============
 
 #Overview
