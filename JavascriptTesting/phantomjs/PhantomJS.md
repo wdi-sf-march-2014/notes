@@ -140,19 +140,20 @@ I've made a simple injection script so that you can run arbitrary javascript aga
 
 ```samples/run_remote.js```
 
+```
 	$ cd samples
 	$ phantomjs run_remote.js http://www.google.com/ injected_page_title.js
-
+```	
 
 Try creating your own javascript files and running them against a site you are interested in
 
 This also works locally. Say you have a file called ```my_inspector.js``` and you want to run it against your local
 rails application:
 
-
+```
 	$ cd samples
 	$ phantomjs run_remote.js http://localhost:3000/ my_inspector.js
-
+```
 
 
 
