@@ -78,6 +78,31 @@ For a closure:
 
 These methods make the functions available to the rest of the application and to test frameworks
 
+
+A Factory:
+
+[http://jsbin.com/funiw/2/edit?html,js,console,output](http://jsbin.com/funiw/2/edit?html,js,console,output)
+
+    $(document).ready(function() {
+    
+        window.myname = window.myname || {};
+
+        myname.factory = function(secret) {
+          this.foo = function()
+          {
+            return 'foo: ' + secret;
+          };
+
+          this.bar = function()
+          {
+            return 'bar: ' + secret;
+          };
+        };
+    });
+
+
+
+
 #Other Solutions
 ##AMD and RequireJs and Loading Modules on Demand
 
