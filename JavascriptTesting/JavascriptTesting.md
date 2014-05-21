@@ -15,17 +15,29 @@ Before we can test real world javascript applications we need to know about some
 * Use PhantomJS to run javascript enabled web pages without a browser
 * Use Capybara with PhantomJS and RSpec for feature testing
 
+
+
+#JSHint
+- [JSHint](http://www.jshint.com/)
+- An online tool that helps to detect errors and potential problems in your JavaScript code.
+
+#JSBIN
+- [JSBin](http://jsbin.com/)
+- Online tool to test and share javascript in context (seems to include JSHint functionality)
+
 #Closures
 
-[Exposing Functionality](./exposing_functions/README.md)
+* [Exposing Functionality](./exposing_functions/README.md)
 
 #Basic Jasmine
 
-[Jasmine Notes](./jasmine/README.md)
+* [Jasmine Notes](./jasmine.md)
+* [Jasmine Demo](./jasmine/README.md)
+
 
 #Phantom JS
 
-[PhantomJS Notes](./phantomjs/PhantomJS.md)
+* [PhantomJS Notes](./phantomjs/PhantomJS.md)
 
 #Feature Testing
 

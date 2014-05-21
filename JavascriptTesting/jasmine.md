@@ -1,10 +1,5 @@
 #Testing Javascript With Jasmine
 
-###Objectives
-
-
-###General Resources
-
 
 ###What is Behavioral Driven Development
 - 
@@ -70,13 +65,3 @@ Common, built-in Matchers:
   expect(x).toBeGreaterThan(y); passes if x is greater than y
   
   expect(function(){fn();}).toThrow(e); passes if function fn throws exception e when executed
-
-
-###JSHint
-- [JSHint](http://www.jshint.com/)
-- a tool that helps to detect errors and potential problems in your JavaScript code.
-
-###Exercise Time
-
-You are writing a simple calculator using CoffeeScript and you want to verify it functions as expected. You decide to use the Jasmine test framework.
-
