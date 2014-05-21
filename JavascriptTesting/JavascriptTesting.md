@@ -39,7 +39,15 @@ Before we can test real world javascript applications we need to know about some
 
 * [PhantomJS Notes](./phantomjs/PhantomJS.md)
 
-#Feature Testing
+#Capybara
+
+* [Capybara Notes](./Capybara.md)
+
+#Poltergeist gem
+
+* [Poltergeist Notes](./Poltergeist.md)
+
+#Finally Javascript Feature Testing
 
 I've updated jplayground to include feature tests running in PhantomJS to test your solutions!
 

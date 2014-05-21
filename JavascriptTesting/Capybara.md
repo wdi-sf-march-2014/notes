@@ -1,20 +1,18 @@
-#Poltergeist
+#Capybara
 
-* A PhantomJS driver for Capybara
-* [https://github.com/teampoltergeist/poltergeist](https://github.com/teampoltergeist/poltergeist)
-* Allows us to run our app's webpages in PhantomJS AND have the javascript execute
-* Our Feature tests can use Capybara to interact with the page like a user
-* Our Feature tests can use Capybara to check the impact of our javascript on the page
-
+* Acceptance test framework for web applications
+* [https://github.com/jnicklas/capybara](https://github.com/jnicklas/capybara)
+* Feature specific DSL: ```feature```,```background```,```scenario``` and ```given```
+* Aliases for: ```describe```,```before```,```it``` and ```let```
+* Create specs in ```spec/features```
 
 #Setup
 
-* Install phantomjs
+* Add ```gem 'capybara'``` to ```Gemfile```
+* ```bundle install```
+* Add ```require 'capybara/rspec'``` to ```spec_helper.rb```
 
     $ brew install phantomjs
-
-* Add ```gem 'poltergeist'``` to ```Gemfile```
-* ```bundle install```
 
 
 * ```spec_helper.rb```
@@ -49,15 +47,9 @@
       end
     end
 
+#Rspec
 
+Run tests with
 
-##Get Javascript Errors
-
-Because of this:
-[Poltergeist 0.6.0 Notes](http://www.jonathanleighton.com/articles/2012/poltergeist-0-6-0/) :
-Poltergeist 0.6.0 updates the PhantomJS dependency to 1.5, and so I am happy to say that if there is
-a Javascript error in your page (or in Poltergeist’s Javascript code), the error will trigger an
-exception in your Capybara test, and you’ll see a full stack trace showing where it happened.
-
-Capybara Rspec tests will show javascript errors
+    $ rspec
 
