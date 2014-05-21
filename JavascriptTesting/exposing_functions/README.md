@@ -28,12 +28,12 @@ You've already created functions like this for event handlers in jQuery:
 
 #Document Ready
 If all your code is wrapped in a document ready block, none of the functions will be
-to be called outside of that closure.
+available to be called outside of that closure.
 
-That's fine for event handlers which are attached within the closure but sometimes we
-want to expose functionality to other scripts
+That's fine (and indeed great!) for event handlers which are attached within the closure
+but sometimes we want to expose functionality to other scripts or to the page itself
 
-This can be done in several ways.
+This can be done in several ways:
 
 ##window scope
 
@@ -78,4 +78,14 @@ For a closure:
 
 These methods make the functions available to the rest of the application and to test frameworks
 
+#Other Solutions
+##AMD and RequireJs and Loading Modules on Demand
+
+* AMD - Asynchronous Module Definition (AMD) API
+    * [https://github.com/amdjs/amdjs-api/blob/master/AMD.md](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)
+* Require JS - module loader
+    * [http://requirejs.org/](http://requirejs.org/)
+* gem 'requirejs-rails'
+    * [https://github.com/jwhitley/requirejs-rails](https://github.com/jwhitley/requirejs-rails)
+    * ```config/requirejs.yml```
 
