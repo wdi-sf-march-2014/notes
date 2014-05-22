@@ -106,13 +106,26 @@ Besides being awesome, we use rebasing because it keeps our pull requests clean,
 
 **Setup**  
 
-- create feature branch `git checkout -b <branch_name>`
-- do work
-- add + commit `git add .`, `git commit -m "did things"`
-- git pull --rebase <group_repo> branch
-  - deal with merge conflicts
-- git push feature branch
-- pull request
+**1.** Create a repo on github to serve as the main repo.  
+**2.** All other members fork and cloen this repo.  
+**3.** Connect your repo to the main repo `git remote add upstream <url>`  
+  - You will pull changes from upstream, and push your changes to origin.  
+
+**Using your git repo**  
+**1.** Create feature branch `git checkout -b <branch_name>`  
+  - Never, ever make new features from your master branch.  
+**2.** Do work.  
+**3.** add + commit `git add .`, `git commit -m "did things"`
+**4.** Pull in any new changes from the master repo
+  - `git pull --rebase upstream master`  
+**5.** Deal with merge conflicts and add and commit merge *(only done if conflicts exist)*  
+**6.** Push to your own github repo  
+  - `git push origin feature_branch`
+**7.** Sumit pull request into master repo  
+**8.** Have another member review and merge your code.  
+**9.** Update your master branch to reflect new code.  
+  - From master branch `git pull --rebase upstream master`, `git push origin master`  
+**10.** Repeat.  
 
 ##Code Along
 
