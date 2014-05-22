@@ -1,11 +1,10 @@
 # Javascript Templating and XSS
 
-## Agenda
+## Objectives
 
-* An XSS example
-* Templates in JS/HTML
-* Templates in Rails/JS
-* A Note on sharing templates
+* Identify XSS attacks
+* Create a template in JS/HTML
+* Create a templates in Rails/JS
 
 ## The XSS Attack
 ### What is XSS?
@@ -35,13 +34,15 @@ Then you can use it:
 
 `handlebars <template>.handlebars -f <outputfile>.js`
 
-The name of the template becomes the 
-
 Let's look at  query_string_fixed.html
 
-### Templating exercise
+#### Exercise
 
-I'm going to quickly demo an XSS vulnerability on a working solution to LinkCheckerAjax.  If you finished, augment your solution with Handlebars.js templates inline in strings. If you didn't, just make it so something goes onto the page with a Handlebars template.
+Take a look at [LinkCheckerAjax](https://github.com/wdi-sf-march-2014/LinkCheckerWithAJAX).  
+
+__Step 1__: Try to understand what the code is doing.  The goal of the app is simply to check the http response code of a single site.  Look at the javascript and set break points in the browser.
+
+__Step 2__: Try to figure out if there are any XSS vulnerabilities. Once you understand what the app is doing, fix it by adding handlebars templates inline in the javascript.
 
 ## Types of XSS
 ### Reflective
@@ -77,9 +78,8 @@ Application.js:
 
 Now any templates in the `app/assets/javascripts/templates` folder or any subfolders will be loaded in your app.
 
-### Templating in Rails exercise
+#### Exercise
 
-Let's go back to LinkCheckerAjax and set it up to be nicer and more 'Railsy'.  We'll install our new gem, set it up in application.js, and get rid of some strings of HTML.  If you didn't finish LinkChecker Ajax, just extract your inline handlebars template from earlier into a template file.
-
+Go back to [LinkCheckerAjax](https://github.com/wdi-sf-march-2014/LinkCheckerWithAJAX) and set it up to be nicer and more 'Railsy'.  Install the handlebars_assets gem, set it up in application.js, and get rid of some strings of HTML.
 
 	
