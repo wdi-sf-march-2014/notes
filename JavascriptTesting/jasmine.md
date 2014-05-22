@@ -1,13 +1,7 @@
 #Testing Javascript With Jasmine
 
-###Objectives
-
-
-###General Resources
-
 
 ###What is Behavioral Driven Development
-- 
 - Some practices of BDD:
   - Establishing the goals of different stakeholders required for a vision to be implemented
   - Involving stakeholders in the implementation process through outside-in software development
@@ -81,6 +75,3 @@
 - [JSHint](http://www.jshint.com/)
 - a tool that helps to detect errors and potential problems in your JavaScript code.
 
-###Exercise Time
-
-You are writing a simple calculator using Javascript and you want to verify it functions as expected. Use Jasmine to test this calculator.

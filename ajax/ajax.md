@@ -77,7 +77,7 @@ $.ajax(url, { type: 'get' }).success(success).fail(failure);
 
 ### Exercise 1 - Reddit API
 
-**1.** Write an ajax GET request for `http://http://www.reddit.com/search.json?q=cats&limit=1`.  
+**1.** Write an ajax GET request for `http://www.reddit.com/search.json?q=cats&limit=1`.  
 
 Upon a successful GET, the page should alert the title of the article.  
 
