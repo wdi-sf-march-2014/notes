@@ -65,7 +65,7 @@ puts "More things"
 >>>>>>> conflict
 ```
 
-The first setion is the code from our master branch and the second is the code we are trying to merge in.  
+The first section of the code is from our master branch and the second is the code we are trying to merge in.  
 
 Here you will have to manually select the code you want.  
 
@@ -83,7 +83,7 @@ git commit -m "Fixed conflict"
 ```
 ###Merge Tools and Setting Up Kdiff3 - Optional - Done on Own
 
-There are many GUI tools out there to help you deal with merge conflicts. These can be helpful when you have really complex merge issues. One of the highly rated mergetools is called kdiff3.  
+There are many GUI tools out there to help you deal with merge conflicts. These can be helpful when you have really complex merge issues. One of the highly rated mergetools is called kdiff3. There is also a more fully-fledged git client called sourceforge, http://www.sourcetreeapp.com/  
 
 **You can download kdiff3 here:** http://sourceforge.net/projects/kdiff3/files/  
 
@@ -115,12 +115,13 @@ Besides being awesome, we use rebasing because it keeps our pull requests clean,
 **1.** Create feature branch `git checkout -b <branch_name>`  
   - Never, ever make new features from your master branch.  
 **2.** Do work.  
-**3.** add + commit `git add .`, `git commit -m "did things"`
-**4.** Pull in any new changes from the master repo
+**3.** add + commit `git add .`, `git commit -m "did things"`  
+**4.** Pull in any new changes from the master repo  
   - `git pull --rebase upstream master`  
-**5.** Deal with merge conflicts and add and commit merge *(only done if conflicts exist)*  
+**5.** Deal with merge conflicts and continue `git rebase --continue`  
+  - add and commit merge *(only done if conflicts exist)*  
 **6.** Push to your own github repo  
-  - `git push origin feature_branch`
+  - `git push origin feature_branch`  
 **7.** Sumit pull request into master repo  
 **8.** Have another member review and merge your code.  
 **9.** Update your master branch to reflect new code.  
@@ -233,4 +234,5 @@ When working with groups **DO NOT** merge branches locally into master. You want
 
 ###Resources
 
-Funny Video: https://www.youtube.com/watch?v=CDeG4S-mJts  
+**Funny Video:** https://www.youtube.com/watch?v=CDeG4S-mJts  
+**What is a Git Branch (has good diagrams):** http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is  
