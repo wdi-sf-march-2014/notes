@@ -8,7 +8,8 @@
 
 ## The XSS Attack
 ### What is XSS?
-An XSS or Cross Site Scripting attack occurs when the attacker is able to insert custom strings into the page unfiltered.  In other words, the application developer mistakenly trusts some data as being safe to insert into the DOM.  
+An XSS or Cross Site Scripting attack occurs when the attacker is able to insert custom strings into the page unfiltered.  In other words, the application developer mistakenly trusts some data as being safe to insert into the DOM.  This typically takes the form of an attacker running arbitrary javascript on your page.
+  
 #### Trusting the query string
 Let's look a simple XSS attack in query_string_xss.html.  
 #### Trusting the database data
@@ -82,4 +83,9 @@ Now any templates in the `app/assets/javascripts/templates` folder or any subfol
 
 Go back to [LinkCheckerAjax](https://github.com/wdi-sf-march-2014/LinkCheckerWithAJAX) and set it up to be nicer and more 'Railsy'.  Install the handlebars_assets gem, set it up in application.js, and get rid of some strings of HTML.
 
-	
+## Resources
+
+* [XSS attack examples](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS\))
+* [LinkCheckerAjax](https://github.com/wdi-sf-march-2014/LinkCheckerWithAJAX)
+* [Handlebars website](http://handlebarsjs.com/)
+* [Handlebars templates in rails](https://github.com/leshill/handlebars_assets)
