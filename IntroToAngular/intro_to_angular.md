@@ -1,6 +1,8 @@
 # Intro To Angular
-## Data-Binding, Templates, and All That
 
+[](/angularjs.jpeg)
+
+## Data-Binding, Templates, and All That
 
 
 | Objectives  | 
@@ -85,7 +87,7 @@
   
   * `ng-repeat` - directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and $index is set to the item index or key.
   
-    ````
+    ````        
   <div ng-app>
         <div  ng-init="friends=['larry', 'moe', 'curly']">
       <div  ng-repeat="friend in friends">
@@ -105,11 +107,17 @@
     
 ###Angular Forms
 
-   * `ngModel`
-     * Example
-   * `ngList`
-     * Example
-     * Exercise
+   * `ngModel` - directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive.
+
+  * ngModel is responsible for:
+    1) Binding the view into the model, which other directives such as input, textarea or select require.
+    2) Providing validation behavior (i.e. required, number, email, url).
+    3) Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine) including animations.
+     * TODO: Example
+     
+   * `ngList` - Text input that converts between a delimited string and an array of strings. The delimiter can be a fixed string (by default a comma) or a regular expression.
+     * TODO Example
+     * TODO Exercise
    * `ngForm`
      * Example
      * Exercise
@@ -118,3 +126,5 @@
    * `ng-cloak` - directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading.
    * `ng-pluralize` - directive that displays messages according to en-US localization rules
    * `ng-filter` - Selects a subset of items from array and returns it as a new array
+   
+If you're really into Angular by the end of this, follow [Google's Angular Blog](http://blog.angularjs.org/)!
