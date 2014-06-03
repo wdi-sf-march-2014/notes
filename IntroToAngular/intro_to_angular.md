@@ -173,6 +173,7 @@ Because the view is just a projection of the model, the controller is completely
      
    * `ngList` - Text input that converts between a delimited string and an array of strings. The delimiter can be a fixed string (by default a comma) or a regular expression.
      * 
+     
      ````
  	   <form>
 	     <input type="text" ng-model="favoriteBooks.names" ng-list> <br>
@@ -184,7 +185,7 @@ Because the view is just a projection of the model, the controller is completely
 	      Why do you like {{name}}?
 	      </div>
      </div>
-     	````
+    ````
      	
 ### Exercises:
      
