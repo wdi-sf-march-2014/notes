@@ -1,6 +1,6 @@
 # Intro To Angular
 
-![ANGULAR](angularjs.jpeg)
+[](angularjs.jpeg)
 
 ## Data-Binding, Templates, and All That
 
@@ -36,6 +36,27 @@
   * In Angular, we add behavior to our HTML through directives. A directive is a marker on a HTML tag that tells Angular to run or reference some Javascript code.
   
   * The `ngApp` directive -  denotes the beginning of an application, and everything inside its tags will have access to binding. It attaches the Application Module to the page.
+
+
+###Data Binding
+
+####Data Binding in Classical Template Systems
+  Most templating systems bind data in only one direction: they merge template and model components together into a view. After the merge occurs, changes to the model or related sections of the view are NOT automatically reflected in the view. Worse, any changes that the user makes to the view are not reflected in the model. This means that the developer has to write code that constantly syncs the view with the model and the model with the view.
+
+#####One Way Data Binding
+[One Way Data Binding](oneway.png)
+
+
+####Data Binding in Angular Templates
+
+Angular templates work differently. First the template (which is the uncompiled HTML along with any additional markup or directives) is compiled on the browser. The compilation step produces a live view. Any changes to the view are immediately reflected in the model, and any changes in the model are propagated to the view. The model is the single-source-of-truth for the application state, greatly simplifying the programming model for the developer. You can think of the view as simply an instant projection of your model.
+
+Because the view is just a projection of the model, the controller is completely separated from the view and unaware of it. This makes testing a snap because it is easy to test your controller in isolation without the view and the related DOM/browser dependency.
+
+#####Two-Way Data Binding
+[Two-Way Data Binding](twoway.png)
+
+
 
 ###Other Built-In Directives:
  
@@ -104,27 +125,25 @@
  
 - Make an array of friends that are objects where each has a `name` and `style` attribute,  
   e.g. `friends=[{name: 'moe', style: {color: blue}}]`, and repeat over them, displaying their style also.  
-    
+
+
 ###Angular Forms
 
    * `ngModel` - directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive.
 
   * ngModel is responsible for:
-
+  
     1) Binding the view into the model, which other directives such as input, textarea or select require.
     2) Providing validation behavior (i.e. required, number, email, url).
     3) Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine) including animations.
-
      * TODO: Example
-     * TODO: Exercise
      
    * `ngList` - Text input that converts between a delimited string and an array of strings. The delimiter can be a fixed string (by default a comma) or a regular expression.
      * TODO Example
      * TODO Exercise
-    
    * `ngForm`
-     * TODO Example
-     * TODO Exercise
+     * Example
+     * Exercise
 
 ###Some Cool Features
    * `ng-cloak` - directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading.
