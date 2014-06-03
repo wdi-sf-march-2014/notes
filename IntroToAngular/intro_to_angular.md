@@ -1,6 +1,6 @@
 # Intro To Angular
 
-![ANGULAR](/angularjs.jpeg)
+![ANGULAR](angularjs.jpeg)
 
 ## Data-Binding, Templates, and All That
 
