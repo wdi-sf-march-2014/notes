@@ -131,19 +131,68 @@ Because the view is just a projection of the model, the controller is completely
 
    * `ngModel` - directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive.
 
-  * ngModel is responsible for:
+  * `ngModel` is responsible for:
 
     1) Binding the view into the model, which other directives such as input, textarea or select require.
+    
     2) Providing validation behavior (i.e. required, number, email, url).
+    
     3) Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine) including animations.
-     * TODO: Example
+     
+     Example 1:
+     
+     ```
+   	<div ng-app>
+   		
+   		<form>
+   			<input type="text" ng-model="favoriteColor">
+    	</form>
+   		
+   		Your favorite color is  {{favoriteColor}}
+   	</div>
+     ```
+     
+     Example 2:
+     
+     ```
+   		<form>
+   			<input type="text" ng-model="favoriteColor">
+   			<input type="checkbox" ng-model="showTemplate">
+    	</form>
+   		<div ng-show="showTemplate">
+   		Your favorite color is  <span ng-style="{color: favoriteColor}">blah</span>
+   		</div>
+     ```
+     
+    ### Exercise
+    
+    1.) Use `ng-style` and `ng-model` in a form to create a selector that let's you select from  options for the background colors. *(Hint: Use the `backgroundColor` key instead of `background-color`)*
+    
+    2.) Go to Google fonts and pick out three favorite fonts and drop them into your `head`, then use the `ng-style` and `ng-model` directives to change the text color and font.
+     
      
    * `ngList` - Text input that converts between a delimited string and an array of strings. The delimiter can be a fixed string (by default a comma) or a regular expression.
-     * TODO Example
-     * TODO Exercise
-   * `ngForm`
-     * Example
-     * Exercise
+     * ````
+ 	   <form>
+	     <input type="text" ng-model="favoriteBooks.names" ng-list> <br>
+       Show Result
+     	<input type="checkbox" ng-model="showTemplate">
+      </form>
+      <div ng-show="showTemplate">
+  		  <div ng-repeat="name in favoriteBooks.names">
+	      Why do you like {{name}}?
+	      </div>
+     </div>
+     	````
+     	
+### Exercises:
+     
+   1.) Use the `ng-list` and `ng-model` directives with a textarea in a form to list out your favorite movies. Use the `ng-repeat` directive to iterate over the array of `favoriteMovies`.
+   
+  2.) Use `ng-style` and a form inside the `ng-repeat` from exercise `1` that allows you to change both the background and font color.
+  
+  3.) Add a form outside the `ng-repeat` in exercise `2` that allows you to change the background color of the application.
+
 
 ###Some Cool Features
    * `ng-cloak` - directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading.
