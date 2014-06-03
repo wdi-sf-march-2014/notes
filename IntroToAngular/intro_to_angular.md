@@ -44,7 +44,7 @@
   Most templating systems bind data in only one direction: they merge template and model components together into a view. After the merge occurs, changes to the model or related sections of the view are NOT automatically reflected in the view. Worse, any changes that the user makes to the view are not reflected in the model. This means that the developer has to write code that constantly syncs the view with the model and the model with the view.
 
 #####One Way Data Binding
-[One Way Data Binding](oneway.png)
+![One Way Data Binding](oneway.png)
 
 
 ####Data Binding in Angular Templates
@@ -54,7 +54,7 @@ Angular templates work differently. First the template (which is the uncompiled 
 Because the view is just a projection of the model, the controller is completely separated from the view and unaware of it. This makes testing a snap because it is easy to test your controller in isolation without the view and the related DOM/browser dependency.
 
 #####Two-Way Data Binding
-[Two-Way Data Binding](twoway.png)
+![Two-Way Data Binding](twoway.png)
 
 
 
@@ -132,7 +132,7 @@ Because the view is just a projection of the model, the controller is completely
    * `ngModel` - directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive.
 
   * ngModel is responsible for:
-  
+
     1) Binding the view into the model, which other directives such as input, textarea or select require.
     2) Providing validation behavior (i.e. required, number, email, url).
     3) Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine) including animations.
