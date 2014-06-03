@@ -110,17 +110,21 @@
    * `ngModel` - directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive.
 
   * ngModel is responsible for:
+
     1) Binding the view into the model, which other directives such as input, textarea or select require.
     2) Providing validation behavior (i.e. required, number, email, url).
     3) Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine) including animations.
+
      * TODO: Example
+     * TODO: Exercise
      
    * `ngList` - Text input that converts between a delimited string and an array of strings. The delimiter can be a fixed string (by default a comma) or a regular expression.
      * TODO Example
      * TODO Exercise
+    
    * `ngForm`
-     * Example
-     * Exercise
+     * TODO Example
+     * TODO Exercise
 
 ###Some Cool Features
    * `ng-cloak` - directive is used to prevent the Angular html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading.
