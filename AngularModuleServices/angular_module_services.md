@@ -60,11 +60,8 @@ Angular Services are:
 
 ## Topical Exercises
 
-# Angular Rails
-## Intro Angular Modules and Services
 
-
-# Exercise Outline
+## Exercise Outline
 * Multiple Controllers
 	* Separate Controllers
 		Recall our `books` example with one controller. What happens if we have two unrelated collections of items on the same page? Do we want all that code in one controller? No, we should separate concerns.
