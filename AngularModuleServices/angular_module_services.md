@@ -58,10 +58,7 @@ You can think of a module as a container for the different parts of your app –
 
 ####Dependency Injection
 Dependency injection is a software design pattern which is often used in infrastructure components and which ensures that one particular component does not directly create references to other components. Instead of direct instantiation, every component will receive references to required other components like helpers, services, etc. as parameters to their constructor.
-    
-* TODO: Modular Controllers
-  * A module for controllers
-
+   
 ##Angular Services
 - Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.
 
