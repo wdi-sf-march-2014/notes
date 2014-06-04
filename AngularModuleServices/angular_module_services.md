@@ -32,19 +32,19 @@ You can think of a module as a container for the different parts of your app –
   5) End-to-end tests can use modules to override configuration.
 
 ####When Should I Use A Module?
-- There should be a module for each feature
+- There should be a module for each feature aka feature separation
 - There should be a module for each reusable component (especially directives and filters)
 - When an application level module which depends on the above modules and contains any initialization code
 
 * More Modular Angular
-  * `angular.module`
+  * `angular.module` - The angular.module is a global place for creating, registering and retrieving Angular modules. All modules (angular core or 3rd party) that should be available to an application must be registered using this mechanism.
     * An `App` module
-    * Dependency injection
+
+####Dependency Injection
+Dependency injection is a software design pattern which is often used in infrastructure components and which ensures that one particular component does not directly create references to other components. Instead of direct instantiation, every component will receive references to required other components like helpers, services, etc. as parameters to their constructor.
     
-* Modular Controllers
+* TODO: Modular Controllers
   * A module for controllers
-  * When to create a new module?
-    * Feature Separation
 
 ##Angular Services
 - Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.
