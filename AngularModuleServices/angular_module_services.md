@@ -8,8 +8,24 @@
 | Managing dependencies needed to successfully separate components into modular and versatile chunks.  |
 | Students should be able to handle scoping with nested controllers.  |
 
-
 ## Outline
+
+* Multiple Controllers
+	* Separate Controllers
+	* Nesting Controllers
+		* inheriting
+		* overiding inherited attributes
+* More Modular Angular
+	* `angular.module`
+		* An `App` module
+		* Dependency injection
+* Modular Controllers
+	* A module for controllers
+	* When to create a new module?
+		* Feature Separation
+
+
+## Topical Background
 
 ###Multiple Controllers
   * Separate Controllers
