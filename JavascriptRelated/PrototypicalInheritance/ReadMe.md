@@ -18,11 +18,24 @@
 	* Call
 
 
+
+
 ## Overall Goal
 
 * Reduce code complexity
 * Encourage code reuse
 * Model the world around us 
+
+
+## Coffeescript Review
+
+* Iterations 
+	
+		for name in ['Moe','Larry','Curly']
+  			console.log "#{name}"
+
+
+
 
 ## Classical Inheritance
 
@@ -121,19 +134,19 @@ Exercises:
   | EdgeList: An array with all the edge lengths inside (limited by number of allowed Edges) |
   | AddEdge: Allows user to add another  edge to `EdgeList`|  
   | Perimeter: returns sum of EdgeList if EdgeList has length equal to Edges |
-	*  Include the above plus
+*  Include the above plus
 	the following
+
+   | Quadrilateral |
+   | :---- |
+   | Edges: 4 |
+   | Vertices: 4 |	   	   	   
+*  Similarly
 	
-	   | Quadrilateral |
-	   | :---- |
-	   | Edges: 4 |
-	   | Vertices: 4 |	   	   	   
-	*  Similarly
-	
-	   | Rectangle |
-	   | :---- |
-	   | Area |
-	   | Perimeter |
+   | Rectangle |
+   | :---- |
+   | Area |
+   | Perimeter |
    
 
 ### Pitfals--Side Effects
@@ -238,6 +251,12 @@ This is an interesting idea of copying one objects prototype and returning an in
 			Intermediary.prototype = obj;
 			return new Intermediary();
 		}
+
+
+* Let's use this createObject.
+* What would we have to change with `createObject` to have it properly update the constructor property.
+
+
 
 
 ## Prototypal Inheritance
