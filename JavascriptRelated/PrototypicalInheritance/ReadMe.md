@@ -29,10 +29,33 @@
 
 ## Coffeescript Review
 
+
+* Splatting Assignment
+	
+		[beginning, middle..., end] = [1,2,3,4,5]
+		
+	
+* Destructured Assignment
+ 	
+ 		x = "up"
+ 		y = "down"
+ 		[x, y] = [y, x]
+ 
+ 	Similarly this works for object literals also
+ 
+		 {description: {manufacturer:{name: name}}} ={description: { year: 1920, model: "T", ma    nufacturer: {name: "Highland Park Plant", city:  "Highland Park", state: "Michigan" }     }}  
+		                                                                                   
+		 console.log name
 * Iterations 
 	
 		for name in ['Moe','Larry','Curly']
   			console.log "#{name}"
+ 
+  A  cooler thing is the abiitty to also use the index
+  		
+		for name, index in ['Moe','Larry','Curly']
+  			console.log "#{name} #{index}"
+ 
 
 
 
@@ -99,6 +122,30 @@ In javascript we don't have classes. We have prototypes
 * What is a `prototypeProperty`?
 * How do we create a new `Person`?
 
+### Coffeescript Classes
+
+While you may be enjoying JS Prototyping so far, coffeescript allows you to use a more Ruby like syntax to pull off a prototype. 
+
+
+	class Person
+		constructor: (name)->
+			@name = name
+		
+		greet: ()->
+			"Hello! My name is #{@name}"
+
+We can also use a handy notation for setting class methods using the `@` prefix
+
+	class Person
+		constructor: (name)->
+			@name = name
+		
+		@party: ()->
+			"Everyone is dancing crazy"
+	
+	Person.party()
+
+
 ### Inheriting Via Prototypes -- Classical Pattern
 
 Given the following prototype let's create a student.
@@ -127,7 +174,10 @@ Exercises:
 
 * Create the following prototypes
 * Create a method called `inherit` that takes two constructors and achieves the above inheritance.
-* | Polygon |
+
+* Try implementing the following:
+  
+  | Polygon |
   | :---- |
   | Edges: greater than equal to three, required |
   | Vertices: greater than equal to three, required |
